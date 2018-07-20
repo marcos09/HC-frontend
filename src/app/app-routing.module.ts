@@ -2,19 +2,25 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './views/not-found/not-found/not-found.component';
 import { HomeComponent } from './views/home/home/home.component';
+import { NewComponent } from './views/user/new.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: HomeComponent
   },
   {
-    path: "404",
+    path: 'usuarios',
+    component: NewComponent
+  },
+
+  {
+    path: '404',
     component: NotFoundComponent
   },
   {
-    path: "**",
-    redirectTo: "/404"
+    path: '**',
+    redirectTo: '/404'
   }
   ];
 

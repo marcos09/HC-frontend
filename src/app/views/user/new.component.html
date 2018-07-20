@@ -1,0 +1,47 @@
+<p>
+  new works!
+</p>
+
+
+<table *ngIf="users.length > 0;else emptyList">
+  <thead>
+    <tr>
+      <th>Nombre de usuario</th>
+      <th>Email</th>
+      <th>Rol</th>
+      <th>Eliminar usuario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let actualUser of users">
+      <td>{{ actualUser.username }}</td>
+      <td>{{ actualUser.email }}</td>
+      <td>{{ actualUser.authorities}}</td>
+      <td><button (click)="deleteUser(actualUser)">Eliminar usuario</button> </td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #emptyList>
+  <h3>No existen usuarios.</h3>
+</ng-template>
+
+
+<h3>Crear nuevo usuario:</h3>
+<form class="container">
+  <label for="username">Nombre de usuario:</label>
+  <input name="username"
+        #inputUsername
+        [(ngModel)]="user.username"
+        type="text" />
+  <label for="email">Dirección de correo electrónico</label>
+  <input name="email"
+        [(ngModel)] = "user.email"
+        type="email"/>
+  <label>Rol que tendrá el nuevo usuario. </label>
+  <select name="role" [(ngModel)] = "user.authorities">
+    <option [value]="">Seleccione un rol para el nuevo usuario:</option>
+    <option *ngFor="let role of availableRoles"
+          [value]="role">{{role}}</option>
+  </select>
+  <button (click)="saveOperation()">Crear usuario</button>
+</form>
