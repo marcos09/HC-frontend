@@ -42,8 +42,10 @@ export class NewComponent implements OnInit {
 
 deleteUser (user: User) {
   console.log('Elimino el usuario:' + user.username);
+
   this.userService.deleteUser(user.id).subscribe(
             result => {
+              console.log(result);
                 if (result.code !== 200) {
                     console.log(result);
                     this.users = result;
