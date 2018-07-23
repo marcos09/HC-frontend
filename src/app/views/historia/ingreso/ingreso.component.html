@@ -1,0 +1,26 @@
+<p>
+  ingreso works!
+</p>
+
+<h3>Dar de alta a un paciente:</h3>
+<form class="container">
+  <label for="motivoConsulta">Motivo de consulta:</label>
+  <input name="motivoConsulta"
+        #inputUsername
+        [(ngModel)]="ingreso.motivoConsulta"
+        type="text" />
+  <label for="email">Enfermedad actual:</label>
+  <input name="email"
+        [(ngModel)] = "ingreso.enfermedadActual"
+        type="text"/>
+  <label>Diagnóstico presuntivo. </label>
+  <input name="email"
+  [(ngModel)] = "ingreso.diagnosticoPresuntivo"
+  type="text"/>
+  <input name="email"
+        [(ngModel)] = "ingreso.diagnosticoSintomatico" type="text"/>
+
+  <button (click)='saveOperation()'>Crear usuario</button>
+</form>
+
+

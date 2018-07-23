@@ -22,8 +22,8 @@ return this.http.get(this.url + 'user/list');
 }
 
 addUser(user: User): Observable<any> {
-this.httpOptions.headers.set('Content-Type', 'application/json');
-return this.http.put(this.url + 'user/crearUsuario', user, this.httpOptions);
+  this.httpOptions.headers.set('Content-Type', 'application/json');
+  return this.http.put(this.url + 'user/crearUsuario', user, this.httpOptions);
 }
 
 getRoles(): String[] {

@@ -36,8 +36,6 @@ export class NewComponent implements OnInit {
         );
 
         this.getUsers();
-
-
 }
 
 deleteUser (user: User) {

@@ -15,6 +15,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'historias',
+    loadChildren: './views/historia/historia.module#HistoriaModule'
+
+  },
+  {
     path: '404',
     component: NotFoundComponent
   },
