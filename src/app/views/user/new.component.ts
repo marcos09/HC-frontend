@@ -63,6 +63,7 @@ deleteUser (user: User) {
 
 
   ngOnInit() {
+
      this.getUsers();
   }
 
