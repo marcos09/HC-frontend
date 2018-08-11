@@ -12,16 +12,35 @@ import { FormsModule } from '@angular/forms';
 import { UserService } from './views/user/user.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import {AppAsideModule, AppBreadcrumbModule, AppHeaderModule, AppFooterModule, AppSidebarModule, } from '@coreui/angular';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
-
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
-    NewComponent
+    NewComponent,
   ],
-  imports: [AppRoutingModule,
+
+  imports: [
+    AppRoutingModule,
+    AppAsideModule,
+    AppBreadcrumbModule.forRoot(),
+    AppFooterModule,
+    AppHeaderModule,
+    AppSidebarModule,
+    PerfectScrollbarModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+    ChartsModule,
     BrowserModule, // Módulo para la presentacion en el navegador
     ComponentsModule,
     FormsModule,
@@ -29,6 +48,7 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     NotFoundModule
   ],
+
 
 
   providers: [UserService, HttpClient, CookieService,  {

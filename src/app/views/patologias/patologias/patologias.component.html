@@ -1,0 +1,55 @@
+<h1>Administración de Patologias</h1>
+<h2>Patologias existentes</h2>
+<table *ngIf="patologias.length > 0;else emptyList">
+  <thead>
+    <tr>
+      <th>Nombre de la patología</th>
+      <th>Descripción</th>
+      <th>Patología padre</th>
+      <th>Patologias hijas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patologia of patologias">
+      <td>{{ patologia.nombre }}</td>
+      <td>{{ patologia.otroDato }}</td>
+      <td></td>
+      <td>
+        <!--<button (click)="deleteUser(actualUser)">Eliminar usuario</button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #emptyList>
+  <h5>No existen patologias cargadas.</h5>
+</ng-template>
+
+<div class="container">
+  <h2>Añadir nueva patología</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Nombre de la patología</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="patologia.nombre" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Descripción</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="patologia.otroDato" name="description" required>
+    </div>
+
+    <!--
+    <div class="form-group">
+      <label for="power">Patología padre</label>
+      <select class="form-control" id="power" required>
+        <option *ngFor="let pat of patologias" [value]="pat.id">{{pat.nombre}}</option>
+      </select>
+    </div>
+-->
+    <button type="submit" class="btn btn-success" (click)='saveOperation()'>Añadir patología</button>
+
+  </form>
+</div>
+
+
+
+
