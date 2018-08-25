@@ -36,7 +36,7 @@ export const navItems = [
   },
   {
     name: 'Realizar seguimiento',
-    url: '/historias/altaPaciente',
+    url: '/historias/seguimiento',
     icon: 'icon-pencil',
   },
   {

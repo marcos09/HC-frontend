@@ -18,6 +18,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {AppAsideModule, AppBreadcrumbModule, AppHeaderModule, AppFooterModule, AppSidebarModule, } from '@coreui/angular';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -28,9 +30,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppComponent,
     TitleComponent,
     NewComponent,
+    PrescripcionComponent,
   ],
 
   imports: [
+    AlertModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
@@ -48,15 +52,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     NotFoundModule
   ],
-
-
-
   providers: [UserService, HttpClient, CookieService,  {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
   }],
   bootstrap: [AppComponent],
-  exports: [NewComponent]
+  exports: [NewComponent, PrescripcionComponent]
 })
 export class AppModule { }

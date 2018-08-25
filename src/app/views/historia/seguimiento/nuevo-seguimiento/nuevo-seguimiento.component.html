@@ -1,0 +1,41 @@
+<div class="animated fadeIn">
+      <div class="card">
+        <div class="card-header">
+          <strong>Realizar seguimiento</strong>
+        </div>
+        <div class="card-body">
+              <div class="form-group">
+                <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
+                <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchHistory()" id="searchUser">
+              </div>
+        </div>
+      </div>
+
+  <p *ngIf="!userSearch ">
+    Debe buscar una historia para poder realizar el seguimiento
+  </p>
+
+  <p *ngIf="notFoundHistory">
+    No se encontró la historia solicitada. Vuelva a realizar la búsqueda.
+  </p>
+
+  <p *ngIf=" userSearch ">
+    Cargando datos del paciente
+  </p>
+
+</div>
+
+
+<!--
+
+
+  userSearch = false;
+  paciente: Paciente = null;
+  idBusqueda: String = '';
+  notFoundHistory = false;
+  seguimiento: Seguimiento = null;
+
+<alert type="info">
+  <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+</alert>
+-->

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingreso } from './ingreso';
 import { HistoriaService } from '../historia.service';
-
+import { Paciente } from './paciente';
 @Component({
   selector: 'app-ingreso',
   templateUrl: './ingreso.component.html',
@@ -10,7 +10,7 @@ import { HistoriaService } from '../historia.service';
 export class IngresoComponent implements OnInit {
 
   ingreso: Ingreso = new Ingreso();
-
+  paciente: Paciente = new Paciente();
   constructor(private historiaService: HistoriaService ) { }
 
   ngOnInit() {

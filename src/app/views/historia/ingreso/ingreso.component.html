@@ -1,8 +1,74 @@
-<p>
-  ingreso works!
-</p>
-
 <h3>Dar de alta a un paciente:</h3>
+
+
+<!--
+	private int dni;
+	private boolean obraSocial;
+	private String obraSocialNombre;
+	private Long numeroAfiliado;
+	private int numeroTelefono;
+
+
+-->
+<div class="card">
+  <div class="card-header">
+    <strong>Datos personales</strong> del paciente
+  </div>
+  <div class="card-body">
+    <form action="" method="post" class="form-horizontal">
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">Nombres</label>
+        <div class="col-md-9">
+          <input type="email" id="hf-email" name="hf-email" class="form-control" placeholder="Juan Martín">
+          <span class="help-block">Ingrese el nombre del paciente </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">Apellidos/s</label>
+        <div class="col-md-9">
+          <input type="email" id="hf-email" name="hf-email" class="form-control" placeholder="Peralta Ramos">
+          <span class="help-block">Ingrese el apellido del paciente</span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">Domicilio</label>
+        <div class="col-md-9">
+          <input type="email" id="hf-email" name="hf-email" class="form-control" placeholder="Calle 25 Nº1529 e/62 y 63 La Plata">
+          <span class="help-block">Ingrese la dirección del paciente</span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">DNI</label>
+        <div class="col-md-3">
+          <input type="number" id="hf-email" name="hf-email" class="form-control" placeholder="Peralta Ramos">
+        </div>
+
+        <label class="col-md-3 col-form-label" for="hf-email">Número telefonico</label>
+        <div class="col-md-3">
+          <input type="number" id="hf-email" name="hf-email" class="form-control" placeholder="Peralta Ramos">
+        </div>
+
+      </div>
+
+
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-password">Password</label>
+        <div class="col-md-9">
+          <input type="password" id="hf-password" name="hf-password" class="form-control" placeholder="Enter Password..">
+          <span class="help-block">Please enter your password</span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+  </div>
+</div>
+
+
 <form class="container">
   <label for="motivoConsulta">Motivo de consulta:</label>
   <input name="motivoConsulta"
