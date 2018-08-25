@@ -23,11 +23,24 @@ export class NuevoSeguimientoComponent implements OnInit {
   }
 
   searchHistory() {
-    console.log( 'Search history' );
-
     this.userSearch = true;
+    console.log( 'Search history' );
+     this.historiaService.obtenerPaciente(this.idBusqueda).subscribe(
+      result => {
+        if (result.code !== 200) {
+            console.log(result);
+            this.paciente = result;
+            this.userSearch = false;
+            this.seguimiento = new Seguimiento();
+        } else {
+            this.paciente = result.data;
+        }
+    },
+    error => {
+        console.log(<any>error);
+    }
 
-    // this.historiaService.obtenerPaciente(this.idBusqueda).subscribe();
+     );
       /*
       this.userService.addUser(this.user).subscribe(
         result => {
@@ -48,6 +61,21 @@ export class NuevoSeguimientoComponent implements OnInit {
     // this.userSearch = false;
   }
 
+  saveOperation() {
+    this.historiaService.addSeguimiento(this.seguimiento, this.idBusqueda).subscribe(
+              result => {
+                  if (result.code !== 200) {
+                      console.log(result);
+                   //   this.users = result;
+                  } else {
+                    //  this.users = result.data;
+                  }
+              },
+              error => {
+                  console.log(<any>error);
+              }
+          );
+  }
 
   }
 

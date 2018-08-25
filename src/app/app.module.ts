@@ -21,6 +21,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };

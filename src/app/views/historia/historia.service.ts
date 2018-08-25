@@ -3,11 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ingreso } from './ingreso/ingreso';
 import { Observable } from 'rxjs';
 import {environment} from '../../../environments/environment';
+import { Seguimiento } from './seguimiento/seguimiento';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoriaService {
+
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
@@ -26,9 +28,15 @@ export class HistoriaService {
   }
 
   obtenerPaciente(id: String): Observable<any> {
-    const url = environment.url + 'historia/' + id + 'paciente';
+    const url = environment.url + 'historia/' + id + '/paciente';
     this.httpOptions.headers.set('Content-Type', 'application/json');
-    return this.http.put(url , this.httpOptions);
+    return this.http.get(url , this.httpOptions);
+  }
+
+  addSeguimiento(seguimiento: Seguimiento, idBusqueda: String): any {
+    const url = environment.url + 'historia/agregarSeguimiento/' + idBusqueda;
+    this.httpOptions.headers.set('Content-Type', 'application/json');
+    return this.http.put(url , seguimiento, this.httpOptions);
   }
 
 }
