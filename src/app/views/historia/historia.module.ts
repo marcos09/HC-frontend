@@ -13,6 +13,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NuevoSeguimientoComponent } from './seguimiento/nuevo-seguimiento/nuevo-seguimiento.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { PacienteComponent } from './paciente/paciente.component';
+import { NuevoEstudioComponent } from './estudio/nuevo-estudio/nuevo-estudio.component';
 
 
 @NgModule({
@@ -26,6 +27,6 @@ import { PacienteComponent } from './paciente/paciente.component';
     NgxGalleryModule,
     TabsModule,
   ],
-  declarations: [IngresoComponent, SeguimientoComponent, DetalleComponent, EstudioComponent, NuevoSeguimientoComponent, PacienteComponent]
+  declarations: [IngresoComponent, SeguimientoComponent, DetalleComponent, EstudioComponent, NuevoSeguimientoComponent, PacienteComponent, NuevoEstudioComponent]
 })
 export class HistoriaModule { }

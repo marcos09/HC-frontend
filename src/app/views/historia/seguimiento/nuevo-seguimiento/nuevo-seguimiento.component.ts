@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Paciente} from '../../paciente/paciente';
 import { Seguimiento } from '../seguimiento';
 import { HistoriaService} from '../../historia.service';
+import { Estudio } from '../../estudio/estudio';
 
 @Component({
   selector: 'app-nuevo-seguimiento',
@@ -20,6 +21,11 @@ export class NuevoSeguimientoComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+  public addEstudio(nuevoEstudio: Estudio) {
+    console.log('Agregué el estudio');
+    console.log(nuevoEstudio);
+    this.seguimiento.estudiosComplementariosDTO.push(nuevoEstudio);
   }
 
   searchHistory() {
@@ -62,6 +68,8 @@ export class NuevoSeguimientoComponent implements OnInit {
   }
 
   saveOperation() {
+    console.log( 'El valor del seguimiento a agregar es: ');
+    console.log(this.seguimiento);
     this.historiaService.addSeguimiento(this.seguimiento, this.idBusqueda).subscribe(
               result => {
                   if (result.code !== 200) {

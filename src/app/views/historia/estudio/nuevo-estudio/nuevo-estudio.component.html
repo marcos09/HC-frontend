@@ -1,0 +1,29 @@
+<div>
+  <div class="card">
+    <div class="card-header">
+        <i class="fa fa-check"></i> Solicitar un nuevo estudio complementario
+    </div>
+    <div class="card-body">
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="textarea-input">Estudio a soliciar</label>
+            <div class="col-md-9">
+              <textarea id="textarea-input" [(ngModel)] = "estudio.estudioSolicitado" name="textarea-input" rows="9" class="form-control" placeholder="Descripción del estudio requerido. Indique por favor cualquier consideración que deba tener el técnico al momento de la realización del mismo. "></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12 col-md-6"></div>
+              <div class="col-md-3">
+                  <button type="button" class="btn btn-square btn-block btn-danger">Cancelar</button>
+                </div>
+
+                <div class="col-md-3">
+                    <button type="button" (click)= 'saveOperation()' class="btn btn-square btn-block btn-success">Solicitar</button>
+              </div>
+
+          </div>
+
+    </div>
+
+
+  </div>
+</div><!--/.col-->
