@@ -20,7 +20,7 @@ import {AppAsideModule, AppBreadcrumbModule, AppHeaderModule, AppFooterModule, A
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { NuevoEstudioComponent } from './vies/historia/estudio/nuevo-estudio/nuevo-estudio.component';
+import { NuevoEstudioComponent } from './views/historia/estudio/nuevo-estudio/nuevo-estudio.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {

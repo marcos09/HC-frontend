@@ -66,7 +66,6 @@ export class NuevoSeguimientoComponent implements OnInit {
     ^*/
     // this.userSearch = false;
   }
-
   saveOperation() {
     console.log( 'El valor del seguimiento a agregar es: ');
     console.log(this.seguimiento);
