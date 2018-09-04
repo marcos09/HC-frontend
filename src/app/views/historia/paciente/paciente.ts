@@ -1,19 +1,15 @@
 export class Paciente {
-  public apellido: String;
-​
-public dni: number;
-​
-public domicilio: String;
-​
-public id: number;
-​
-public nombre: String;
-​
-public numeroAfiliado: number;
-​
-public numeroTelefono: String;
-​
-public obraSocial: boolean;
-​
-public obraSocialNombre: String;
+  public id: number;
+  public dni: number;
+  public obraSocial: boolean;
+  public obraSocialNombre: string;
+  public numeroAfiliado: number;
+  public nombre: string;
+  public apellido: string;
+  public numeroTelefono: string;
+  public domicilio: string;
+
+
 }
+
+

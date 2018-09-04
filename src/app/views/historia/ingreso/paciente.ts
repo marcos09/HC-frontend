@@ -5,8 +5,11 @@ export class Paciente {
   public obraSocialNombre: string;
   public numeroAfiliado: number;
   public nombre: string;
+  public apellido: string;
+  public numeroTelefono: string;
   public domicilio: string;
-  public numeroTelefono: number;
 
 
 }
+
+

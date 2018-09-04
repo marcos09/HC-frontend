@@ -1,32 +1,44 @@
-<h3>Dar de alta a un paciente:</h3>
+<div class="card">
+    <div class="card-header">
+      <strong>Ingresar Paciente</strong>
+    </div>
+    <div class="card-body">
+          <div class="form-group">
+            <label for="searchUser">Ingrese el DNI del paciente a buscar</label>
+            <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchPacient()" id="searchUser">
+          </div>
+          <button (click)="searchPacient()"> Buscar Paciente </button>
+    </div>
+  </div>
 
-
-<!--
-	private int dni;
-	private boolean obraSocial;
-	private String obraSocialNombre;
-	private Long numeroAfiliado;
-	private int numeroTelefono;
-
-
--->
+<div *ngIf=" pacientSearch ">
+    <h3>Ingresar paciente:</h3>
 <div class="card">
   <div class="card-header">
-    <strong>Datos personales</strong> del paciente
+    <strong>Datos personales</strong>
   </div>
   <div class="card-body">
     <form action="" method="post" class="form-horizontal">
+
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="hf-email">DNI</label>
+            <div class="col-md-9">
+              <input [(ngModel)] = 'paciente.dni' type="text" id="hf-email" name="hf-dni" class="form-control"  >
+              <span class="help-block">Numero de documento del paciente</span>
+            </div>
+          </div>
+
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="hf-email">Nombres</label>
         <div class="col-md-9">
-          <input type="email" id="hf-email" name="hf-email" class="form-control" placeholder="Juan Martín">
+          <input [(ngModel)] = 'paciente.nombre' type="email" id="hf-email" name="hf-nombre" class="form-control" placeholder="Juan Martín" >
           <span class="help-block">Ingrese el nombre del paciente </span>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="hf-email">Apellidos/s</label>
         <div class="col-md-9">
-          <input type="email" id="hf-email" name="hf-email" class="form-control" placeholder="Peralta Ramos">
+          <input [(ngModel)]= 'paciente.apellido' type="email" id="hf-email" name="hf-apellido" class="form-control" placeholder="Peralta Ramos" >
           <span class="help-block">Ingrese el apellido del paciente</span>
         </div>
       </div>
@@ -34,59 +46,81 @@
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="hf-email">Domicilio</label>
         <div class="col-md-9">
-          <input type="email" id="hf-email" name="hf-email" class="form-control" placeholder="Calle 25 Nº1529 e/62 y 63 La Plata">
-          <span class="help-block">Ingrese la dirección del paciente</span>
+          <input  [(ngModel)] = "paciente.domicilio" type="email" id="hf-email" name="hf-domicilio" class="form-control" placeholder="Calle 25 Nº1529 e/62 y 63 La Plata">
+          <span class="help-block">Ingrese la direccion del paciente</span>
         </div>
       </div>
 
-      <div class="form-group row">
-        <label class="col-md-3 col-form-label" for="hf-email">DNI</label>
-        <div class="col-md-3">
-          <input type="number" id="hf-email" name="hf-email" class="form-control" placeholder="Peralta Ramos">
-        </div>
-
-        <label class="col-md-3 col-form-label" for="hf-email">Número telefonico</label>
-        <div class="col-md-3">
-          <input type="number" id="hf-email" name="hf-email" class="form-control" placeholder="Peralta Ramos">
-        </div>
-
-      </div>
 
 
       <div class="form-group row">
-        <label class="col-md-3 col-form-label" for="hf-password">Password</label>
+        <label class="col-md-3 col-form-label" for="hf-email">Telefono</label>
         <div class="col-md-9">
-          <input type="password" id="hf-password" name="hf-password" class="form-control" placeholder="Enter Password..">
-          <span class="help-block">Please enter your password</span>
+          <input  [(ngModel)] = 'paciente.numeroTelefono' type="email" id="hf-email" name="hf-telefono" class="form-control">
+          <span class="help-block">Ingrese el telefono del paciente</span>
         </div>
       </div>
+
+
     </form>
   </div>
   <div class="card-footer">
-    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+    <button (click)= 'continueOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Guardar datos</button>
   </div>
 </div>
+</div>
+
+<div *ngIf=" continue ">
+<div class="card">
+    <div class="card-header">
+      <strong>Agregar Seguimiento</strong>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="name">Motivo de consulta</label>
+            <input type="text" class="form-control" id="name" [(ngModel)] = "ingreso.motivoConsulta"placeholder="Motivo de consulta">
+          </div>
+          <div class="form-group">
+              <label for="name">Enfermedad Actual</label>
+              <input type="text" class="form-control" id="name" [(ngModel)] = "ingreso.enfermedadActual"placeholder="Enfermedad Actual">
+            </div>
+            <div class="form-group">
+                <label for="name">Antecedentes de la enfermedad</label>
+                <input type="text" class="form-control" id="name" [(ngModel)] = "ingreso.antecedentesEnfermedad"placeholder="Antecedentes de la enfermedad">
+              </div>
+              <div class="form-group">
+                  <label for="name">Antecedentes personales</label>
+                  <input type="text" class="form-control" id="name" [(ngModel)] = "ingreso.antecedentesPersonales"placeholder="Antecedentes Personales">
+                </div>
+                <div class="form-group">
+                    <label for="name">Examen fisico</label>
+                    <input type="text" class="form-control" id="name" [(ngModel)] = "ingreso.examenFisico"placeholder="Examen fisico">
+                  </div>
+                  <div class="form-group">
+                      <label for="name">Diagnostico Sintomatico</label>
+                      <select class="form-control" id="name" [(ngModel)] = "ingreso.diagnosticoSintomatico" placeholder="Diagnostico Presuntivo">
+                             <option *ngFor="let diagnosticoSintomatico of diagnosticos"
+                               [ngValue]="diagnosticoSintomatico">{{diagnosticoSintomatico.nombre}}
+                            </option>
+                        </select>
+                    </div>
+            <div class="form-group">
+                <label for="name">Diagnostico Presuntivo</label>
+                <select class="form-control" id="name" [(ngModel)] = "ingreso.diagnosticoPresuntivo" placeholder="Diagnostico Presuntivo">
+                       <option *ngFor="let diagnosticoPresuntivo of diagnosticos"
+                         [ngValue]="diagnosticoPresuntivo">{{diagnosticoPresuntivo.nombre}}
+                      </option>
+                  </select>
+              </div>
 
 
-<form class="container">
-  <label for="motivoConsulta">Motivo de consulta:</label>
-  <input name="motivoConsulta"
-        #inputUsername
-        [(ngModel)]="ingreso.motivoConsulta"
-        type="text" />
-  <label for="email">Enfermedad actual:</label>
-  <input name="email"
-        [(ngModel)] = "ingreso.enfermedadActual"
-        type="text"/>
-  <label>Diagnóstico presuntivo. </label>
-  <input name="email"
-  [(ngModel)] = "ingreso.diagnosticoPresuntivo"
-  type="text"/>
-  <input name="email"
-        [(ngModel)] = "ingreso.diagnosticoSintomatico" type="text"/>
-
-  <button (click)='saveOperation()'>Crear usuario</button>
-</form>
-
-
+          <div class="card-footer">
+            <button (click)= 'saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+          </div>
+        </div>
+      </div>
+   </div>
+  </div>
+</div>
