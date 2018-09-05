@@ -12,20 +12,28 @@
         </div>
       </div>
 
-  <p *ngIf=" !userSearch ">
+  <p *ngIf=" userSearch.length == 0">
     Debe buscar una historia para poder realizar el seguimiento
   </p>
 
-  <p *ngIf="notFoundHistory">
+  <p *ngIf=" userSearch.includes('Error')">
     No se encontró la historia solicitada. Vuelva a realizar la búsqueda.
   </p>
 
-  <p *ngIf=" userSearch ">
+  <p *ngIf=" userSearch.includes('Buscando') ">
     Cargando datos del paciente
   </p>
 
+  <p *ngIf=" userSearch.includes('Cerrada')">
+      El paciente de la historia ya ha egresado. No es posible realizar un nuevo seguimiento para la historia seleccionada.
 
-  <div *ngIf=" paciente ">
+  </p>
+
+  <p *ngIf="userSearch.includes('Inexistente')">
+      El número de historia que ingresó no existe. Vuelva a realizar la búsqueda para poder crear el seguimiento.
+  </p>
+
+  <div *ngIf=" userSearch.includes('Encontrado') ">
     <div class="card">
       <div class="card-header">
         Datos del paciente
@@ -66,7 +74,8 @@
         </div><!--/.row-->
      </div>
     </div>
-    <app-nuevo-estudio (save)="addEstudio($event)"></app-nuevo-estudio>
+
+    <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
   </div>
 
 </div>

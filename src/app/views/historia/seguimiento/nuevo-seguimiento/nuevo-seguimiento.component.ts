@@ -4,6 +4,7 @@ import { Seguimiento } from '../seguimiento';
 import { HistoriaService} from '../../historia.service';
 import { Estudio } from '../../estudio/estudio';
 
+
 @Component({
   selector: 'app-nuevo-seguimiento',
   templateUrl: './nuevo-seguimiento.component.html',
@@ -12,59 +13,39 @@ import { Estudio } from '../../estudio/estudio';
 export class NuevoSeguimientoComponent implements OnInit {
 
   constructor(private historiaService: HistoriaService) { }
-  userSearch = false;
+  userSearch: String = '';
   paciente: Paciente = null;
   idBusqueda: String = '';
-  notFoundHistory = false;
   seguimiento: Seguimiento = null;
-  // = new Seguimiento();
 
   ngOnInit() {
 
   }
-  public addEstudio(nuevoEstudio: Estudio) {
-    console.log('Agregué el estudio');
-    console.log(nuevoEstudio);
-    this.seguimiento.estudiosComplementariosDTO.push(nuevoEstudio);
+  public updateEstudios(nuevoEstudio: Estudio[]) {
+    console.log('Actualicé los estudios');
+    this.seguimiento.estudiosComplementariosDTO = nuevoEstudio;
   }
 
   searchHistory() {
-    this.userSearch = true;
+    this.userSearch = 'Buscando' ;
     console.log( 'Search history' );
      this.historiaService.obtenerPaciente(this.idBusqueda).subscribe(
       result => {
         if (result.code !== 200) {
             console.log(result);
             this.paciente = result;
-            this.userSearch = false;
             this.seguimiento = new Seguimiento();
+            this.userSearch = 'Encontrado';
         } else {
             this.paciente = result.data;
         }
     },
     error => {
         console.log(<any>error);
+
     }
 
      );
-      /*
-      this.userService.addUser(this.user).subscribe(
-        result => {
-            if (result.code !== 200) {
-                console.log(result);
-                this.users = result;
-            } else {
-                this.users = result.data;
-            }
-        },
-        error => {
-            console.log(<any>error);
-        }
-    );
-
-    this.getUsers();
-    ^*/
-    // this.userSearch = false;
   }
   saveOperation() {
     console.log( 'El valor del seguimiento a agregar es: ');
@@ -85,5 +66,3 @@ export class NuevoSeguimientoComponent implements OnInit {
   }
 
   }
-
-

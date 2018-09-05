@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Estudios solicitados
+    </div>
+    <div class="card-body">
+      <button (click)="crearEstudio()">Solicitar estudio</button>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th class="col-sm-10">Descripcion del estudio</th>
+            <th class="col-sm-2">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let estudio of estudios">
+            <td>{{estudio.estudioSolicitado}}</td>
+            <td>
+                <button type="button" class="btn btn-sm btn-danger" (click)="borrarEstudio(estudio)">Eliminar</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>

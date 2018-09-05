@@ -13,8 +13,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NuevoSeguimientoComponent } from './seguimiento/nuevo-seguimiento/nuevo-seguimiento.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { PacienteComponent } from './paciente/paciente.component';
-import { NuevoEstudioComponent } from './estudio/nuevo-estudio/nuevo-estudio.component';
-
+import { NuevoEstudioComponent } from './estudio/crear/nuevo-estudio/nuevo-estudio.component';
+import { ListadoComponent } from './estudio/crear/listado/listado.component';
+import { CrearComponent } from './estudio/crear/crear.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { NuevoEstudioComponent } from './estudio/nuevo-estudio/nuevo-estudio.com
     NgxGalleryModule,
     TabsModule,
   ],
-  declarations: [IngresoComponent, SeguimientoComponent, DetalleComponent, EstudioComponent, NuevoSeguimientoComponent, PacienteComponent, NuevoEstudioComponent]
+  declarations: [IngresoComponent, SeguimientoComponent, DetalleComponent, EstudioComponent,
+     NuevoSeguimientoComponent, PacienteComponent, NuevoEstudioComponent, ListadoComponent, CrearComponent]
 })
 export class HistoriaModule { }

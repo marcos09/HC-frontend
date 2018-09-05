@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Estudio } from '../estudio';
+import { Estudio } from '../../estudio';
 
 @Component({
   selector: 'app-nuevo-estudio',
