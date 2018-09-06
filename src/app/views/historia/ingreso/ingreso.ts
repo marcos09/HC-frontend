@@ -1,4 +1,6 @@
 import { Patologia } from '../../patologias/patologia';
+import { Prescripcion } from '../prescripcion/prescripcion';
+import { Estudio } from '../estudio/estudio';
 
 export class Ingreso {
   public id: number;
@@ -6,8 +8,8 @@ export class Ingreso {
   public enfermedadActual: string;
   public diagnosticoPresuntivo: Patologia;
   public diagnosticoSintomatico: Patologia;
-  public estudiosComplementarios: string[] = [];
-  public prescripciones: string[] = [];
+  public estudiosComplementariosDTO: Estudio[] = [];
+  public prescripcionesDTO: Prescripcion[] = [];
   public antecedentesEnfermedad: string;
   public antecedentesPersonales: string;
   public examenFisico: string;

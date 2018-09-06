@@ -3,5 +3,5 @@ export class Patologia {
   public nombre: string;
   public otroDato: string;
   public father: Patologia;
-  public childs: Patologia[];
+  public childs: Patologia[] = [];
 }

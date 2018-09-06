@@ -29,7 +29,7 @@ export class CrearComponent implements OnInit {
     this.creandoEstudio = false;
     this.updateEstudios.emit(this.estudios);
   }
-  public eliminarEstudio(estudio: Estudio){
+  public eliminarEstudio(estudio: Estudio) {
     this.estudios.splice(this.estudios.indexOf(estudio), 1);
     this.updateEstudios.emit(this.estudios);
   }

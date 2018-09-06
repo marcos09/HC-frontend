@@ -24,7 +24,7 @@ export class ListadoComponent implements OnInit {
   crearEstudio() {
     this.crearNuevoEstudio.emit();
   }
-  borrarEstudio(estudio: Estudio){
+  borrarEstudio(estudio: Estudio) {
     this.eliminarEstudio.emit(estudio);
   }
 }

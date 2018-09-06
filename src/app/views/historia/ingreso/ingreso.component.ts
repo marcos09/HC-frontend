@@ -6,6 +6,8 @@ import { PacienteService } from '../paciente/paciente.service';
 import { Paciente } from '../paciente/paciente';
 import { Patologia } from '../../patologias/patologia';
 import { PatologiaService } from '../../patologias/patologia.service';
+import { Estudio } from '../estudio/estudio';
+import { Prescripcion } from '../prescripcion/prescripcion';
 @Component({
   selector: 'app-ingreso',
   templateUrl: './ingreso.component.html',
@@ -20,21 +22,21 @@ export class IngresoComponent implements OnInit {
   idBusqueda: String = '';
   public diagnosticos: Patologia[] = [];
 
-
-  /*
-
-                        <select class="form-control" id="name" [(ngModel)] = "ingreso.diagnosticoSintomatico" placeholder="Diagnostico Presuntivo">
-                             <option *ngFor="let diagnosticoSintomatico of diagnosticos"
-                               [ngValue]="diagnosticoSintomatico">{{diagnosticoSintomatico.nombre}}
-                            </option>
-                        </select>
-
-                        */
   constructor(private historiaService: HistoriaService , private pacienteService: PacienteService,
      private patologiaService: PatologiaService) { }
 
   ngOnInit() {
     this.getDiagnosticos();
+  }
+
+  public updateEstudios(nuevoEstudio: Estudio[]) {
+    console.log('Actualicé los estudios');
+    this.ingreso.estudiosComplementariosDTO = nuevoEstudio;
+  }
+
+  public updatePrescripciones(nuevaPrescripcion: Prescripcion[]) {
+    console.log('Actualicé las prescripciones');
+    this.ingreso.prescripcionesDTO = nuevaPrescripcion;
   }
 
   getDiagnosticos() {

@@ -115,6 +115,8 @@
                   </select>
               </div>
 
+              <app-crear (updateEstudios)= "updateEstudios($event)"> </app-crear>
+              <app-crear-prescripcion (updatePrescripciones)= "updatePrescripciones($event)" ></app-crear-prescripcion>
 
           <div class="card-footer">
             <button (click)= 'saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
