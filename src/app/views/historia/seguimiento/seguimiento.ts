@@ -6,6 +6,6 @@ export class Seguimiento {
   public nroHistoria: number;
   public resultado: string;
   public estudiosComplementariosDTO: Estudio[] = [];
-  public prescripciones: Prescripcion[] = [];
+  public prescripcionesDTO: Prescripcion[] = [];
 
 }

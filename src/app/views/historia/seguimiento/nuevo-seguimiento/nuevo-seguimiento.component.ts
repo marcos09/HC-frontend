@@ -28,7 +28,7 @@ export class NuevoSeguimientoComponent implements OnInit {
   }
 
   public updatePrescripciones(prescripciones: Prescripcion[]) {
-    this.seguimiento.prescripciones = prescripciones;
+    this.seguimiento.prescripcionesDTO = prescripciones;
   }
   searchHistory() {
     this.userSearch = 'Buscando' ;
