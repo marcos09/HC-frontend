@@ -11,7 +11,6 @@
               <button (click)="searchHistory()"> Buscar Historia </button>
         </div>
       </div>
-
   <p *ngIf=" userSearch.length == 0">
     Debe buscar una historia para poder realizar el seguimiento
   </p>
@@ -76,6 +75,8 @@
     </div>
 
     <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
+    <app-crear-prescripcion (updatePrescripciones)="updatePrescripciones($event)" ></app-crear-prescripcion>
+
   </div>
 
 </div>

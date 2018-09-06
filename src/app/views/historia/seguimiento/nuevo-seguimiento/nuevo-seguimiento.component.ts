@@ -3,6 +3,7 @@ import {Paciente} from '../../paciente/paciente';
 import { Seguimiento } from '../seguimiento';
 import { HistoriaService} from '../../historia.service';
 import { Estudio } from '../../estudio/estudio';
+import { Prescripcion } from '../../prescripcion/prescripcion';
 
 
 @Component({
@@ -26,6 +27,9 @@ export class NuevoSeguimientoComponent implements OnInit {
     this.seguimiento.estudiosComplementariosDTO = nuevoEstudio;
   }
 
+  public updatePrescripciones(prescripciones: Prescripcion[]) {
+    this.seguimiento.prescripciones = prescripciones;
+  }
   searchHistory() {
     this.userSearch = 'Buscando' ;
     console.log( 'Search history' );

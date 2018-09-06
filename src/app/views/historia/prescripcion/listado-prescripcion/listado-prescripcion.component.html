@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Prescripciones indicadas durante el seguimiento
+    </div>
+    <div class="card-body">
+      <button (click)="crearPrescripcion()">Indicar prescripcion</button>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th class="col-sm-4">Medicamento indicado</th>
+            <th class="col-sm-6">Forma de administración</th>
+            <th class="col-sm-2">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let prescripcion of prescripciones">
+            <td>{{prescripcion.medicamento.nombre}}</td>
+            <td>{{prescripcion.datos}}</td>
+            <td>
+                <button type="button" class="btn btn-sm btn-danger" (click)="borrarPrescripcion(prescripcion)">Eliminar</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>

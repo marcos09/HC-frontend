@@ -16,6 +16,10 @@ import { PacienteComponent } from './paciente/paciente.component';
 import { NuevoEstudioComponent } from './estudio/crear/nuevo-estudio/nuevo-estudio.component';
 import { ListadoComponent } from './estudio/crear/listado/listado.component';
 import { CrearComponent } from './estudio/crear/crear.component';
+import { PrescripcionComponent } from './prescripcion/prescripcion.component';
+import { CrearPrescripcionComponent } from './prescripcion/crear-prescripcion/crear-prescripcion.component';
+import { NuevaPrescripcionComponent } from './prescripcion/crear-prescripcion/nueva-prescripcion/nueva-prescripcion.component';
+import { ListadoPrescripcionComponent } from './prescripcion/listado-prescripcion/listado-prescripcion.component';
 
 @NgModule({
   imports: [
@@ -29,6 +33,8 @@ import { CrearComponent } from './estudio/crear/crear.component';
     TabsModule,
   ],
   declarations: [IngresoComponent, SeguimientoComponent, DetalleComponent, EstudioComponent,
-     NuevoSeguimientoComponent, PacienteComponent, NuevoEstudioComponent, ListadoComponent, CrearComponent]
+     NuevoSeguimientoComponent, PacienteComponent, NuevoEstudioComponent,
+     ListadoComponent, CrearComponent, PrescripcionComponent, NuevaPrescripcionComponent,
+     CrearPrescripcionComponent, ListadoPrescripcionComponent]
 })
 export class HistoriaModule { }

@@ -20,6 +20,16 @@ export class IngresoComponent implements OnInit {
   idBusqueda: String = '';
   public diagnosticos: Patologia[] = [];
 
+
+  /*
+
+                        <select class="form-control" id="name" [(ngModel)] = "ingreso.diagnosticoSintomatico" placeholder="Diagnostico Presuntivo">
+                             <option *ngFor="let diagnosticoSintomatico of diagnosticos"
+                               [ngValue]="diagnosticoSintomatico">{{diagnosticoSintomatico.nombre}}
+                            </option>
+                        </select>
+
+                        */
   constructor(private historiaService: HistoriaService , private pacienteService: PacienteService,
      private patologiaService: PatologiaService) { }
 
@@ -82,7 +92,7 @@ export class IngresoComponent implements OnInit {
      );
     }
 
-    continueOperation() {
+  continueOperation() {
       this.continue = true;
       this.pacientSearch = false;
       console.log( 'Actualizo datos del paciente' );
