@@ -4,11 +4,13 @@ import { Ingreso } from './ingreso/ingreso';
 import { Observable } from 'rxjs';
 import {environment} from '../../../environments/environment';
 import { Seguimiento } from './seguimiento/seguimiento';
+import { Egreso } from './egreso/egreso';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoriaService {
+
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -37,6 +39,12 @@ export class HistoriaService {
     const url = environment.url + 'historia/agregarSeguimiento/' + idBusqueda;
     this.httpOptions.headers.set('Content-Type', 'application/json');
     return this.http.put(url , seguimiento, this.httpOptions);
+  }
+
+  egresarPaciente(egreso: Egreso, idBusqueda: String): any {
+    const url = environment.url + 'historia/egresar/' + idBusqueda;
+    this.httpOptions.headers.set('Content-Type', 'application/json');
+    return this.http.put(url , egreso, this.httpOptions);
   }
 
 }

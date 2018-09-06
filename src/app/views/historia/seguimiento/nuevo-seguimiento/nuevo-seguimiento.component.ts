@@ -19,6 +19,7 @@ export class NuevoSeguimientoComponent implements OnInit {
   idBusqueda: String = '';
   seguimiento: Seguimiento = null;
 
+
   ngOnInit() {
 
   }

@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-header">
+      <strong>Egresar paciente</strong>
+    </div>
+    <div class="card-body">
+          <div class="form-group">
+            <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
+            <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchHistory()" id="searchUser">
+          </div>
+          <button (click)="searchHistory()"> Buscar Historia </button>
+    </div>
+  </div>
+<p *ngIf=" userSearch.length == 0">
+Debe buscar una historia para poder realizar el egreso
+</p>
+
+<p *ngIf=" userSearch.includes('Buscando') ">
+Cargando datos del paciente
+</p>
+
+
+<div *ngIf=" userSearch.includes('Encontrado') ">
+<div class="card">
+  <div class="card-header">
+    Datos del paciente
+  </div>
+  <div class="card-body">
+    <div class="bd-example">
+      <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">{{paciente.nombre}}</dd>
+
+        <dt class="col-sm-3">Apellido</dt>
+        <dd class="col-sm-9">{{paciente.apellido}}
+        </dd>
+
+        <dt class="col-sm-3">DNI</dt>
+        <dd class="col-sm-9">{{paciente.dni}}</dd>
+
+      </dl>
+    </div>
+  </div>
+</div>
+<div class="card">
+    <div class="card-header">
+      <strong>Diagnostico Final</strong>
+    </div>
+    <div class="card-body">
+          <div class="form-group">
+            <label for="searchUser">Ingrese el diagnostico final</label>
+            <input type="text" class="form-control" [(ngModel)]="egreso.diagnosticoFinal" (onchange)="egresarPaciente()" id="searchUser">
+          </div>
+          <button (click)="egresarPaciente()"> Egresar paciente </button>
+    </div>
+  </div>
+</div>

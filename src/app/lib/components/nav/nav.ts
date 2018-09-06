@@ -41,7 +41,7 @@ export const navItems = [
   },
   {
     name: 'Egresar paciente',
-    url: '/historias/altaPaciente',
+    url: '/historias/egreso',
     icon: 'icon-pencil',
   },
   {
