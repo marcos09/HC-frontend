@@ -56,7 +56,7 @@ export class IngresoComponent implements OnInit {
   }
 
   saveOperation() {
-    this.historiaService.crear(this.ingreso).subscribe(
+    this.historiaService.crear(this.ingreso, this.paciente.id).subscribe(
         result => {
         console.log(result);
           if (result.code !== 200) {
@@ -101,9 +101,10 @@ export class IngresoComponent implements OnInit {
       this.pacienteService.updatePaciente(this.paciente).subscribe(
        result => {
          if (result.code !== 200) {
+           this.paciente = result;
              console.log(result);
          } else {
-             this.paciente = result.data;
+             this.paciente = result;
          }
      },
      error => {

@@ -23,8 +23,8 @@ export class HistoriaService {
 
 
 
-  crear(ingreso: Ingreso): Observable<any> {
-    const url = environment.url + 'ingreso/createIngreso';
+  crear(ingreso: Ingreso, idPaciente: number): Observable<any> {
+    const url = environment.url + 'ingreso/createIngreso/' + idPaciente;
     this.httpOptions.headers.set('Content-Type', 'application/json');
     return this.http.put(url , ingreso, this.httpOptions);
   }
