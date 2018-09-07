@@ -19,7 +19,7 @@ export class PacienteService {
 
 
   obtenerPaciente(idBusqueda: String): Observable<any>  {
-    const url = environment.url + 'pacientes/' + idBusqueda;
+    const url = environment.url + 'pacientes/dni/' + idBusqueda;
     this.httpOptions.headers.set('Content-Type', 'application/json');
     return this.http.get(url , this.httpOptions);
   }
