@@ -5,6 +5,7 @@ import { HomeComponent } from './views/home/home/home.component';
 import { NewComponent } from './views/user/new.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
 import { ResultadoComponent } from './views/historia/estudio/resultado/resultado.component';
+import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'internaciones',
     component: InternacionesComponent
+  },
+  {
+    path: 'prescripciones',
+    component: PrescripcionComponent
   },
   {
     path: '404',

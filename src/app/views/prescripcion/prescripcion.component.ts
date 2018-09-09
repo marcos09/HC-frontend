@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PrescripcionService } from './prescripcion.service';
+import { NgxGalleryThumbnailsComponent } from 'ngx-gallery';
+import { Prescripcion } from '../historia/prescripcion/prescripcion';
 
 @Component({
   selector: 'app-prescripcion',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrescripcionComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private prescripcionService: PrescripcionService) { }
+  prescripciones: Prescripcion[] = [];
   ngOnInit() {
+    this.prescripcionService.getPrescripcionesActivas().subscribe(
+      result => {
+        this.prescripciones = result;
+      },
+    );
+  }
+
+  aplicarPrescripcion(presc: Prescripcion) {
+    this.prescripcionService.aplicarPrescripcion(presc.id).subscribe(
+      result => {
+
+      }
+    );
+
   }
 
 }
