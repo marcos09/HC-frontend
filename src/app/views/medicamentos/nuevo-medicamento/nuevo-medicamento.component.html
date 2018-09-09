@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header">
+      <strong>Nuevo medicamento</strong>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="name">Nombre del medicamento</label>
+            <input type="text" class="form-control" [(ngModel)]="medicamento.nombre" id="name" placeholder="Enter your name">
+          </div>
+        </div>
+      </div><!--/.row-->
+      <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name">Indicaciones</label>
+              <input type="text" class="form-control" id="name" [(ngModel)]="medicamento.indicaciones" placeholder="Enter your name">
+            </div>
+          </div>
+        </div><!--/.row-->
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Contraindicaciones</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="medicamento.contraindicaciones"placeholder="Enter your name">
+              </div>
+            </div>
+          </div><!--/.row-->
+
+          <div class="col-md-3">
+              <button type="button" (click)= "saveOperation()"  class="btn btn-square btn-block btn-success">Crear medicamento</button>
+        </div>
+
+</div>
+</div>

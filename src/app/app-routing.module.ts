@@ -6,6 +6,7 @@ import { NewComponent } from './views/user/new.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 import { PatologiasComponent } from './views/patologias/patologias/patologias.component';
+import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'prescripciones',
     component: PrescripcionComponent
+  },
+  {
+    path: 'medicamentos',
+    component: MedicamentosComponent
   },
   {
     path: '404',

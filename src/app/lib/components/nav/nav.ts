@@ -7,7 +7,7 @@ export const navItems = [
   },
   {
     name: 'Administrar vademecum',
-    url: '/usuarios',
+    url: '/medicamentos',
     icon: 'icon-speedometer',
   },
   {
