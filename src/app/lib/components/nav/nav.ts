@@ -70,7 +70,7 @@ export const navItems = [
   },
   {
     name: 'Ver internados',
-    url: '/#',
+    url: '/internaciones',
     icon: 'icon-speedometer',
   },
   {

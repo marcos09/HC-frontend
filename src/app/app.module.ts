@@ -21,6 +21,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
+import { InternacionesComponent } from './views/internaciones/internaciones.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -34,6 +35,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NewComponent,
     PrescripcionComponent,
     MedicamentosComponent,
+    InternacionesComponent,
   ],
 
   imports: [

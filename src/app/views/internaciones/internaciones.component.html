@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Pacientes internados
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre del paciente</th>
+            <th>Fecha de ingreso</th>
+            <th>Motivo de consulta</th>
+            <th>Enfermedad actual</th>
+            <th>Acciones disponibles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <div class="tableRow" *ngFor="let internacion of internaciones">
+            <tr>
+                <td>{{internacion.nombrePaciente}}</td>
+                <td>{{internacion.fechaIngreso}}</td>
+                <td>{{internacion.motivoConsulta}}</td>
+                <td>{{internacion.enfermedadActual}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary">Visualizar historia</button>
+                    <button type="button" class="btn btn-sm btn-success">Realizar seguimiento</button>
+                    <button type="button" class="btn btn-sm btn-danger">Egresar paciente</button>
+                </td>
+              </tr>
+
+          </div>
+        </tbody>
+      </table>
+
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </div>
+  </div>

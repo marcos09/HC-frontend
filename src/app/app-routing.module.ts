@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './views/not-found/not-found/not-found.component';
 import { HomeComponent } from './views/home/home/home.component';
 import { NewComponent } from './views/user/new.component';
+import { InternacionesComponent } from './views/internaciones/internaciones.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
     path: 'historias',
     loadChildren: './views/historia/historia.module#HistoriaModule'
 
+  },
+  {
+    path: 'internaciones',
+    component: InternacionesComponent
   },
   {
     path: '404',

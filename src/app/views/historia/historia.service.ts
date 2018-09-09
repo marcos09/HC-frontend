@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ingreso } from './ingreso/ingreso';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/observable';
 import {environment} from '../../../environments/environment';
 import { Seguimiento } from './seguimiento/seguimiento';
 import { Egreso } from './egreso/egreso';
@@ -11,7 +11,6 @@ import { Egreso } from './egreso/egreso';
 })
 export class HistoriaService {
 
-
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
@@ -20,8 +19,6 @@ export class HistoriaService {
 
 
   constructor(private http: HttpClient) { }
-
-
 
   crear(ingreso: Ingreso, idPaciente: number): Observable<any> {
     const url = environment.url + 'ingreso/createIngreso/' + idPaciente;
@@ -45,6 +42,12 @@ export class HistoriaService {
     const url = environment.url + 'historia/egresar/' + idBusqueda;
     this.httpOptions.headers.set('Content-Type', 'application/json');
     return this.http.put(url , egreso, this.httpOptions);
+  }
+
+  obtenerHistoriasActivas(): Observable<any> {
+    const url = environment.url + 'historia/activas/';
+    return this.http.get(url , this.httpOptions);
+
   }
 
 }
