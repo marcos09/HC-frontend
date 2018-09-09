@@ -21,7 +21,7 @@ export const navItems = [
   },
   {
     name: 'Patologías',
-    url: '/patologías',
+    url: '/patologias',
     icon: 'icon-speedometer',
   },
 

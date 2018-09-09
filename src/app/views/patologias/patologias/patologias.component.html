@@ -1,25 +1,60 @@
 <h1>Administración de Patologias</h1>
-<h2>Patologias existentes</h2>
-<table *ngIf="patologias.length > 0;else emptyList">
-  <thead>
-    <tr>
-      <th>Nombre de la patología</th>
-      <th>Descripción</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let patologia of patologias">
-      <td>{{ patologia.nombre }}</td>
-      <td>{{ patologia.otroDato }}</td>
+<div class="card">
+  <div class="card-header">
+    <strong>Añadir nueva patología</strong>
+  </div>
+  <div class="card-body">
+    <form action="" method="post" class="form-horizontal">
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="hf-email">Nombre</label>
+            <div class="col-md-9">
+              <input [(ngModel)] = 'patologia.nombre' type="text" id="hf-email" name="hf-nombre" class="form-control" required >
+              <span class="help-block">Nombre de la patologia</span>
+            </div>
+          </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">Descripcion</label>
+        <div class="col-md-9">
+          <input [(ngModel)] = 'patologia.otroDato' type="email" id="hf-email" name="hf-otroDato" class="form-control" required>
+          <span class="help-block">Informacion de la patologia</span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button (click)= 'saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Agregar patologia</button>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <i class="fa fa-align-justify"></i> Patologias existentes
+  </div>
+  <div class="card-body">
+    <table *ngIf="patologias.length > 0;else emptyList" class="table table-sm">
+      <thead>
+        <tr>
+          <th class="col-sm-10">Nombre de la patología</th>
+          <th class="col-sm-2">Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
 
-    </tr>
-  </tbody>
-</table>
+        <tr *ngFor="let patologia of patologias">
+          <td>{{ patologia.nombre }}</td>
+         <td>{{ patologia.otroDato }}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 <ng-template #emptyList>
   <h5>No existen patologias cargadas.</h5>
 </ng-template>
 
-<div class="container">
+<!-- <div class="container">
   <h2>Añadir nueva patología</h2>
   <form>
     <div class="form-group">
@@ -31,20 +66,9 @@
       <label for="name">Descripción</label>
       <input type="text" class="form-control" id="name" [(ngModel)]= "patologia.otroDato" name="description" required>
     </div>
-
-    <!--
-    <div class="form-group">
-      <label for="power">Patología padre</label>
-      <select class="form-control" id="power" required>
-        <option *ngFor="let pat of patologias" [value]="pat.id">{{pat.nombre}}</option>
-      </select>
-    </div>
--->
     <button type="submit" class="btn btn-success" (click)='saveOperation()'>Añadir patología</button>
 
   </form>
 </div>
-
-
-
+ -->
 

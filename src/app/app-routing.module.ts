@@ -4,8 +4,8 @@ import { NotFoundComponent } from './views/not-found/not-found/not-found.compone
 import { HomeComponent } from './views/home/home/home.component';
 import { NewComponent } from './views/user/new.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
-import { ResultadoComponent } from './views/historia/estudio/resultado/resultado.component';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
+import { PatologiasComponent } from './views/patologias/patologias/patologias.component';
 
 
 const routes: Routes = [
@@ -26,6 +26,11 @@ const routes: Routes = [
   {
     path: 'internaciones',
     component: InternacionesComponent
+  }
+  ,
+  {
+    path: 'patologias',
+    component: PatologiasComponent
   },
   {
     path: 'prescripciones',
