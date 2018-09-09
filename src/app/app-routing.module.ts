@@ -7,6 +7,7 @@ import { InternacionesComponent } from './views/internaciones/internaciones.comp
 import { ResultadoComponent } from './views/historia/estudio/resultado/resultado.component';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 
+
 const routes: Routes = [
   {
     path: '',
