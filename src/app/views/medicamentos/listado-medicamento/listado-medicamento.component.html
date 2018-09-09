@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Listado de medicamentos
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Indicaciones</th>
+            <th>Contraindiraciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medicamento of medicamentos">
+            <td>{{medicamento.nombre}}</td>
+            <td>{{medicamento.indicaciones}}</td>
+            <td>{{medicamento.contraindicaciones}}</td>
+          </tr>
+        </tbody>
+      </table>
