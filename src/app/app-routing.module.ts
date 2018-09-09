@@ -4,8 +4,10 @@ import { NotFoundComponent } from './views/not-found/not-found/not-found.compone
 import { HomeComponent } from './views/home/home/home.component';
 import { NewComponent } from './views/user/new.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
+import { ResultadoComponent } from './views/historia/estudio/resultado/resultado.component';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
+
 
 const routes: Routes = [
   {

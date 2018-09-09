@@ -55,7 +55,7 @@ export const navItems = [
   },
   {
     name: 'Cargar resultado',
-    url: '#',
+    url: '/historias/estudio/cargarResultado',
     icon: 'icon-pencil',
   },
   {

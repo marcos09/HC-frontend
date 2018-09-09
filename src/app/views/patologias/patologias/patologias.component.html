@@ -5,18 +5,13 @@
     <tr>
       <th>Nombre de la patología</th>
       <th>Descripción</th>
-      <th>Patología padre</th>
-      <th>Patologias hijas</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let patologia of patologias">
       <td>{{ patologia.nombre }}</td>
       <td>{{ patologia.otroDato }}</td>
-      <td></td>
-      <td>
-        <!--<button (click)="deleteUser(actualUser)">Eliminar usuario</button> -->
-      </td>
+
     </tr>
   </tbody>
 </table>
@@ -29,12 +24,12 @@
   <form>
     <div class="form-group">
       <label for="name">Nombre de la patología</label>
-      <input type="text" class="form-control" id="name" [(ngModel)]="patologia.nombre" name="name" required>
+      <input type="text" class="form-control" id="name" [(ngModel)]="patologia.nombre"  name="name" required>
     </div>
 
     <div class="form-group">
       <label for="name">Descripción</label>
-      <input type="text" class="form-control" id="name" [(ngModel)]="patologia.otroDato" name="description" required>
+      <input type="text" class="form-control" id="name" [(ngModel)]= "patologia.otroDato" name="description" required>
     </div>
 
     <!--
