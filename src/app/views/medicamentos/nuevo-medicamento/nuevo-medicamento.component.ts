@@ -12,6 +12,7 @@ export class NuevoMedicamentoComponent implements OnInit {
   medicamento: Medicamento = new Medicamento();
 
   @Output() public addMedicamento = new EventEmitter<Medicamento>();
+
   ngOnInit() {
   }
 
