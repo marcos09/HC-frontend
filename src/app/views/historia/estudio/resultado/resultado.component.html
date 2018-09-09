@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Cargar resultado de estudio</strong>
+  </div>
+  <div class="card-body">
+        <div class="form-group">
+          <label for="searchUser">Ingrese el número de estudio a buscar</label>
+          <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchEstudio()" id="searchUser">
+        </div>
+        <button (click)="searchEstudio()"> Buscar Estudio </button>
+  </div>
+</div>
+<p *ngIf=" estudioSearch.length == 0">
+Debe buscar una estudio para poder cargar el resultado
+</p>
+
+<p *ngIf=" estudioSearch.includes('Buscando') ">
+Cargando datos del estudio
+</p>
+
+<div *ngIf=" estudioSearch.includes('Encontrado') ">
+  <div class="card">
+    <div class="card-header">
+      Datos del estudio
+    </div>
+    <div class="card-body">
+      <div class="bd-example">
+        <dl class="row">
+          <dt class="col-sm-3">Estudio Solicitado</dt>
+          <dd class="col-sm-9">{{estudio.estudioSolicitado}}</dd>
+
+          <dt class="col-sm-3">Fecha de indicacion</dt>
+          <dd class="col-sm-9">{{estudio.fechaIndicacion}}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+<div class="card">
+  <div class="card-header">
+    <strong>Resultado final del estudio</strong>
+  </div>
+  <div class="card-body">
+        <div class="form-group" >
+          <label for="searchUser">Ingrese los datos</label>
+          <input [attr.readonly]="resultado.length > 0" type="text" class="form-control" [(ngModel)]="estudio.informeResultado" (onchange)="cargarResultado()" id="searchUser">
+        </div>
+        <button [disabled]="resultado.length > 0" (click)="cargarResultado()"> Cargar resultado</button>
+  </div>
+</div>
+</div>
+

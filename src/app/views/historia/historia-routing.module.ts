@@ -4,6 +4,7 @@ import { IngresoComponent } from './ingreso/ingreso.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { NuevoSeguimientoComponent } from './seguimiento/nuevo-seguimiento/nuevo-seguimiento.component';
 import { EgresoComponent } from './egreso/egreso.component';
+import { ResultadoComponent } from './estudio/resultado/resultado.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path: 'egreso',
     component: EgresoComponent
+  }
+  ,
+  {
+    path: 'estudio/cargarResultado',
+    component: ResultadoComponent
   }
 ];
 
