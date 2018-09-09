@@ -22,7 +22,6 @@ export class PatologiaService {
 
   }
   getPatologias(): Observable<any> {
-    // return this.patologias;
     return this.http.get(environment.url + 'patologias/list', this.httpOptions);
   }
 

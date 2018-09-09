@@ -82,7 +82,15 @@ export const navItems = [
     title: true,
     name: 'Visualizar informes'
   },
-
+  {
+    title: true,
+    name: 'Enfermera'
+  },
+  {
+    name: 'Prescripciones activas',
+    url: '/prescripciones',
+    icon: 'icon-speedometer',
+  },
 
 
 

@@ -4,6 +4,7 @@ import { NotFoundComponent } from './views/not-found/not-found/not-found.compone
 import { HomeComponent } from './views/home/home/home.component';
 import { NewComponent } from './views/user/new.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
+import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'internaciones',
     component: InternacionesComponent
+  },
+  {
+    path: 'prescripciones',
+    component: PrescripcionComponent
   },
   {
     path: '404',
