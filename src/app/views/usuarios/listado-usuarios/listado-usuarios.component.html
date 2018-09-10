@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">
+      <strong>Listado de usuarios</strong>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre de usuario</th>
+            <th>Mail</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acciones disponibles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let actualUser of usuarios">
+            <td>{{ actualUser.username }}</td>
+            <td>{{ actualUser.email }}</td>
+            <td>{{ actualUser.authorities}}</td>
+            <td>
+              <span class="badge badge-success">Activo</span>
+
+              <!-- Posibles colores: success, danger, secondary, warning-->
+            </td>
+            <td>
+              <button type="button" class="btn btn-block btn-danger" (click)="removeUser(actualUser)">Eliminar usuario</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </div>
+  </div>

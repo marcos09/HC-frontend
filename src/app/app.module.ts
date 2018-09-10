@@ -7,9 +7,7 @@ import { TitleComponent } from './lib/components/nav/title.component';
 import { ComponentsModule } from './lib/components/components.module';
 import { HomeModule } from './views/home/home.module';
 import { NotFoundModule } from './views/not-found/not-found.module';
-import { NewComponent } from './views/user/new.component';
 import { FormsModule } from '@angular/forms';
-import { UserService } from './views/user/user.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -24,6 +22,9 @@ import { MedicamentosComponent } from './views/medicamentos/medicamentos.compone
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
 import { NuevoMedicamentoComponent } from './views/medicamentos/nuevo-medicamento/nuevo-medicamento.component';
 import { ListadoMedicamentoComponent } from './views/medicamentos/listado-medicamento/listado-medicamento.component';
+import { UsuarioService } from './views/usuarios/usuario.service';
+import { UsuariosComponent } from './views/usuarios/usuarios.component';
+import { UsuariosModule } from './views/usuarios/usuarios.module';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -34,7 +35,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   declarations: [
     AppComponent,
     TitleComponent,
-    NewComponent,
     PrescripcionComponent,
     MedicamentosComponent,
     InternacionesComponent,
@@ -50,23 +50,25 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,
-    PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
-    TabsModule.forRoot(),
     ChartsModule,
     BrowserModule, // Módulo para la presentacion en el navegador
     ComponentsModule,
     FormsModule,
     HomeModule,
     HttpClientModule,
-    NotFoundModule
+    NotFoundModule,
+    PerfectScrollbarModule,
+    TabsModule.forRoot(),
+    UsuariosModule,
+
   ],
-  providers: [UserService, HttpClient, CookieService,  {
+  providers: [UsuarioService, HttpClient, CookieService,  {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
   }],
   bootstrap: [AppComponent],
-  exports: [NewComponent, PrescripcionComponent]
+  exports: [PrescripcionComponent]
 })
 export class AppModule { }

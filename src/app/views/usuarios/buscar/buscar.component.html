@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card-header">
+      <strong>Buscar usuarios</strong>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <div clas="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" placeholder="Ingrese el nombre a buscar">
+          </div>
+        </div>
+      </div><!--/.row-->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="ccnumber">Correo electrónico</label>
+            <input type="text" class="form-control" id="ccnumber" placeholder="email@ejemplo.com">
+          </div>
+        </div>
+      </div><!--/.row-->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="ccnumber">Rol del usuario</label>
+            <select name="role" class="form-control">
+              <option [value]="">Seleccione un rol para el nuevo usuario:</option>
+              <!--
+              <option *ngFor="let usuarioService.getRoles() of availableRoles"
+              [value]="role">{{role}}</option>
+              -->
+            </select>
+          </div>
+        </div>
+      </div><!--/.row-->
+    </div>
+  </div>

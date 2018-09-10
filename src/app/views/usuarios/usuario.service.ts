@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
-import { User } from './user';
+import { Usuario } from './usuario';
 import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UsuarioService {
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,7 +22,7 @@ getUsers(): Observable<any> {
   return this.http.get(url);
 }
 
-addUser(user: User): Observable<any> {
+addUser(user: Usuario): Observable<any> {
   const url = environment.url + 'user/crearUsuario';
   this.httpOptions.headers.set('Content-Type', 'application/json');
   return this.http.put(url , user, this.httpOptions);

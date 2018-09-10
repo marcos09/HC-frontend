@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './views/not-found/not-found/not-found.component';
 import { HomeComponent } from './views/home/home/home.component';
-import { NewComponent } from './views/user/new.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
-import { ResultadoComponent } from './views/historia/estudio/resultado/resultado.component';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
+import { UsuariosComponent } from './views/usuarios/usuarios.component';
 
 
 const routes: Routes = [
@@ -16,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'usuarios',
-    component: NewComponent
+    component: UsuariosComponent
   },
 
   {
