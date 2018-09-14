@@ -4,6 +4,7 @@ import { NotFoundComponent } from './views/not-found/not-found/not-found.compone
 import { HomeComponent } from './views/home/home/home.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
+import { PatologiasComponent } from './views/patologias/patologias/patologias.component';
 import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
 import { UsuariosComponent } from './views/usuarios/usuarios.component';
 
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'internaciones',
     component: InternacionesComponent
+  }
+  ,
+  {
+    path: 'patologias',
+    component: PatologiasComponent
   },
   {
     path: 'prescripciones',

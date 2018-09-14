@@ -1,18 +1,21 @@
 export const navItems = [
 
   {
-    name: 'Administrar usuarios',
+    title: true,
+    name: 'Administrar Usuarios'
+  },
+  {
+    name: 'Usuarios',
     url: '/usuarios',
     icon: 'icon-speedometer',
   },
   {
-    name: 'Administrar vademecum',
+    title: true,
+    name: 'Administrar Vademecum'
+  },
+  {
+    name: 'Medicamentos',
     url: '/medicamentos',
-    icon: 'icon-speedometer',
-  },
-  {
-    name: 'Administrar sintomas',
-    url: '/usuarios',
     icon: 'icon-speedometer',
   },
   {
@@ -21,7 +24,7 @@ export const navItems = [
   },
   {
     name: 'Patologías',
-    url: '/patologías',
+    url: '/patologias',
     icon: 'icon-speedometer',
   },
 

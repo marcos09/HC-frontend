@@ -30,6 +30,7 @@ import { PrescripcionComponent } from './views/prescripcion/prescripcion.compone
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
+import { PatologiasComponent } from './views/patologias/patologias/patologias.component';
 import { NuevoMedicamentoComponent } from './views/medicamentos/nuevo-medicamento/nuevo-medicamento.component';
 import { ListadoMedicamentoComponent } from './views/medicamentos/listado-medicamento/listado-medicamento.component';
 import { UsuarioService } from './views/usuarios/usuario.service';
@@ -46,6 +47,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PrescripcionComponent,
     MedicamentosComponent,
     InternacionesComponent,
+    PatologiasComponent,
     NuevoMedicamentoComponent,
     ListadoMedicamentoComponent
   ],

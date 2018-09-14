@@ -24,6 +24,7 @@ export class MedicamentoService {
 
   saveOperation(medicamento: Medicamento): Observable<any> {
     const url = environment.url + 'medicamentos/createMedicamento';
+    this.httpOptions.headers.set('Content-Type', 'application/json');
     return this.http.put(url, medicamento, this.httpOptions);
   }
 
