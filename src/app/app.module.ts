@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HttpClient,
+  HTTP_INTERCEPTORS
+} from '@angular/common/http';
 import { TitleComponent } from './lib/components/nav/title.component';
 import { ComponentsModule } from './lib/components/components.module';
 import { HomeModule } from './views/home/home.module';
@@ -14,7 +18,13 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import {AppAsideModule, AppBreadcrumbModule, AppHeaderModule, AppFooterModule, AppSidebarModule, } from '@coreui/angular';
+import {
+  AppAsideModule,
+  AppBreadcrumbModule,
+  AppHeaderModule,
+  AppFooterModule,
+  AppSidebarModule
+} from '@coreui/angular';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
@@ -23,9 +33,7 @@ import { InternacionesComponent } from './views/internaciones/internaciones.comp
 import { NuevoMedicamentoComponent } from './views/medicamentos/nuevo-medicamento/nuevo-medicamento.component';
 import { ListadoMedicamentoComponent } from './views/medicamentos/listado-medicamento/listado-medicamento.component';
 import { UsuarioService } from './views/usuarios/usuario.service';
-import { UsuariosComponent } from './views/usuarios/usuarios.component';
 import { UsuariosModule } from './views/usuarios/usuarios.module';
-
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -39,7 +47,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MedicamentosComponent,
     InternacionesComponent,
     NuevoMedicamentoComponent,
-    ListadoMedicamentoComponent,
+    ListadoMedicamentoComponent
   ],
 
   imports: [
@@ -60,15 +68,19 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NotFoundModule,
     PerfectScrollbarModule,
     TabsModule.forRoot(),
-    UsuariosModule,
-
+    UsuariosModule
   ],
-  providers: [UsuarioService, HttpClient, CookieService,  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+  providers: [
+    UsuarioService,
+    HttpClient,
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent],
   exports: [PrescripcionComponent]
 })
-export class AppModule { }
+export class AppModule {}

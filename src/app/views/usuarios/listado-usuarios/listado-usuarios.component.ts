@@ -5,7 +5,6 @@ import { UsuarioService } from '../usuario.service';
 @Component({
   selector: 'app-listado-usuarios',
   templateUrl: './listado-usuarios.component.html',
-  styleUrls: ['./listado-usuarios.component.css']
 })
 export class ListadoUsuariosComponent implements OnInit {
 

@@ -4,7 +4,6 @@ import { Prescripcion } from '../prescripcion';
 @Component({
   selector: 'app-listado-prescripcion',
   templateUrl: './listado-prescripcion.component.html',
-  styleUrls: ['./listado-prescripcion.component.css']
 })
 export class ListadoPrescripcionComponent implements OnInit {
 

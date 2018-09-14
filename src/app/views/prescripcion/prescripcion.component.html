@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let presc of prescripciones">
-          <td>{{presc.fechaIndicacion}}</td>
+          <td>{{presc.fechaIndicacion | date:'dd/MM/yy hh:mm'}}</td>
           <td>{{presc.medicamento.nombre}}</td>
           <td>{{presc.datos}}</td>
           <td>

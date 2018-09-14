@@ -9,7 +9,6 @@ import { Prescripcion } from '../../prescripcion/prescripcion';
 @Component({
   selector: 'app-nuevo-seguimiento',
   templateUrl: './nuevo-seguimiento.component.html',
-  styleUrls: ['./nuevo-seguimiento.component.css']
 })
 export class NuevoSeguimientoComponent implements OnInit {
 

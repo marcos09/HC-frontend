@@ -16,7 +16,7 @@
         <tbody>
             <tr *ngFor="let internacion of internaciones">
                 <td>{{internacion.nombrePaciente}}</td>
-                <td>{{internacion.fechaIngreso}}</td>
+                <td>{{internacion.fechaIngreso | date:'dd/MM/yy hh:mm'}}</td>
                 <td>{{internacion.motivoConsulta}}</td>
                 <td>{{internacion.enfermedadActual}}</td>
                 <td>

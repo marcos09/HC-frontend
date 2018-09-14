@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../Usuario';
+import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-buscar',
   templateUrl: './buscar.component.html',
-  styleUrls: ['./buscar.component.css']
 })
 export class BuscarComponent implements OnInit {
 

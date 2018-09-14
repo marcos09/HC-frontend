@@ -1,136 +1,24 @@
 <div class="animated fadeIn">
-
-
   <div class="col-md-12 mb-4">
       <!-- Nav tabs -->
       <tabset>
         <tab> <!--Completa -->
-
-          <div class="col-sm-12" >
-              <div class="card text-white bg-success">
-              <div class="card-header">
-                <strong> 28/07/18 16:15hs</strong>
-              </div>
-                <div class="card-body">
-                  <blockquote class="card-bodyquote">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer>Someone famous in
-                      <cite title="Source Title">Source Title</cite>
-                    </footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div><!--/.col-->
+          <app-seguimiento></app-seguimiento>
           <ng-template tabHeading><i class="icon-list"></i> Completa &nbsp;<span class="badge badge-success">10</span></ng-template>
-          1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </tab>
 
 
         <tab> <!-- Seguimientos-->
           <ng-template tabHeading><i class="icon-calculator"></i> Seguimientos &nbsp;<span class="badge badge-pill badge-danger">5</span></ng-template>
-          2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <app-seguimiento *ngFor="let seguimiento of historiaOrdenada.seguimientos" [seguimiento]="seguimiento"></app-seguimiento>
         </tab>
 
-
         <tab> <!-- ESTUDIOS -->
-
-          <div class="card">
-              <div class="card-header">
-                Estudio 01: RMN Craneo
-              </div>
-              <div class="card-body">
-                <p>Descripción o texto general sobre el estudio en cuestión...... </p>
-                <div class="bd-example">
-                  <div class="row">
-
-                  <dl class="row col-lg-6">
-                    <dt class="col-sm-12 col-lg-5">Fecha de indicación:</dt>
-                    <dd class="col-sm-12 col-lg-7">27/08/2018 16:15hs.</dd>
-
-                    <dt class="col-sm-12 col-lg-5">Estudio solicitado:</dt>
-                    <dd class="col-sm-12 col-lg-7">
-                      <p>RMN de cráneo con y sin gadolinio</p>
-                    </dd>
-
-                    <dt class="col-sm-12 col-lg-5">Fecha de realización:</dt>
-                    <dd class="col-sm-12 col-lg-7">28/08/2018 09:30hs</dd>
-                  </dl>
-                  <dt class="col-lg-6"> <!-- Carrousel Imagenes-->
-
-                    <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-
-                  </dt> <!-- Fin carrousel imágenes-->
-                </div>
-                  <dl class="row col-lg-6">
-                      <dt class="col-sm-12 col-lg-5">Informe resultado:</dt>
-                  </dl>
-                      <p ALIGN="justify" style="padding-left:15px; padding-right: 15px;">
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.llus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                      </p>
-                </div>
-              </div>
-            </div>
-
-          <!--
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card">
-                  <div class="card-header">
-                    Estudio 01: RMN Craneo
-                  </div>
-                  <div class="card-body">
-                    <p>Descripción o texto sobre el estudio en cuestión......</p>
-                    <div class="bd-example">
-
-                      <dl class="row">
-                        <div class="col-sm-12 col-lg-12">
-                            <dt class="col-sm-3">Fecha de indicación:</dt>
-                            <dd class="col-sm-9"> 27/08/2018 16:15hs</dd>
-
-                        <dt class="col-sm-3">Estudio solicitado:</dt>
-                        <dd class="col-sm-9">
-                          <p>RMN de cráneo con y sin gadolinio</p>
-                        </dd>
-
-                        <dt class="col-sm-3">Fecha de realización:</dt>
-                        <dd class="col-sm-9">28/08/2018 09:30hs</dd>
-
-                        <dt class="col-sm-3 text-truncate">Informe resultado:</dt>
-                        <dd class="col-sm-9">
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.llus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-
-
-                        </dd>
-                      </div>
-                      </dl>
-                    </div>
-                  </div>
-                </div>
-                </div>
-        </div>
-
-      -->
+            <app-estudio *ngFor="let estudioActual of historiaOrdenada.estudios" [estudioActual]="estudioActual"></app-estudio>
           <ng-template tabHeading><i class="icon-pie-chart"></i> Estudios &nbsp;<span class="badge badge-pill badge-success">3</span></ng-template>
         </tab>
 
-
-
         <tab> <!-- INDICACIONES -->
-
           <ng-template tabHeading><i class="icon-pie-chart"></i> Prescripciones &nbsp;<span class="badge badge-pill badge-danger">2</span></ng-template>
           4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </tab>

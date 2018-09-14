@@ -7,5 +7,6 @@ export class Seguimiento {
   public resultado: string;
   public estudiosComplementariosDTO: Estudio[] = [];
   public prescripcionesDTO: Prescripcion[] = [];
+  public fecha: String;
 
 }

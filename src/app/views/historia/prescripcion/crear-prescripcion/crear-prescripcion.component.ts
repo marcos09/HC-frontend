@@ -4,7 +4,6 @@ import { Prescripcion } from '../prescripcion';
 @Component({
   selector: 'app-crear-prescripcion',
   templateUrl: './crear-prescripcion.component.html',
-  styleUrls: ['./crear-prescripcion.component.css']
 })
 export class CrearPrescripcionComponent implements OnInit {
 

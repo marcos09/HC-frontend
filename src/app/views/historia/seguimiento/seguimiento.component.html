@@ -1,3 +1,15 @@
-<p>
-  seguimiento works!
-</p>
+<div class="col-sm-12" >
+  <div class="card text-white bg-success">
+  <div class="card-header">
+    <strong> {{seguimiento.fecha | date:'dd/MM/yyyy hh:mm'}}</strong>
+  </div>
+    <div class="card-body">
+      <blockquote class="card-bodyquote">
+        <p>{{seguimiento.resultado}}</p>
+        <footer>Someone famous in
+          <cite title="Source Title">Source Title</cite>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</div><!--/.col-->

@@ -1,3 +1,36 @@
-<p>
-  estudio works!
-</p>
+<div class="card">
+    <div class="card-header">
+      Estudio {{estudioActual.id}}: {{estudioActual.estudioSolicitado}}
+    </div>
+    <div class="card-body">
+      <p>Descripción o texto general sobre el estudio en cuestión...... </p>
+      <div class="bd-example">
+        <div class="row">
+
+        <dl class="row col-lg-6">
+          <dt class="col-sm-12 col-lg-5">Fecha de indicación:</dt>
+          <dd class="col-sm-12 col-lg-7">{{estudioActual.fechaIndicacion | date:'dd/MM/yyyy hh:mm'}}Hs</dd>
+
+          <dt class="col-sm-12 col-lg-5">Estudio solicitado:</dt>
+          <dd class="col-sm-12 col-lg-7">
+            <p>{{estudioActual.estudioSolicitado}}</p>
+          </dd>
+
+          <dt class="col-sm-12 col-lg-5">Fecha de realización:</dt>
+          <dd class="col-sm-12 col-lg-7">{{estudioActual.fechaResultado | date:'dd/MM/yyyy hh:mm'}}Hs</dd>
+        </dl>
+        <dt class="col-lg-6"> <!-- Carrousel Imagenes-->
+
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+
+        </dt> <!-- Fin carrousel imágenes-->
+      </div>
+        <dl class="row col-lg-6">
+            <dt class="col-sm-12 col-lg-5">Informe resultado:</dt>
+        </dl>
+            <p ALIGN="justify" style="padding-left:15px; padding-right: 15px;">
+              {{estudioActual.informeResultado}}
+            </p>
+      </div>
+    </div>
+  </div>

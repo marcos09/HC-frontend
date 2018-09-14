@@ -6,7 +6,6 @@ import { MedicamentoService } from '../../../../medicamentos/medicamento.service
 @Component({
   selector: 'app-nueva-prescripcion',
   templateUrl: './nueva-prescripcion.component.html',
-  styleUrls: ['./nueva-prescripcion.component.css']
 })
 export class NuevaPrescripcionComponent implements OnInit {
 

@@ -11,7 +11,6 @@ import { Prescripcion } from '../prescripcion/prescripcion';
 @Component({
   selector: 'app-ingreso',
   templateUrl: './ingreso.component.html',
-  styleUrls: ['./ingreso.component.css']
 })
 export class IngresoComponent implements OnInit {
 

@@ -50,4 +50,10 @@ export class HistoriaService {
 
   }
 
+  obtenerHistoriaOrdenada(idHistoria: number): Observable<any> {
+    const url = environment.url + 'historia/ordenada/' + idHistoria;
+    return this.http.get(url , this.httpOptions);
+
+  }
+
 }

@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { EstudioService } from '../estudio.service';
-import { Paciente } from '../../ingreso/paciente';
 import { Estudio } from '../estudio';
 
 @Component({
   selector: 'app-resultado',
   templateUrl: './resultado.component.html',
-  styleUrls: ['./resultado.component.css']
 })
 export class ResultadoComponent implements OnInit {
 
