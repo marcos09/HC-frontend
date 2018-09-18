@@ -1,28 +1,33 @@
+<div *ngIf=" patologiaEdit == false ">
 <h1>Administración de Patologias</h1>
+
 <div class="card">
   <div class="card-header">
     <strong>Añadir nueva patología</strong>
   </div>
   <div class="card-body">
     <form action="" method="post" class="form-horizontal">
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label" for="hf-email">Nombre</label>
-            <div class="col-md-9">
-              <input [(ngModel)] = 'patologia.nombre' type="text" id="hf-email" name="hf-nombre" class="form-control" required >
-              <span class="help-block">Nombre de la patologia</span>
-            </div>
-          </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">Nombre</label>
+        <div class="col-md-9">
+          <input [(ngModel)]='patologia.nombre' type="text" id="hf-email" name="hf-nombre" class="form-control"
+            required>
+          <span class="help-block">Nombre de la patologia</span>
+        </div>
+      </div>
       <div class="form-group row">
         <label class="col-md-3 col-form-label" for="hf-email">Descripcion</label>
         <div class="col-md-9">
-          <input [(ngModel)] = 'patologia.otroDato' type="email" id="hf-email" name="hf-otroDato" class="form-control" required>
+          <input [(ngModel)]='patologia.otroDato' type="email" id="hf-email" name="hf-otroDato" class="form-control"
+            required>
           <span class="help-block">Informacion de la patologia</span>
         </div>
       </div>
     </form>
   </div>
   <div class="card-footer">
-    <button (click)= 'saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Agregar patologia</button>
+    <button (click)='saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+      Agregar patologia</button>
   </div>
 </div>
 <div class="card">
@@ -35,13 +40,37 @@
         <tr>
           <th class="col-sm-10">Nombre de la patología</th>
           <th class="col-sm-2">Descripción</th>
+          <th class="col-sm-2">Eliminar</th>
+          <th class="col-sm-2">Editar</th>
+
         </tr>
       </thead>
       <tbody>
 
         <tr *ngFor="let patologia of patologias">
           <td>{{ patologia.nombre }}</td>
-         <td>{{ patologia.otroDato }}</td>
+          <td>{{ patologia.otroDato }}</td>
+          <td>
+            <button type="button" class="btn btn-block btn-danger" (click)="removePatologia(patologia.id)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5 5H2v2h12z" />
+                <path fill="none" d="M0 0h24v24H0z" />
+              </svg>
+            </button>
+
+          </td>
+          <td>
+            <button aria-pressed="true" (click)="searchPatologia(patologia.id)" class="btn btn-block btn-outline-warning active" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+              </svg>
+            </button>
+          </td>
+
+
+
+
         </tr>
 
       </tbody>
@@ -53,6 +82,39 @@
 <ng-template #emptyList>
   <h5>No existen patologias cargadas.</h5>
 </ng-template>
+</div>
+
+<div *ngIf=" patologiaEdit == true ">
+<div class="card">
+    <div class="card-header">
+      <strong>Modificar patología</strong>
+    </div>
+    <div class="card-body">
+      <form action="" method="post" class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="hf-email">Nombre</label>
+          <div class="col-md-9">
+            <input [(ngModel)]='patologia.nombre' type="text" id="hf-email" name="hf-nombre" class="form-control"
+              required>
+            <span class="help-block">Nombre de la patologia</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="hf-email">Descripcion</label>
+          <div class="col-md-9">
+            <input [(ngModel)]='patologia.otroDato' type="email" id="hf-email" name="hf-otroDato" class="form-control"
+              required>
+            <span class="help-block">Informacion de la patologia</span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button (click)='editPatologia(patologia)' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+        Guardar cambios</button>
+    </div>
+  </div>
+</div>
 
 <!-- <div class="container">
   <h2>Añadir nueva patología</h2>
@@ -71,4 +133,3 @@
   </form>
 </div>
  -->
-

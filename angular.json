@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "/Users/gonmastronardi/git/HC-PASAE/src/main/resources/static",
+            "outputPath": "/Users/gonmastronardi/eclipse-workspace/pasae-trabajofinal-frontend/src/main/resources/static",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

@@ -7,6 +7,8 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class PatologiaService {
+
+
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
@@ -23,6 +25,21 @@ export class PatologiaService {
   }
   getPatologias(): Observable<any> {
     return this.http.get(environment.url + 'patologias/list', this.httpOptions);
+  }
+
+  eliminar(id: Number): Observable<any> {
+    const url = environment.url + 'patologias/' + id;
+    return this.http.delete(url, this.httpOptions);
+  }
+
+  editar(patologia: Patologia): any {
+    const url = environment.url + 'patologias/updatePatologia';
+    return this.http.put(url, patologia, this.httpOptions);
+  }
+
+  obtenerPatologia(id: Number): any {
+    const url = environment.url + 'patologias/' + id;
+    return this.http.get(url , this.httpOptions);
   }
 
   constructor(private http: HttpClient) {}
