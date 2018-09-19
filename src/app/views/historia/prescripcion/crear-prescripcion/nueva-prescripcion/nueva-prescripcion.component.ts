@@ -11,6 +11,7 @@ export class NuevaPrescripcionComponent implements OnInit {
 
   public prescripcion: Prescripcion = new Prescripcion();
   public medicamentos: Medicamento[] = [];
+
   @Output() public addPrescripcion = new EventEmitter<Prescripcion>();
 
   constructor(private medicamentoService: MedicamentoService) { }

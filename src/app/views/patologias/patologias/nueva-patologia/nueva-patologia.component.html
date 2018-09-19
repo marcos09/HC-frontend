@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header">
+      <strong>Añadir nueva patología</strong>
+    </div>
+    <div class="card-body">
+      <form action="" method="post" class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="hf-email">Nombre</label>
+          <div class="col-md-9">
+            <input [(ngModel)]='patologia.nombre' type="text" id="hf-email" name="hf-nombre" class="form-control"
+              required>
+            <span class="help-block">Nombre de la patologia</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="hf-email">Descripcion</label>
+          <div class="col-md-9">
+            <input [(ngModel)]='patologia.otroDato' type="email" id="hf-email" name="hf-otroDato" class="form-control"
+              required>
+            <span class="help-block">Informacion de la patologia</span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button (click)='saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+        Agregar patologia</button>
+    </div>
+  </div>

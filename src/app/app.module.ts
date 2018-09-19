@@ -35,6 +35,9 @@ import { NuevoMedicamentoComponent } from './views/medicamentos/nuevo-medicament
 import { ListadoMedicamentoComponent } from './views/medicamentos/listado-medicamento/listado-medicamento.component';
 import { UsuarioService } from './views/usuarios/usuario.service';
 import { UsuariosModule } from './views/usuarios/usuarios.module';
+import { NuevaPatologiaComponent } from './views/patologias/patologias/nueva-patologia/nueva-patologia.component';
+import { ListPatologiasComponent } from './views/patologias/patologias/list-patologias/list-patologias.component';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -49,7 +52,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     InternacionesComponent,
     PatologiasComponent,
     NuevoMedicamentoComponent,
-    ListadoMedicamentoComponent
+    ListadoMedicamentoComponent,
+    ListPatologiasComponent,
+    NuevaPatologiaComponent
   ],
 
   imports: [

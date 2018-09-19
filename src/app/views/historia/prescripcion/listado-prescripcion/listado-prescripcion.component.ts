@@ -10,6 +10,7 @@ export class ListadoPrescripcionComponent implements OnInit {
   @Input() public prescripciones: Prescripcion[];
   @Output() public delete = new EventEmitter<Prescripcion>();
   @Output() public save = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
