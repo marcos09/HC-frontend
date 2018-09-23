@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PatologiaService } from '../patologia.service';
 import { Patologia } from '../patologia';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-patologias',
   templateUrl: './patologias.component.html',
@@ -10,7 +10,7 @@ import { Patologia } from '../patologia';
 
 export class PatologiasComponent implements OnInit {
 
-  constructor(private patologiaService: PatologiaService) { }
+  constructor(private patologiaService: PatologiaService, private router: Router) { }
 
   patologia: Patologia = new Patologia();
   public patologias: Patologia[];
@@ -23,6 +23,9 @@ export class PatologiasComponent implements OnInit {
     console.log(this.patologias);
   }
 
+  onBack() {
+    this.router.navigate(['/patologias']);
+  }
   saveOperation(patologia: Patologia ) {
     console.log(patologia);
     this.patologiaService.crear(patologia).subscribe();

@@ -1,17 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgxGalleryImage, NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gallery';
 import { Estudio } from './estudio';
+import { EstudioService } from './estudio.service';
 
 @Component({
   selector: 'app-estudio',
   templateUrl: './estudio.component.html'
 })
 export class EstudioComponent implements OnInit {
+
+  @Input() public idEstudio: number;
   @Input() public estudioActual: Estudio;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor() {}
+  constructor(private estudioService: EstudioService) {}
 
   ngOnInit() {
     this.galleryOptions = [
@@ -60,5 +63,13 @@ export class EstudioComponent implements OnInit {
         big: 'assets/img/estudios/Rmn4.jpg'
       }
     ];
+
+    if (this.idEstudio != null) {
+      this.estudioService.obtenerEstudio(this.idEstudio.toString()).subscribe(
+        result => {
+          this.estudioActual = result;
+        }
+      );
+    }
   }
 }

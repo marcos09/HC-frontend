@@ -3,6 +3,8 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 import 'hammerjs';
 import { HistoriaService } from '../historia.service';
 import { HistoriaOrdenada } from './historia-ordenada';
+import { Seguimiento } from '../seguimiento/seguimiento';
+import { Elemento } from './elemento';
 
 @Component({
   selector: 'app-detalle',
@@ -10,17 +12,24 @@ import { HistoriaOrdenada } from './historia-ordenada';
 })
 export class DetalleComponent implements OnInit {
 
+
+  historiaResumen: Elemento[] = [];
   historiaOrdenada: HistoriaOrdenada;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   count = 0;
   ngOnInit(): void {
-    this.historiaService.obtenerHistoriaOrdenada(1).subscribe(
+    this.historiaService.obtenerHistoriaCompletaOrdenada(1).subscribe(
       result => {
         this.historiaOrdenada = result;
-        console.log('Pre error');
-        // this.count = this.historiaOrdenada.getNumberOfElements();
-        console.log(this.count);
+        console.log(this.historiaOrdenada);
+      }
+    );
+    this.historiaService.obtenerHistoriaOrdenada(1).subscribe(
+      result => {
+        this.historiaResumen = result;
+        console.log(this.historiaResumen);
+
       }
     );
   }

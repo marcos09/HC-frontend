@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Seguimiento } from './seguimiento';
+import { HistoriaService } from '../historia.service';
 
 @Component({
   selector: 'app-seguimiento',
@@ -8,10 +9,17 @@ import { Seguimiento } from './seguimiento';
 export class SeguimientoComponent implements OnInit {
 
   @Input() public seguimiento: Seguimiento;
-  constructor() { }
+  @Input() public idElemento: number;
+  constructor(private historiaService: HistoriaService) { }
 
   ngOnInit() {
-
+    if (this.idElemento != null) {
+      this.historiaService.getSeguimiento(this.idElemento).subscribe(
+        result => {
+          this.seguimiento = result;
+        }
+      );
+    }
   }
 
 

@@ -3,7 +3,12 @@
       <!-- Nav tabs -->
       <tabset>
         <tab> <!--Completa -->
-          <app-seguimiento></app-seguimiento>
+          <div *ngFor="let elemento of historiaResumen">
+            <app-seguimiento [idElemento]="elemento.id" *ngIf=" elemento.tipoElemento.includes('Seguimiento')"></app-seguimiento>
+            <app-estudio [idEstudio]="elemento.id" *ngIf="elemento.tipoElemento.includes('EstudioComplementario')"></app-estudio>
+            <p *ngIf="elemento.tipoElemento.includes('Aplicacion')"> Aplicacion </p>
+            <!-- Posibles tipoElemento Ingreso Seguimiento EstudioComplementario Aplicacion -->
+          </div>
           <ng-template tabHeading><i class="icon-list"></i> Completa &nbsp;<span class="badge badge-success">10</span></ng-template>
         </tab>
 

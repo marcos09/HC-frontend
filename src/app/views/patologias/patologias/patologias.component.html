@@ -27,7 +27,7 @@
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="hf-email">Descripcion</label>
           <div class="col-md-9">
-            <input [(ngModel)]='patologia.otroDato' type="email" id="hf-email" name="hf-otroDato" class="form-control"
+            <input [(ngModel)]="patologia.otroDato' type="email" id="hf-email" name="hf-otroDato" class="form-control"
               required>
             <span class="help-block">Informacion de la patologia</span>
           </div>
@@ -35,6 +35,9 @@
       </form>
     </div>
     <div class="card-footer">
+        <button (click)='onBack()' type="submit" class="btn btn-sm btn-warning"><i class="fa fa-dot-circle-o"></i>
+          Cancelar edicion</button>
+
       <button (click)='editPatologia(patologia)' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
         Guardar cambios</button>
     </div>

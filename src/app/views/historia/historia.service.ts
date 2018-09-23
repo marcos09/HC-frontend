@@ -56,4 +56,17 @@ export class HistoriaService {
 
   }
 
+  obtenerHistoriaCompletaOrdenada(idHistoria: number): Observable<any> {
+    const url = environment.url + 'historia/completaOrdenada/' + idHistoria;
+    return this.http.get(url , this.httpOptions);
+
+  }
+
+  getSeguimiento(idSeguimiento: number): Observable<any> {
+    const url = environment.url + 'seguimiento/' + idSeguimiento;
+    return this.http.get(url , this.httpOptions);
+
+  }
+
+
 }
