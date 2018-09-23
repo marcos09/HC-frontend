@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "sme": "./node_modules/.bin/source-map-explorer",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

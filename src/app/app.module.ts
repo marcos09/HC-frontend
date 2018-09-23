@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {
@@ -15,9 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {
   AppAsideModule,
   AppBreadcrumbModule,
@@ -27,7 +25,6 @@ import {
 } from '@coreui/angular';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
-import { AlertModule } from 'ngx-bootstrap/alert';
 import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
 import { PatologiasComponent } from './views/patologias/patologias/patologias.component';
@@ -58,15 +55,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
 
   imports: [
-    AlertModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,
-    BsDropdownModule.forRoot(),
-    ChartsModule,
     BrowserModule, // Módulo para la presentacion en el navegador
     ComponentsModule,
     FormsModule,
