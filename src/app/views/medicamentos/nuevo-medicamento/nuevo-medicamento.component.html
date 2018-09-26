@@ -1,36 +1,43 @@
 <div class="card">
     <div class="card-header">
-      <strong>Nuevo medicamento</strong>
+      <strong>Añadir nuevo medicamento</strong>
     </div>
     <div class="card-body">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="name">Nombre del medicamento</label>
-            <input type="text" class="form-control" [(ngModel)]="medicamento.nombre" id="name" placeholder="Nombre">
+      <form action="" method="post" class="form-horizontal">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="hf-email">Nombre</label>
+          <div class="col-md-9">
+            <input [(ngModel)]="medicamento.nombre" type="text" id="hf-email" name="hf-nombre" class="form-control"
+              required>
+            <span class="help-block">Nombre del medicamento</span>
           </div>
         </div>
-      </div><!--/.row-->
-      <div class="row">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <label for="name">Indicaciones</label>
-              <input type="text" class="form-control" id="name" [(ngModel)]="medicamento.indicaciones" placeholder="Indicaciones">
-            </div>
-          </div>
-        </div><!--/.row-->
-        <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">Contraindicaciones</label>
-                <input type="text" class="form-control" id="name" [(ngModel)]="medicamento.contraindicaciones"placeholder="Contraindicaciones">
-              </div>
-            </div>
-          </div><!--/.row-->
 
-          <div class="col-md-3">
-              <button type="button" (click)= "saveOperation()"  class="btn btn-square btn-block btn-success">Crear medicamento</button>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="hf-email">Indicaciones</label>
+          <div class="col-md-9">
+            <input [(ngModel)]="medicamento.indicaciones" type="text" id="hf-email" name="hf-otroDato" class="form-control"
+              required>
+            <span class="help-block">Indicaciones para las que se prescribe el medicamento</span>
+          </div>
         </div>
 
-</div>
-</div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="hf-email">Contraindicaciones</label>
+            <div class="col-md-9">
+              <input [(ngModel)]="medicamento.contraindicaciones" type="text" id="hf-email" name="hf-otroDato" class="form-control"
+                required>
+              <span class="help-block">Contraindicaciones producidas por el medicamento</span>
+            </div>
+          </div>
+
+
+      </form>
+    </div>
+    <div class="card-footer">
+        <button (click)="deleteData()" type="submit" class="btn btn-sm btn-warning"><i class="fa fa-dot-circle-o"></i>
+          Borrar datos </button>
+      <button (click)='saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+        Añadir nuevo medicamento</button>
+    </div>
+  </div>

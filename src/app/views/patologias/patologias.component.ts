@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PatologiaService } from '../patologia.service';
-import { Patologia } from '../patologia';
+import { PatologiaService } from './patologia.service';
+import { Patologia } from './patologia';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-patologias',
@@ -13,7 +13,7 @@ export class PatologiasComponent implements OnInit {
   constructor(private patologiaService: PatologiaService, private router: Router) { }
 
   patologia: Patologia = new Patologia();
-  public patologias: Patologia[];
+  public patologias: Patologia[] = [];
   patologiaEdit = false;
   idBusqueda: Number;
 
@@ -30,7 +30,6 @@ export class PatologiasComponent implements OnInit {
     console.log(patologia);
     this.patologiaService.crear(patologia).subscribe();
     this.patologias.push(patologia);
-    // this.patologia = new Patologia();
     this.patologiaService.getPatologias().subscribe(data => this.patologias = data);
   }
 

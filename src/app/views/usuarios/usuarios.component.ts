@@ -1,32 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from './usuario';
 import { UsuarioService } from './usuario.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html'
 })
 export class UsuariosComponent implements OnInit {
-  public availableRoles: String[] = [
-    'Médico',
-    'Enfermera',
-    'Epidemiólogo',
-    'Administrador'
-  ];
+
+  public availableRoles: String[] = [];
   public usuarios: Usuario[] = [];
 
-  constructor(private userService: UsuarioService) {}
+  private busqueda: Usuario;
+  public  busquedaActiva: Boolean = false;
+  constructor(private userService: UsuarioService, private flashMessagesService: FlashMessagesService) {}
 
   saveOperation(usuario: Usuario) {
     this.userService.addUser(usuario).subscribe(
       result => {
         this.getUsers();
-        if (result.code !== 200) {
-          console.log(result);
-          this.usuarios = result;
-        } else {
-          this.usuarios = result.data;
-        }
+        console.log('Agrego el alert');
+        this.flashMessagesService.show('We are in about component!', { cssClass: 'alert-success', timeout: 10000 });
+        this.flashMessagesService.grayOut(true); // turn on gray out feature
+
       },
       error => {
         console.log(<any>error);
@@ -41,16 +38,7 @@ export class UsuariosComponent implements OnInit {
 
     this.userService.deleteUser(user.id).subscribe(
       result => {
-        console.log(result);
-        if (result.code !== 200) {
-          console.log(result);
-          this.usuarios = result;
-        } else {
-          this.usuarios = result.data;
-        }
-      },
-      error => {
-        console.log(<any>error);
+        this.getUsers();
       }
     );
 
@@ -75,5 +63,19 @@ export class UsuariosComponent implements OnInit {
         console.log(<any>error);
       }
     );
+    this.availableRoles = this.userService.getRoles();
+
+  }
+
+  searchUser(usuario: Usuario) {
+    this.busqueda = usuario;
+    this.busquedaActiva = this.busqueda.isEmpty();
+    this.userService.searchUsers(usuario).subscribe(
+      result => {
+        this.usuarios = result;
+      }
+
+    );
+
   }
 }

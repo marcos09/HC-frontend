@@ -1,20 +1,17 @@
 <div class="animated fadeIn">
+
   <div class="row">
     <div class="col-sm-3">
-      <!-- Buscar component-->
-      <app-buscar></app-buscar>
+      <app-buscar (buscar)="searchUser($event)" [roles]="availableRoles"></app-buscar>
     </div>
-    <!--/.col-->
     <div class="col-sm-9">
-      <app-listado-usuarios (deleteUser)="deleteUser($event)" [usuarios]="usuarios" ></app-listado-usuarios>
-      <!--Listado de usuarios component-->
+      <app-listado-usuarios (deleteUser)="deleteUser($event)" [busqueda]="busquedaActiva"[usuarios]="usuarios" ></app-listado-usuarios>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12">
       <app-nuevo-usuario (addUser)="saveOperation($event)" ></app-nuevo-usuario>
-      <!-- Crear nuevo usuario component-->
     </div>
   </div>
 </div>

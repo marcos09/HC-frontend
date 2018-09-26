@@ -34,4 +34,8 @@ export class NuevoUsuarioComponent implements OnInit {
     this.addUser.emit(this.usuario);
     this.usuario = new Usuario();
   }
+
+  deleteData() {
+    this.usuario = new Usuario();
+  }
 }

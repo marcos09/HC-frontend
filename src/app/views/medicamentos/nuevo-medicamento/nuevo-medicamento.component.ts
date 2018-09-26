@@ -16,6 +16,11 @@ export class NuevoMedicamentoComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteData() {
+    this.medicamento.nombre = '';
+    this.medicamento.indicaciones = '';
+    this.medicamento.contraindicaciones = '';
+  }
 
   saveOperation() {
     this.addMedicamento.emit(this.medicamento);

@@ -8,6 +8,7 @@ import { Patologia } from '../../patologias/patologia';
 import { PatologiaService } from '../../patologias/patologia.service';
 import { Estudio } from '../estudio/estudio';
 import { Prescripcion } from '../prescripcion/prescripcion';
+import { FlashMessagesService } from 'angular2-flash-messages';
 @Component({
   selector: 'app-ingreso',
   templateUrl: './ingreso.component.html',
@@ -22,19 +23,17 @@ export class IngresoComponent implements OnInit {
   public diagnosticos: Patologia[] = [];
 
   constructor(private historiaService: HistoriaService , private pacienteService: PacienteService,
-     private patologiaService: PatologiaService) { }
+     private patologiaService: PatologiaService, private flashMessagesService: FlashMessagesService) { }
 
   ngOnInit() {
     this.getDiagnosticos();
   }
 
   public updateEstudios(nuevoEstudio: Estudio[]) {
-    console.log('Actualicé los estudios');
     this.ingreso.estudiosComplementariosDTO = nuevoEstudio;
   }
 
   public updatePrescripciones(nuevaPrescripcion: Prescripcion[]) {
-    console.log('Actualicé las prescripciones');
     this.ingreso.prescripcionesDTO = nuevaPrescripcion;
   }
 
@@ -59,10 +58,12 @@ export class IngresoComponent implements OnInit {
         result => {
         console.log(result);
           if (result.code !== 200) {
-            console.log('Agregado');
+            this.flashMessagesService.show('El paciente se ingresó correctamente', { cssClass: 'alert-success', timeout: 1000 });
           } else {
+            this.flashMessagesService.show('Hubo un error al ingresar al paciente', { cssClass: 'alert-danger', timeout: 1000 });
               console.log('Error');
           }
+
       },
       error => {
           console.log(<any>error);
