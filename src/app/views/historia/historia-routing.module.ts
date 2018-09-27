@@ -12,7 +12,7 @@ const routes: Routes = [
     component: IngresoComponent,
   },
   {
-    path: 'detalle',
+    path: 'detalle/:idHistoria',
     component: DetalleComponent,
   },
   {

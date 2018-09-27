@@ -5,10 +5,14 @@
   <div class="card-body">
         <div class="form-group">
           <label for="searchUser">Ingrese el número de estudio a buscar</label>
-          <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchEstudio()" id="searchUser">
+          <input type="text" class="form-control" (keydown.enter)="searchEstudio()" [(ngModel)]="idBusqueda" (onchange)="searchEstudio()" id="searchUser">
         </div>
-        <button (click)="searchEstudio()"> Buscar Estudio </button>
   </div>
+  <div class="card-footer">
+    <button (click)='searchEstudio()'  type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+      Buscar paciente</button>
+  </div>
+
 </div>
 <p *ngIf=" estudioSearch.length == 0">
 Debe buscar una estudio para poder cargar el resultado

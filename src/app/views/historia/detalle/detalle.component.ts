@@ -5,6 +5,7 @@ import { HistoriaService } from '../historia.service';
 import { HistoriaOrdenada } from './historia-ordenada';
 import { Seguimiento } from '../seguimiento/seguimiento';
 import { Elemento } from './elemento';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detalle',
@@ -12,20 +13,20 @@ import { Elemento } from './elemento';
 })
 export class DetalleComponent implements OnInit {
 
-
+  idHistoria: number;
   historiaResumen: Elemento[] = [];
   historiaOrdenada: HistoriaOrdenada;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   count = 0;
   ngOnInit(): void {
-    this.historiaService.obtenerHistoriaCompletaOrdenada(1).subscribe(
+    this.historiaService.obtenerHistoriaCompletaOrdenada(this.idHistoria).subscribe(
       result => {
         this.historiaOrdenada = result;
         console.log(this.historiaOrdenada);
       }
     );
-    this.historiaService.obtenerHistoriaOrdenada(1).subscribe(
+    this.historiaService.obtenerHistoriaOrdenada(this.idHistoria).subscribe(
       result => {
         this.historiaResumen = result;
         console.log(this.historiaResumen);
@@ -34,6 +35,9 @@ export class DetalleComponent implements OnInit {
     );
   }
 
-  constructor(private historiaService: HistoriaService) { }
+  constructor(private historiaService: HistoriaService, private route: ActivatedRoute) {
+    this.route.params.subscribe( params => this.idHistoria = params['idHistoria']) ;
+
+  }
 
 }

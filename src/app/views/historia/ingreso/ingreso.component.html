@@ -7,10 +7,13 @@
             <label for="searchUser">Ingrese el DNI del paciente a buscar</label>
             <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchPacient()" id="searchUser">
           </div>
-          <button (click)="searchPacient()" (keydown.enter)="searchPacient()"> Buscar Paciente </button>
     </div>
-  </div>
 
+    <div class="card-footer">
+      <button (click)='searchPacient()' (keydown.enter)="searchPacient()" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+        Buscar paciente</button>
+    </div>
+</div>
 <div *ngIf=" pacientSearch ">
     <h3>Ingresar paciente:</h3>
 <div class="card">

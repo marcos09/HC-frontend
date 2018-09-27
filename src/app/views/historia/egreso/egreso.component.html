@@ -7,8 +7,13 @@
             <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
             <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchHistory()" id="searchUser">
           </div>
-          <button (click)="searchHistory()"> Buscar Historia </button>
     </div>
+    <div class="card-footer">
+      <button (click)='searchHistory()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+        Buscar historia</button>
+    </div>
+
+
   </div>
 <p *ngIf=" userSearch.length == 0">
 Debe buscar una historia para poder realizar el egreso
