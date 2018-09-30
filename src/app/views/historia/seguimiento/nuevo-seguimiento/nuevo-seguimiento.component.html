@@ -64,7 +64,7 @@
           <div class="col-sm-12">
             <div class="form-group">
               <label for="name">Descripcion</label>
-              <input type="text" class="form-control" id="name" [(ngModel)] = "seguimiento.resultado" placeholder="Descripcion">
+              <input type="text" name="descripcion" class="form-control" id="name" [(ngModel)] = "seguimiento.resultado" placeholder="Descripcion" required>
             </div>
             <div class="card-footer">
               <button (click)= 'saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
@@ -77,6 +77,18 @@
     <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
     <app-crear-prescripcion (updatePrescripciones)="updatePrescripciones($event)" ></app-crear-prescripcion>
 
+  </div>
+
+  <div class="card" *ngIf=" errorResponse.length > 0" >
+    <div class="card-body">
+      <dd class="col-sm-9">{{errorResponse}}</dd>
+    </div>
+  </div>
+
+  <div class="card" *ngIf=" successResponse.length > 0" >
+    <div class="card-body">
+      <dd class="col-sm-9">{{successResponse}}</dd>
+    </div>
   </div>
 
 </div>

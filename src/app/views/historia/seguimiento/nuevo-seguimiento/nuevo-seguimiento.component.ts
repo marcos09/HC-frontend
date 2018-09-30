@@ -17,7 +17,8 @@ export class NuevoSeguimientoComponent implements OnInit {
   paciente: Paciente = null;
   idBusqueda: String = '';
   seguimiento: Seguimiento = null;
-
+  errorResponse: String = '';
+  successResponse: String = '';
 
   ngOnInit() {
 
@@ -32,6 +33,7 @@ export class NuevoSeguimientoComponent implements OnInit {
   }
   searchHistory() {
     this.userSearch = 'Buscando' ;
+    this.errorResponse = '';
     console.log( 'Search history' );
      this.historiaService.obtenerPaciente(this.idBusqueda).subscribe(
       result => {
@@ -46,7 +48,7 @@ export class NuevoSeguimientoComponent implements OnInit {
     },
     error => {
         console.log(<any>error);
-
+        this.errorResponse = error.error.errors;
     }
 
      );
@@ -54,17 +56,15 @@ export class NuevoSeguimientoComponent implements OnInit {
   saveOperation() {
     console.log( 'El valor del seguimiento a agregar es: ');
     console.log(this.seguimiento);
+    this.userSearch = '';
     this.historiaService.addSeguimiento(this.seguimiento, this.idBusqueda).subscribe(
               result => {
-                  if (result.code !== 200) {
                       console.log(result);
-                   //   this.users = result;
-                  } else {
-                    //  this.users = result.data;
-                  }
+                      this.successResponse = 'El seguimiento fue agregado correctamente';
               },
               error => {
                   console.log(<any>error);
+                  this.errorResponse = error.error.errors;
               }
           );
   }

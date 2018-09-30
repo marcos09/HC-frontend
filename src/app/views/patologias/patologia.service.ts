@@ -39,7 +39,13 @@ export class PatologiaService {
 
   obtenerPatologia(id: Number): any {
     const url = environment.url + 'patologias/' + id;
-    return this.http.get(url , this.httpOptions);
+    return this.http.get(url , {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Content-type': 'application/json',
+      }), observe: 'response'
+    }
+    );
   }
 
   constructor(private http: HttpClient) {}

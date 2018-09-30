@@ -14,12 +14,14 @@ export class EgresoComponent implements OnInit {
   paciente: Paciente = null;
   idBusqueda: String = '';
   egreso: Egreso = new Egreso();
+  errorResponse: String = '';
 
   ngOnInit() {
   }
 
   searchHistory() {
     this.userSearch = 'Buscando' ;
+    this.errorResponse = '';
     console.log( 'Search history' );
      this.historiaService.obtenerPaciente(this.idBusqueda).subscribe(
       result => {
@@ -33,7 +35,7 @@ export class EgresoComponent implements OnInit {
     },
     error => {
         console.log(<any>error);
-
+        this.errorResponse = error.error.errors;
     }
 
      );
@@ -42,6 +44,7 @@ export class EgresoComponent implements OnInit {
   egresarPaciente() {
     console.log( 'Egresando paciente' );
     this.userSearch = '' ;
+    this.errorResponse = '';
      this.historiaService.egresarPaciente(this.egreso, this.idBusqueda).subscribe(
       result => {
         if (result.code !== 200) {
@@ -53,7 +56,7 @@ export class EgresoComponent implements OnInit {
     },
     error => {
         console.log(<any>error);
-
+        this.errorResponse = error.error.errors;
     }
 
      );

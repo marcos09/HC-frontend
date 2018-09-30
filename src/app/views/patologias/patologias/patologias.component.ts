@@ -73,7 +73,16 @@ export class PatologiasComponent implements OnInit {
     this.patologiaService.editar(patologia).subscribe();
     this.patologia = new Patologia();
     this.patologias.push(patologia);
-    this.patologiaService.getPatologias().subscribe(data => this.patologias = data);
+    this.patologiaService.getPatologias().subscribe(
+        data => this.patologias = data,
+        result => {
+          if (result.code !== 200) {
+              console.log(result);
+          } else {
+            console.log(result);
+          }
+        }
+     );
     this.patologiaEdit = false;
     this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(() => this.router.navigate(['/patologias']));
   }
