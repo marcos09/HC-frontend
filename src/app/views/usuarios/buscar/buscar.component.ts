@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
 
@@ -8,9 +8,22 @@ import { UsuarioService } from '../usuario.service';
 })
 export class BuscarComponent implements OnInit {
 
-  constructor(private userService: UsuarioService) { }
+  @Output() buscar = new EventEmitter<Usuario> ();
+
+  @Input() roles: String[] = [];
+  constructor(public userService: UsuarioService) { }
   usuario: Usuario = new Usuario();
+
   ngOnInit() {
+  }
+
+  searchUsers() {
+    this.buscar.emit(this.usuario);
+  }
+
+  deleteData() {
+    this.usuario = new Usuario();
+    this.buscar.emit(this.usuario);
   }
 
 }

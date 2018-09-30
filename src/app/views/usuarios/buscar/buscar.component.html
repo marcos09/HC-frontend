@@ -7,7 +7,7 @@
         <div class="col-sm-12">
           <div clas="form-group">
             <label for="name">Nombre</label>
-            <input type="text" class="form-control" id="name" placeholder="Ingrese el nombre a buscar">
+            <input type="text" class="form-control" [(ngModel)]="usuario.username" id="name" placeholder="Ingrese el nombre a buscar">
           </div>
         </div>
       </div><!--/.row-->
@@ -15,7 +15,7 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="ccnumber">Correo electrónico</label>
-            <input type="text" class="form-control" id="ccnumber" placeholder="email@ejemplo.com">
+            <input type="text" [(ngModel)]="usuario.email" class="form-control" id="ccnumber" placeholder="email@ejemplo.com">
           </div>
         </div>
       </div><!--/.row-->
@@ -23,15 +23,21 @@
         <div class="col-sm-12">
           <div class="form-group">
             <label for="ccnumber">Rol del usuario</label>
-            <select name="role" class="form-control">
-              <option [value]="">Seleccione un rol para el nuevo usuario:</option>
-              <!--
-              <option *ngFor="let usuarioService.getRoles() of availableRoles"
-              [value]="role">{{role}}</option>
-              -->
+            <select name="role"  [(ngModel)] = "usuario.authorities" class="form-control">
+              <option [value]="">Seleccione un rol para la búsqueda de usuarios:</option>
+              <option *ngFor="let role of roles" [value]="role">
+                {{role}}
+              </option>
             </select>
           </div>
         </div>
       </div><!--/.row-->
     </div>
+    <div class="card-footer">
+        <button (click)="deleteData()" type="submit" class="btn btn-sm btn-warning"><i class="fa fa-dot-circle-o"></i>
+          Cancelar </button>
+      <button (click)='searchUsers()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+        Buscar usuarios</button>
+    </div>
+
   </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Patologia } from '../../patologia';
+import { Patologia } from '../patologia';
 
 @Component({
   selector: 'app-nueva-patologia',

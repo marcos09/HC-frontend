@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingreso } from './ingreso';
 import { HistoriaService } from '../historia.service';
-
 import { PacienteService } from '../paciente/paciente.service';
 import { Paciente } from '../paciente/paciente';
 import { Patologia } from '../../patologias/patologia';
 import { PatologiaService } from '../../patologias/patologia.service';
 import { Estudio } from '../estudio/estudio';
 import { Prescripcion } from '../prescripcion/prescripcion';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-ingreso',
   templateUrl: './ingreso.component.html',
@@ -22,19 +23,18 @@ export class IngresoComponent implements OnInit {
   public diagnosticos: Patologia[] = [];
 
   constructor(private historiaService: HistoriaService , private pacienteService: PacienteService,
-     private patologiaService: PatologiaService) { }
+     private patologiaService: PatologiaService, private flashMessagesService: FlashMessagesService,
+     private router: Router) { }
 
   ngOnInit() {
     this.getDiagnosticos();
   }
 
   public updateEstudios(nuevoEstudio: Estudio[]) {
-    console.log('Actualicé los estudios');
     this.ingreso.estudiosComplementariosDTO = nuevoEstudio;
   }
 
   public updatePrescripciones(nuevaPrescripcion: Prescripcion[]) {
-    console.log('Actualicé las prescripciones');
     this.ingreso.prescripcionesDTO = nuevaPrescripcion;
   }
 
@@ -57,14 +57,11 @@ export class IngresoComponent implements OnInit {
   saveOperation() {
     this.historiaService.crear(this.ingreso, this.paciente.id).subscribe(
         result => {
-        console.log(result);
-          if (result.code !== 200) {
-            console.log('Agregado');
-          } else {
-              console.log('Error');
-          }
+            this.flashMessagesService.show('El paciente se ingresó correctamente', { cssClass: 'alert-success', timeout: 1000 });
+            this.router.navigate(['/internaciones']);
       },
       error => {
+          this.flashMessagesService.show('Hubo un error al ingresar al paciente', { cssClass: 'alert-danger', timeout: 1000 });
           console.log(<any>error);
       }
     );
@@ -75,12 +72,12 @@ export class IngresoComponent implements OnInit {
     this.pacientSearch = true;
     this.continue = false;
     this.paciente = new Paciente();
-    console.log( 'Search pacient' );
      this.pacienteService.obtenerPaciente(this.idBusqueda).subscribe(
       result => {
         if (result.code !== 200) {
             console.log(result);
             this.paciente = result;
+            // this.paciente.dni = Number(this.idBusqueda);
             console.log(this.paciente);
         } else {
             this.paciente = result.data;
@@ -96,7 +93,6 @@ export class IngresoComponent implements OnInit {
   continueOperation() {
       this.continue = true;
       this.pacientSearch = false;
-      console.log( 'Actualizo datos del paciente' );
       this.pacienteService.updatePaciente(this.paciente).subscribe(
        result => {
          if (result.code !== 200) {

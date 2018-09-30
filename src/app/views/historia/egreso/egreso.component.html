@@ -5,10 +5,15 @@
     <div class="card-body">
           <div class="form-group">
             <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
-            <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchHistory()" id="searchUser">
+            <input type="text" (keydown.enter)="searchHistory()" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchHistory()" id="searchUser">
           </div>
-          <button (click)="searchHistory()"> Buscar Historia </button>
     </div>
+    <div class="card-footer">
+      <button (click)='searchHistory()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+        Buscar historia</button>
+    </div>
+
+
   </div>
 <p *ngIf=" userSearch.length == 0">
 Debe buscar una historia para poder realizar el egreso
@@ -50,8 +55,9 @@ Cargando datos del paciente
             <label for="searchUser">Ingrese el diagnostico final</label>
             <input type="text" class="form-control" [(ngModel)]="egreso.diagnosticoFinal" (onchange)="egresarPaciente()" id="searchUser">
           </div>
-          <button (click)="egresarPaciente()"> Egresar paciente </button>
-    </div>
+          <button (click)="egresarPaciente()" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+            Egresar paciente</button>
+        </div>
   </div>
 </div>
 

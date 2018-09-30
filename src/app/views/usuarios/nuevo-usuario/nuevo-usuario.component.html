@@ -3,36 +3,41 @@
       <strong>Crear un nuevo usuario</strong>
     </div>
     <div class="card-body">
-      <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+      <form>
 
         <div class="form-group row">
-          <label class="col-md-4 col-form-label" for="text-input">Nombre de usuario</label>
+          <label class="col-md-4 col-form-label" for="username">Nombre de usuario</label>
           <div class="col-md-8">
 
-            <input type="text" id="text-input" [(ngModel)]="usuario.username"name="text-input" class="form-control" placeholder="Text" #inputUsername>
+            <input type="text" id="username" [(ngModel)]="usuario.username" name="username" class="form-control" placeholder="Ingrese el nombre del nuevo usuario" #inputUsername required>
             <span class="help-block">This is a help text</span>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-md-4 col-form-label" for="email-input">Dirección de correo electrónico</label>
+          <label class="col-md-4 col-form-label" for="email">Dirección de correo electrónico</label>
           <div class="col-md-8">
-            <input type="email" [(ngModel)]="usuario.email" id="email-input" name="email-input" class="form-control" placeholder="Enter Email">
-            <span class="help-block">Please enter your email</span>
+            <input type="email" [(ngModel)]="usuario.email" id="email" name="email" class="form-control" placeholder="usuario" required>
+            <span class="help-block">Por favor ingrese el mail del usuario</span>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-md-4 col-form-label" for="select1">Rol asignado al usuario</label>
+          <label class="col-md-4 col-form-label" for="authorities">Rol asignado al usuario</label>
           <div class="col-md-8">
-            <select [(ngModel)] = "usuario.authorities" name="role" class="form-control">
+            <select [(ngModel)] = "usuario.authorities" name="authorities" class="form-control" required>
               <option [value]="">Seleccione un rol para el nuevo usuario:</option>
               <option *ngFor="let role of availableRoles"
               [value]="role">{{role}}</option>
             </select>
           </div>
-
-          <button (click)='saveOperation()'>Crear usuario</button>
         </div>
       </form>
     </div>
+    <div class="card-footer">
+        <button (click)="deleteData()" type="submit" class="btn btn-sm btn-warning"><i class="fa fa-dot-circle-o"></i>
+          Borrar datos </button>
+      <button (click)='saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+        Crear nuevo usuario</button>
+    </div>
+
   </div>

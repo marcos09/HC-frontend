@@ -1,19 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { ComponentsModule } from './lib/components/components.module';
+import { CookieService } from 'ngx-cookie-service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgModule} from '@angular/core';
 import {
   HttpClientModule,
   HttpClient,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
-import { TitleComponent } from './lib/components/nav/title.component';
-import { ComponentsModule } from './lib/components/components.module';
 import { HomeModule } from './views/home/home.module';
 import { NotFoundModule } from './views/not-found/not-found.module';
-import { FormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './token-interceptor.service';
-import { CookieService } from 'ngx-cookie-service';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {
@@ -27,13 +29,13 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PrescripcionComponent } from './views/prescripcion/prescripcion.component';
 import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
 import { InternacionesComponent } from './views/internaciones/internaciones.component';
-import { PatologiasComponent } from './views/patologias/patologias/patologias.component';
+import { PatologiasComponent } from './views/patologias/patologias.component';
 import { NuevoMedicamentoComponent } from './views/medicamentos/nuevo-medicamento/nuevo-medicamento.component';
 import { ListadoMedicamentoComponent } from './views/medicamentos/listado-medicamento/listado-medicamento.component';
 import { UsuarioService } from './views/usuarios/usuario.service';
 import { UsuariosModule } from './views/usuarios/usuarios.module';
-import { NuevaPatologiaComponent } from './views/patologias/patologias/nueva-patologia/nueva-patologia.component';
-import { ListPatologiasComponent } from './views/patologias/patologias/list-patologias/list-patologias.component';
+import { NuevaPatologiaComponent } from './views/patologias/nueva-patologia/nueva-patologia.component';
+import { ListPatologiasComponent } from './views/patologias/list-patologias/list-patologias.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -43,7 +45,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
-    TitleComponent,
     PrescripcionComponent,
     MedicamentosComponent,
     InternacionesComponent,
@@ -63,11 +64,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppSidebarModule,
     BrowserModule, // Módulo para la presentacion en el navegador
     ComponentsModule,
+    FlashMessagesModule.forRoot(), // Módulo para las alertas
     FormsModule,
     HomeModule,
     HttpClientModule,
     NotFoundModule,
     PerfectScrollbarModule,
+    ReactiveFormsModule,
     TabsModule.forRoot(),
     UsuariosModule
   ],

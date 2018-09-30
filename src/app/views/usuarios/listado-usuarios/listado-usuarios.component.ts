@@ -12,6 +12,7 @@ export class ListadoUsuariosComponent implements OnInit {
 
   @Output() deleteUser = new EventEmitter<Usuario>();
   @Input()  public usuarios: Usuario[] = [];
+  @Input() busqueda: Boolean = false;
 
   ngOnInit() {
   }

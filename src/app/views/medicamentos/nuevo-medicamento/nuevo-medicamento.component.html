@@ -1,36 +1,38 @@
 <div class="card">
-    <div class="card-header">
-      <strong>Nuevo medicamento</strong>
-    </div>
+  <div class="card-header">
+    <strong>Añadir nuevo medicamento</strong>
+  </div>
+  <form [formGroup]="myForm" class="form-horizontal">
     <div class="card-body">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <label for="name">Nombre del medicamento</label>
-            <input type="text" class="form-control" [(ngModel)]="medicamento.nombre" id="name" placeholder="Nombre">
-          </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">Nombre</label>
+        <div class="col-md-9">
+          <input formControlName="nombre" type="text" name="nombre" class="form-control">
+          <span class="help-block">Nombre del medicamento</span>
         </div>
-      </div><!--/.row-->
-      <div class="row">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <label for="name">Indicaciones</label>
-              <input type="text" class="form-control" id="name" [(ngModel)]="medicamento.indicaciones" placeholder="Indicaciones">
-            </div>
-          </div>
-        </div><!--/.row-->
-        <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">Contraindicaciones</label>
-                <input type="text" class="form-control" id="name" [(ngModel)]="medicamento.contraindicaciones"placeholder="Contraindicaciones">
-              </div>
-            </div>
-          </div><!--/.row-->
-
-          <div class="col-md-3">
-              <button type="button" (click)= "saveOperation()"  class="btn btn-square btn-block btn-success">Crear medicamento</button>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">Indicaciones</label>
+        <div class="col-md-9">
+          <input formControlName="indicaciones" type="text" name="indicaciones" class="form-control">
+          <span class="help-block">Indicaciones para las que se prescribe el medicamento</span>
         </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="hf-email">Contraindicaciones</label>
+        <div class="col-md-9">
+          <input formControlName="contraindicaciones" type="text" name="contraindicaciones" class="form-control">
+          <span class="help-block">Contraindicaciones producidas por el medicamento</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button (click)="deleteData()" type="submit" class="btn btn-sm btn-warning"><i class="fa fa-dot-circle-o"></i>
+        Borrar datos </button>
+      <button (click)='saveOperation(myForm.value)' type="submit" [disabled]="myForm.invalid" class="btn btn-sm btn-primary"><i
+          class="fa fa-dot-circle-o"></i>
+        Añadir nuevo medicamento</button>
+    </div>
+  </form>
 
-</div>
 </div>

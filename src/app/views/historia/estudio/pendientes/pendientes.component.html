@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Pacientes internados
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-md-2">Fecha de solicitud</th>
+            <th class="col-md-8">Estudio solicitado</th>
+            <th class="col-md-2"> Cargar resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let estudio of estudios">
+                <td>{{estudio.fechaIndicacion | date:'dd/MM/yy hh:mm'}}</td>
+                <td>{{estudio.estudioSolicitado}}</td>
+                <td>
+                    <button aria-pressed="true" [routerLink]="['/historias/estudio/cargarResultado/']" [skipLocationChange]="true" [queryParams]="{idEstudio: estudio.id}" class="btn btn-block btn-outline-warning active" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                          <path d="M0 0h24v24H0z" fill="none" />
+                        </svg> Cargar resultado
+                      </button>
+                </td>
+              </tr>
+        </tbody>
+      </table>
+
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </div>
+  </div>

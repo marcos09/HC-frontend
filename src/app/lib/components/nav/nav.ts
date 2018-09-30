@@ -63,7 +63,7 @@ export const navItems = [
   },
   {
     name: 'Estudios pendientes',
-    url: '/#',
+    url: '/historias/estudio/pendientes',
     icon: 'icon-pencil',
   },
 
@@ -94,12 +94,4 @@ export const navItems = [
     url: '/prescripciones',
     icon: 'icon-speedometer',
   },
-
-
-
- /*
-  Ver historia clínica
-  Cargar estudio
- */
-
 ];

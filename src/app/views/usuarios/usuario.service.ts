@@ -37,4 +37,10 @@ deleteUser(id: number): Observable<any> {
   return this.http.delete(url, this.httpOptions);
 }
 
+searchUsers(user: Usuario): Observable<any> {
+  const url = environment.url + 'user/buscar';
+  this.httpOptions.headers.set('Content-Type', 'application/json');
+  return this.http.put(url, user, this.httpOptions);
+}
+
 }

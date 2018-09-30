@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PrescripcionService } from './prescripcion.service';
-import { NgxGalleryThumbnailsComponent } from 'ngx-gallery';
 import { Prescripcion } from '../historia/prescripcion/prescripcion';
 
 @Component({
@@ -23,7 +22,7 @@ export class PrescripcionComponent implements OnInit {
   aplicarPrescripcion(presc: Prescripcion) {
     this.prescripcionService.aplicarPrescripcion(presc.id).subscribe(
       result => {
-
+        this.ngOnInit();
       }
     );
 

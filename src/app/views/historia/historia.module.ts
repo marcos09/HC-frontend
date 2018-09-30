@@ -22,6 +22,7 @@ import { NuevaPrescripcionComponent } from './prescripcion/crear-prescripcion/nu
 import { ListadoPrescripcionComponent } from './prescripcion/listado-prescripcion/listado-prescripcion.component';
 import { EgresoComponent } from './egreso/egreso.component';
 import { ResultadoComponent } from './estudio/resultado/resultado.component';
+import { PendientesComponent } from './estudio/pendientes/pendientes.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,6 @@ import { ResultadoComponent } from './estudio/resultado/resultado.component';
   declarations: [IngresoComponent, SeguimientoComponent, DetalleComponent, EstudioComponent,
      NuevoSeguimientoComponent, PacienteComponent, NuevoEstudioComponent,
      ListadoComponent, CrearComponent, PrescripcionComponent, NuevaPrescripcionComponent,
-     CrearPrescripcionComponent, ListadoPrescripcionComponent, EgresoComponent, ResultadoComponent]
+     CrearPrescripcionComponent, ListadoPrescripcionComponent, EgresoComponent, ResultadoComponent, PendientesComponent]
 })
 export class HistoriaModule { }

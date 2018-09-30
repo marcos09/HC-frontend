@@ -25,6 +25,7 @@
     "@coreui/coreui": "^2.0.4",
     "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.2.0",
     "@coreui/icons": "^0.3.0",
+    "angular2-flash-messages": "^3.0.1",
     "auth0-js": "^9.7.3",
     "bootstrap": "^4.1.2",
     "chart.js": "^2.7.2",

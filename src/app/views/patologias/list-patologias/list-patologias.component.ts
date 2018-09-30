@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Patologia } from '../../patologia';
+import { Patologia } from '../patologia';
 
 @Component({
   selector: 'app-list-patologias',
@@ -8,7 +8,7 @@ import { Patologia } from '../../patologia';
 })
 export class ListPatologiasComponent implements OnInit {
 
-  @Input() public patologias: Patologia[];
+  @Input() public patologias: Patologia[] = [];
   @Output() public delete = new EventEmitter<Patologia>();
   @Output() public edit = new EventEmitter<Patologia>();
 
