@@ -53,7 +53,7 @@ export class PatologiasComponent implements OnInit {
       result => {
         if (result.code !== 200) {
             console.log(result);
-            this.patologia = result;
+            this.patologia = result.body;
             console.log(this.patologia);
         } else {
             this.patologia = result.data;
