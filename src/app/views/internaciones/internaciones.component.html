@@ -20,9 +20,9 @@
                 <td>{{internacion.motivoConsulta}}</td>
                 <td>{{internacion.enfermedadActual}}</td>
                 <td>
-                    <button type="button" [routerLink]="['/historias/detalle/', internacion.idHistoria]"  class="btn btn-sm btn-primary">Visualizar historia</button>
-                    <button type="button" [routerLink]="['/patologias']" class="btn btn-sm btn-success">Realizar seguimiento</button>
-                    <button type="button" class="btn btn-sm btn-danger">Egresar paciente</button>
+                    <button type="button" [routerLink]="['/historias/detalle/', internacion.idHistoria]" [skipLocationChange]="true"   class="btn btn-sm btn-primary">Visualizar historia</button>
+                    <button type="button" [routerLink]="['/historias/seguimiento/']" [skipLocationChange]="true" [queryParams]="{idHistoria: internacion.idHistoria}" class="btn btn-sm btn-success">Realizar seguimiento</button>
+                    <button type="button" [routerLink]="['/historias/egreso/']" [skipLocationChange]="true" [queryParams]="{idHistoria: internacion.idHistoria}"  class="btn btn-sm btn-danger">Egresar paciente</button>
                 </td>
               </tr>
         </tbody>

@@ -6,7 +6,7 @@
         <div class="card-body">
               <div class="form-group">
                 <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
-                <input type="text" class="form-control" [(ngModel)]="idBusqueda" (onchange)="searchHistory()" id="searchUser">
+                <input type="text" class="form-control" (keydown.enter)="searchHistory()" [(ngModel)]="idBusqueda" (onchange)="searchHistory()" id="searchUser">
               </div>
         </div>
         <div class="card-footer">

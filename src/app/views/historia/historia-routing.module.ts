@@ -5,6 +5,7 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { NuevoSeguimientoComponent } from './seguimiento/nuevo-seguimiento/nuevo-seguimiento.component';
 import { EgresoComponent } from './egreso/egreso.component';
 import { ResultadoComponent } from './estudio/resultado/resultado.component';
+import { PendientesComponent } from './estudio/pendientes/pendientes.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,13 @@ const routes: Routes = [
   {
     path: 'estudio/cargarResultado',
     component: ResultadoComponent
+  },
+  {
+    path: 'estudio/pendientes',
+    component: PendientesComponent
   }
+
+
 ];
 
 @NgModule({

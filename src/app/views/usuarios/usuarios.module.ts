@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule
+    CommonModule,
+    FormsModule,
   ],
   declarations: [BuscarComponent, NuevoUsuarioComponent, ListadoUsuariosComponent, UsuariosComponent],
   providers: [UsuarioService],

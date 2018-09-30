@@ -4,7 +4,7 @@ import { Seguimiento } from '../seguimiento';
 import { HistoriaService} from '../../historia.service';
 import { Estudio } from '../../estudio/estudio';
 import { Prescripcion } from '../../prescripcion/prescripcion';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuevo-seguimiento',
@@ -12,7 +12,8 @@ import { Prescripcion } from '../../prescripcion/prescripcion';
 })
 export class NuevoSeguimientoComponent implements OnInit {
 
-  constructor(private historiaService: HistoriaService) { }
+  constructor(private historiaService: HistoriaService, private route: ActivatedRoute,
+    private router: Router) { }
   userSearch: String = '';
   paciente: Paciente = null;
   idBusqueda: String = '';
@@ -20,6 +21,11 @@ export class NuevoSeguimientoComponent implements OnInit {
 
 
   ngOnInit() {
+    this.idBusqueda = this.route.snapshot.queryParamMap.get('idHistoria');
+    console.log(this.idBusqueda);
+    if (this.idBusqueda != null) {
+      this.searchHistory();
+    }
 
   }
   public updateEstudios(nuevoEstudio: Estudio[]) {
@@ -52,16 +58,9 @@ export class NuevoSeguimientoComponent implements OnInit {
      );
   }
   saveOperation() {
-    console.log( 'El valor del seguimiento a agregar es: ');
-    console.log(this.seguimiento);
     this.historiaService.addSeguimiento(this.seguimiento, this.idBusqueda).subscribe(
               result => {
-                  if (result.code !== 200) {
-                      console.log(result);
-                   //   this.users = result;
-                  } else {
-                    //  this.users = result.data;
-                  }
+                this.router.navigate(['/historias/detalle/', this.idBusqueda]);
               },
               error => {
                   console.log(<any>error);

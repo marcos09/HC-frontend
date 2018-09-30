@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EstudioService } from '../estudio.service';
 import { Estudio } from '../estudio';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-resultado',
@@ -8,7 +9,7 @@ import { Estudio } from '../estudio';
 })
 export class ResultadoComponent implements OnInit {
 
-  constructor(private estudioService: EstudioService) { }
+  constructor(private estudioService: EstudioService, private route: ActivatedRoute, private router: Router) { }
   estudioSearch: String = '';
   resultado: String = '';
   idBusqueda: String = '';
@@ -16,6 +17,12 @@ export class ResultadoComponent implements OnInit {
 
 
   ngOnInit() {
+    this.idBusqueda = this.route.snapshot.queryParamMap.get('idEstudio');
+    console.log(this.idBusqueda);
+    if (this.idBusqueda != null) {
+      this.searchEstudio();
+    }
+
   }
 
 
@@ -45,13 +52,7 @@ export class ResultadoComponent implements OnInit {
     this.estudioSearch = '';
      this.estudioService.cargarResultado(this.estudio).subscribe(
       result => {
-        if (result.code !== 200) {
-            console.log(result);
-            this.estudio = new Estudio();
-            this.resultado = '';
-        } else {
-            this.estudio = result.data;
-        }
+          this.router.navigate(['historias/estudio/pendientes']);
     },
     error => {
         console.log(<any>error);

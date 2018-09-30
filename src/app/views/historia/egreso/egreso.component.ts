@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HistoriaService } from '../historia.service';
 import { Paciente } from '../ingreso/paciente';
 import { Egreso } from './egreso';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-egreso',
@@ -9,13 +10,20 @@ import { Egreso } from './egreso';
 })
 export class EgresoComponent implements OnInit {
 
-  constructor(private historiaService: HistoriaService) { }
+  constructor(private historiaService: HistoriaService, private route: ActivatedRoute,
+    private router: Router  ) { }
   userSearch: String = '';
   paciente: Paciente = null;
   idBusqueda: String = '';
   egreso: Egreso = new Egreso();
 
   ngOnInit() {
+    this.idBusqueda = this.route.snapshot.queryParamMap.get('idHistoria');
+    console.log(this.idBusqueda);
+    if (this.idBusqueda != null) {
+      this.searchHistory();
+    }
+
   }
 
   searchHistory() {
@@ -40,23 +48,12 @@ export class EgresoComponent implements OnInit {
   }
 
   egresarPaciente() {
-    console.log( 'Egresando paciente' );
     this.userSearch = '' ;
      this.historiaService.egresarPaciente(this.egreso, this.idBusqueda).subscribe(
       result => {
-        if (result.code !== 200) {
-            console.log(result);
-            this.egreso = new Egreso();
-        } else {
-            this.egreso = result.data;
-        }
-    },
-    error => {
-        console.log(<any>error);
-
-    }
-
-     );
+        this.router.navigate(['/internaciones']);
+      },
+    );
   }
 
 }
