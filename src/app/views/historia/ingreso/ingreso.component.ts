@@ -21,12 +21,14 @@ export class IngresoComponent implements OnInit {
   continue = false;
   idBusqueda: String = '';
   public diagnosticos: Patologia[] = [];
+  errorResponse: String = '';
 
   constructor(private historiaService: HistoriaService , private pacienteService: PacienteService,
      private patologiaService: PatologiaService, private flashMessagesService: FlashMessagesService,
      private router: Router) { }
 
   ngOnInit() {
+    this.errorResponse = '';
     this.getDiagnosticos();
   }
 
@@ -39,6 +41,7 @@ export class IngresoComponent implements OnInit {
   }
 
   getDiagnosticos() {
+    this.errorResponse = '';
     this.patologiaService.getPatologias().subscribe(
       result => {
           if (result.code !== 200) {
@@ -55,6 +58,7 @@ export class IngresoComponent implements OnInit {
   }
 
   saveOperation() {
+    this.errorResponse = '';
     this.historiaService.crear(this.ingreso, this.paciente.id).subscribe(
         result => {
             this.flashMessagesService.show('El paciente se ingresó correctamente', { cssClass: 'alert-success', timeout: 1000 });
@@ -63,6 +67,8 @@ export class IngresoComponent implements OnInit {
       error => {
           this.flashMessagesService.show('Hubo un error al ingresar al paciente', { cssClass: 'alert-danger', timeout: 1000 });
           console.log(<any>error);
+          this.errorResponse = 'Todos los campos son obligatorios';
+          this.continue = false;
       }
     );
 
@@ -71,6 +77,7 @@ export class IngresoComponent implements OnInit {
   searchPacient() {
     this.pacientSearch = true;
     this.continue = false;
+    this.errorResponse = '';
     this.paciente = new Paciente();
      this.pacienteService.obtenerPaciente(this.idBusqueda).subscribe(
       result => {

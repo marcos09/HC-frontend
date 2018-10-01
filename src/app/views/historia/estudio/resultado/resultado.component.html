@@ -57,3 +57,9 @@ Cargando datos del estudio
 </div>
 </div>
 
+<div class="card" *ngIf=" errorResponse.length > 0" >
+  <div class="card-body">
+    <dd class="col-sm-9">{{errorResponse}}</dd>
+  </div>
+</div>
+

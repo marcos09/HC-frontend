@@ -31,8 +31,7 @@ export class PatologiasComponent implements OnInit {
     console.log(patologia);
     this.patologiaService.crear(patologia).subscribe();
     this.patologias.push(patologia);
-    this.patologiaService.getPatologias().subscribe(data => this.patologias = data);
-    this.ngOnInit();
+    this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(() => this.router.navigate(['/patologias']));
   }
 
   removePatologia(patologia: Patologia) {
@@ -41,7 +40,7 @@ export class PatologiasComponent implements OnInit {
     console.log(patologia.id);
     this.patologiaService.eliminar(this.idBusqueda).subscribe();
     this.patologias.splice(this.patologias.indexOf(patologia), 1);
-    // this.patologiaService.getPatologias().subscribe(data => this.patologias = data);
+
   }
 
   searchPatologia(patologia: Patologia) {

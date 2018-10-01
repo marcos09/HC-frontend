@@ -45,9 +45,14 @@ export class NuevoSeguimientoComponent implements OnInit {
       result => {
         if (result.code !== 200) {
             console.log(result);
-            this.paciente = result;
-            this.seguimiento = new Seguimiento();
-            this.userSearch = 'Encontrado';
+            if (result.egreso != null) {
+              this.errorResponse = 'El paciente ya egreso';
+              this.userSearch = '';
+            } else {
+              this.paciente = result.paciente;
+              this.seguimiento = new Seguimiento();
+              this.userSearch = 'Encontrado';
+            }
         } else {
             this.paciente = result.data;
         }

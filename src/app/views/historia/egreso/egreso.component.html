@@ -53,9 +53,9 @@ Cargando datos del paciente
     <div class="card-body">
           <div class="form-group">
             <label for="searchUser">Ingrese el diagnostico final</label>
-            <input type="text" class="form-control" [(ngModel)]="egreso.diagnosticoFinal" (onchange)="egresarPaciente()" id="searchUser">
+            <input [attr.readonly]= " diagnosticoFinal.length > 0" type="text" class="form-control" [(ngModel)]="egreso.diagnosticoFinal" (onchange)="egresarPaciente()" id="searchUser">
           </div>
-          <button (click)="egresarPaciente()" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+          <button [disabled]= "diagnosticoFinal.length > 0"  (click)="egresarPaciente()" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
             Egresar paciente</button>
         </div>
   </div>

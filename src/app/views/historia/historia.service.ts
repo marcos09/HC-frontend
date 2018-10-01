@@ -27,7 +27,7 @@ export class HistoriaService {
   }
 
   obtenerPaciente(id: String): Observable<any> {
-    const url = environment.url + 'historia/' + id + '/paciente';
+    const url = environment.url + 'historia/' + id + '/pacienteEgreso';
     this.httpOptions.headers.set('Content-Type', 'application/json');
     return this.http.get(url , this.httpOptions);
   }

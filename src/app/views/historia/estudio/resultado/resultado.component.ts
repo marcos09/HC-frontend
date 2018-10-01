@@ -14,6 +14,7 @@ export class ResultadoComponent implements OnInit {
   resultado: String = '';
   idBusqueda: String = '';
   estudio: Estudio = new Estudio();
+  errorResponse: String = '';
 
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class ResultadoComponent implements OnInit {
 
   searchEstudio() {
     this.estudioSearch = 'Buscando' ;
+    this.errorResponse = '';
      this.estudioService.obtenerEstudio(this.idBusqueda).subscribe(
       result => {
         if (result.code !== 200) {
@@ -41,7 +43,7 @@ export class ResultadoComponent implements OnInit {
     },
     error => {
         console.log(<any>error);
-
+        this.errorResponse = error.error.errors;
     }
 
      );
