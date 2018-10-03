@@ -92,17 +92,20 @@ export class IngresoComponent implements OnInit {
     },
     error => {
         console.log(<any>error);
+        this.errorResponse = error.error.errors + ', ingreselo a continuacion...';
     }
 
      );
     }
 
   continueOperation() {
-      this.continue = true;
+
       this.pacientSearch = false;
+      this.errorResponse = '';
       this.pacienteService.updatePaciente(this.paciente).subscribe(
        result => {
          if (result.code !== 200) {
+          this.continue = true;
            this.paciente = result;
              console.log(result);
          } else {
@@ -111,6 +114,7 @@ export class IngresoComponent implements OnInit {
      },
      error => {
          console.log(<any>error);
+         this.errorResponse = 'El paciente no se pudo guardar, ingrese correctamente los datos.';
      }
 
       );

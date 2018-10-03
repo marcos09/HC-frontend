@@ -5,7 +5,7 @@
     <div class="card-body">
           <div class="form-group">
             <label for="searchUser">Ingrese el DNI del paciente a buscar</label>
-            <input type="text" class="form-control"  [(ngModel)]="idBusqueda" (keydown.enter)="searchPacient()" id="searchUser">
+            <input type="number" OnlyNumber="true" class="form-control"  [(ngModel)]="idBusqueda" (keydown.enter)="searchPacient()" id="searchUser">
           </div>
     </div>
 
@@ -14,6 +14,13 @@
         Buscar paciente</button>
     </div>
 </div>
+
+<div class="card" *ngIf=" errorResponse.length > 0" >
+  <div class="card-body">
+    <dd class="col-sm-9">{{errorResponse}}</dd>
+  </div>
+</div>
+
 <div *ngIf=" pacientSearch ">
     <h3>Ingresar paciente:</h3>
 <div class="card">
@@ -130,8 +137,4 @@
   </div>
 </div>
 
-<div class="card" *ngIf=" errorResponse.length > 0" >
-  <div class="card-body">
-    <dd class="col-sm-9">{{errorResponse}}</dd>
-  </div>
-</div>
+
