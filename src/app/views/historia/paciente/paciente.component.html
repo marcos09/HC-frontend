@@ -1,3 +1,25 @@
-<p>
-  paciente works!
-</p>
+<div class="card">
+    <div class="card-header">
+      Datos del paciente
+    </div>
+    <div class="card-body">
+      <div class="bd-example">
+        <dl class="row">
+          <dt class="col-sm-3">Nombre</dt>
+          <dd class="col-sm-9">{{paciente.nombre}}</dd>
+
+          <dt class="col-sm-3">Apellido</dt>
+          <dd class="col-sm-9">{{paciente.apellido}}
+          </dd>
+
+          <dt class="col-sm-3">DNI</dt>
+          <dd class="col-sm-9">{{paciente.dni}}</dd>
+
+        </dl>
+      </div>
+    </div>
+    <div *ngIf="idHistoria" class="card-footer">
+        <button type="button" [routerLink]="['/historias/detalle/', idHistoria]" [skipLocationChange]="true"   class="btn btn-sm btn-success">Visualizar historia</button>
+    </div>
+
+  </div>

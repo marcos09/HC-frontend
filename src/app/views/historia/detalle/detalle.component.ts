@@ -3,7 +3,6 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 import 'hammerjs';
 import { HistoriaService } from '../historia.service';
 import { HistoriaOrdenada } from './historia-ordenada';
-import { Seguimiento } from '../seguimiento/seguimiento';
 import { Elemento } from './elemento';
 import { ActivatedRoute } from '@angular/router';
 

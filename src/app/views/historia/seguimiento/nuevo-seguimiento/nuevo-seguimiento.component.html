@@ -1,112 +1,86 @@
 <div class="animated fadeIn">
-      <div class="card">
-        <div class="card-header">
-          <strong>Realizar seguimiento</strong>
-        </div>
-        <div class="card-body">
-              <div class="form-group">
-                <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
-                <input type="text" class="form-control" (keydown.enter)="searchHistory()" [(ngModel)]="idBusqueda" (onchange)="searchHistory()" id="searchUser">
-              </div>
-        </div>
-        <div class="card-footer">
-          <button (click)='searchHistory()' (keydown.enter)="searchHistory()" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
-            Buscar historia</button>
-        </div>
-
-      </div>
-  <p *ngIf=" userSearch.length == 0">
-    Debe buscar una historia para poder realizar el seguimiento
-  </p>
-
-  <p *ngIf=" userSearch.includes('Error')">
-    No se encontró la historia solicitada. Vuelva a realizar la búsqueda.
-  </p>
-
-  <p *ngIf=" userSearch.includes('Buscando') ">
-    Cargando datos del paciente
-  </p>
-
-  <p *ngIf=" userSearch.includes('Cerrada')">
-      El paciente de la historia ya ha egresado. No es posible realizar un nuevo seguimiento para la historia seleccionada.
-
-  </p>
-
-  <p *ngIf="userSearch.includes('Inexistente')">
-      El número de historia que ingresó no existe. Vuelva a realizar la búsqueda para poder crear el seguimiento.
-  </p>
-
-  <div *ngIf=" userSearch.includes('Encontrado') ">
-    <div class="card">
-      <div class="card-header">
-        Datos del paciente
-      </div>
-      <div class="card-body">
-        <div class="bd-example">
-          <dl class="row">
-            <dt class="col-sm-3">Nombre</dt>
-            <dd class="col-sm-9">{{paciente.nombre}}</dd>
-
-            <dt class="col-sm-3">Apellido</dt>
-            <dd class="col-sm-9">{{paciente.apellido}}
-            </dd>
-
-            <dt class="col-sm-3">DNI</dt>
-            <dd class="col-sm-9">{{paciente.dni}}</dd>
-
-          </dl>
-        </div>
+  <div class="card">
+    <div class="card-header">
+      <strong>Realizar seguimiento</strong>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
+        <input type="text" class="form-control" (keydown.enter)="searchHistory()" [(ngModel)]="idBusqueda" (onchange)="searchHistory()"
+          id="searchUser">
       </div>
     </div>
+    <div class="card-footer">
+      <button (click)='searchHistory()' (keydown.enter)="searchHistory()" type="submit" class="btn btn-sm btn-primary"><i
+          class="fa fa-dot-circle-o"></i>
+        Buscar historia</button>
+    </div>
 
+  </div>
+  <div class="mensajesInformativos">
+    <p *ngIf=" userSearch.length == 0">
+      Debe buscar una historia para poder realizar el seguimiento
+    </p>
+    <p *ngIf=" userSearch.includes('Error')">
+      No se encontró la historia solicitada. Vuelva a realizar la búsqueda.
+    </p>
+    <p *ngIf=" userSearch.includes('Buscando') ">
+      Cargando datos del paciente
+    </p>
+    <p *ngIf=" userSearch.includes('Cerrada')">
+      El paciente de la historia ya ha egresado. No es posible realizar un nuevo seguimiento para la historia
+      seleccionada.
+
+    </p>
+    <p *ngIf="userSearch.includes('Inexistente')">
+      El número de historia que ingresó no existe. Vuelva a realizar la búsqueda para poder crear el seguimiento.
+    </p>
+  </div>
+  <div *ngIf=" userSearch.includes('Encontrado') ">
+
+    <app-paciente [paciente]="datosPaciente" [idHistoria]="idBusqueda"></app-paciente>
     <div class="card">
       <div class="card-header">
         <strong>Agregar Seguimiento</strong>
       </div>
+
       <div class="card-body">
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
               <label for="name">Descripcion</label>
-              <input type="text" name="descripcion" class="form-control" id="name" [(ngModel)] = "seguimiento.resultado" placeholder="Descripcion" required>
+              <input type="textarea" name="descripcion" class="form-control" id="name" [(ngModel)]="seguimiento.resultado"
+                placeholder="Descripcion" required>
             </div>
+
+            <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
+            <app-crear-prescripcion (updatePrescripciones)="updatePrescripciones($event)"></app-crear-prescripcion>
+
             <div class="card-footer">
-              <button (click)= 'saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+              <button (click)='saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
+                Confirmar seguimiento</button>
             </div>
           </div>
-        </div><!--/.row-->
-     </div>
+        </div>
+        <!--/.row-->
+      </div>
+
+
     </div>
 
-    <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
-    <app-crear-prescripcion (updatePrescripciones)="updatePrescripciones($event)" ></app-crear-prescripcion>
 
   </div>
 
-  <div class="card" *ngIf=" errorResponse.length > 0" >
+  <div class="card" *ngIf=" errorResponse.length > 0">
     <div class="card-body">
       <dd class="col-sm-9">{{errorResponse}}</dd>
     </div>
   </div>
 
-  <div class="card" *ngIf=" successResponse.length > 0" >
+  <div class="card" *ngIf=" successResponse.length > 0">
     <div class="card-body">
       <dd class="col-sm-9">{{successResponse}}</dd>
     </div>
   </div>
 
 </div>
-
-<!--
-
-
-  userSearch = false;
-  paciente: Paciente = null;
-  idBusqueda: String = '';
-  notFoundHistory = false;
-  seguimiento: Seguimiento = null;
-
-<alert type="info">
-  <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-</alert>
--->

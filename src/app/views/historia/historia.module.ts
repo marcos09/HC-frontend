@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { HistoriaRoutingModule } from './historia-routing.module';
-import { IngresoComponent } from './ingreso/ingreso.component';
 import { FormsModule } from '@angular/forms';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { DetalleComponent } from './detalle/detalle.component';
@@ -23,6 +22,8 @@ import { ListadoPrescripcionComponent } from './prescripcion/listado-prescripcio
 import { EgresoComponent } from './egreso/egreso.component';
 import { ResultadoComponent } from './estudio/resultado/resultado.component';
 import { PendientesComponent } from './estudio/pendientes/pendientes.component';
+import { CrearIngresoComponent } from './ingreso/crear-ingreso/crear-ingreso.component';
+import { IngresoComponent } from './ingreso/ingreso.component';
 
 @NgModule({
   imports: [
@@ -35,9 +36,10 @@ import { PendientesComponent } from './estudio/pendientes/pendientes.component';
     NgxGalleryModule,
     TabsModule,
   ],
-  declarations: [IngresoComponent, SeguimientoComponent, DetalleComponent, EstudioComponent,
+  declarations: [SeguimientoComponent, DetalleComponent, EstudioComponent,
      NuevoSeguimientoComponent, PacienteComponent, NuevoEstudioComponent,
      ListadoComponent, CrearComponent, PrescripcionComponent, NuevaPrescripcionComponent,
-     CrearPrescripcionComponent, ListadoPrescripcionComponent, EgresoComponent, ResultadoComponent, PendientesComponent]
+     CrearPrescripcionComponent, ListadoPrescripcionComponent, EgresoComponent, ResultadoComponent,
+     PendientesComponent, CrearIngresoComponent, IngresoComponent]
 })
 export class HistoriaModule { }

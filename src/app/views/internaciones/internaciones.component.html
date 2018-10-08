@@ -6,6 +6,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Numero historia</th>
             <th>Nombre del paciente</th>
             <th>Fecha de ingreso</th>
             <th>Motivo de consulta</th>
@@ -15,6 +16,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let internacion of internaciones">
+                <td>{{internacion.idHistoria}}</td>
                 <td>{{internacion.nombrePaciente}}</td>
                 <td>{{internacion.fechaIngreso | date:'dd/MM/yy hh:mm'}}</td>
                 <td>{{internacion.motivoConsulta}}</td>

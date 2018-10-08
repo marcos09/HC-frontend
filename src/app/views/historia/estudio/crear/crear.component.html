@@ -1,2 +1,3 @@
-<app-listado [estudios]="estudios"  (crearNuevoEstudio)="crearNuevoEstudio()" (eliminarEstudio)="eliminarEstudio($event)"></app-listado>
 <app-nuevo-estudio *ngIf="creandoEstudio" (save)="addEstudio($event)"></app-nuevo-estudio>
+
+<app-listado [estudios]="estudios"  (crearNuevoEstudio)="crearNuevoEstudio()" (eliminarEstudio)="eliminarEstudio($event)"></app-listado>

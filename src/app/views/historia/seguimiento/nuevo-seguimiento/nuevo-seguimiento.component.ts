@@ -15,7 +15,7 @@ export class NuevoSeguimientoComponent implements OnInit {
   constructor(private historiaService: HistoriaService, private route: ActivatedRoute,
     private router: Router) { }
   userSearch: String = '';
-  paciente: Paciente = null;
+  datosPaciente: Paciente = null;
   idBusqueda: String = '';
   seguimiento: Seguimiento = null;
   errorResponse: String = '';
@@ -49,12 +49,12 @@ export class NuevoSeguimientoComponent implements OnInit {
               this.errorResponse = 'El paciente ya egreso';
               this.userSearch = '';
             } else {
-              this.paciente = result.paciente;
+              this.datosPaciente = result.paciente;
               this.seguimiento = new Seguimiento();
               this.userSearch = 'Encontrado';
             }
         } else {
-            this.paciente = result.data;
+            this.datosPaciente = result.data;
         }
     },
     error => {

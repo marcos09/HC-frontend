@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/observable';
 import {environment} from '../../../environments/environment';
 import { Seguimiento } from './seguimiento/seguimiento';
 import { Egreso } from './egreso/egreso';
+import { Paciente } from './paciente/paciente';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class HistoriaService {
     return this.http.put(url , ingreso, this.httpOptions);
   }
 
-  obtenerPaciente(id: String): Observable<any> {
+  obtenerPaciente(id: String): Observable<Paciente> {
     const url = environment.url + 'historia/' + id + '/pacienteEgreso';
     this.httpOptions.headers.set('Content-Type', 'application/json');
     return this.http.get(url , this.httpOptions);
@@ -68,5 +69,8 @@ export class HistoriaService {
 
   }
 
-
+  getIngreso(idHistoria: number): Observable<Ingreso> {
+    const url = environment.url + 'historia/' + idHistoria + '/ingreso/' ;
+    return this.http.get(url , this.httpOptions);
+  }
 }

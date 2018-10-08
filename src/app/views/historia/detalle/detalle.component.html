@@ -1,8 +1,14 @@
 <div class="animated fadeIn">
   <div class="col-md-12 mb-4">
       <!-- Nav tabs -->
-      <tabset>
+      <div>
+        <button type="button" [routerLink]="['/historias/seguimiento/']" [skipLocationChange]="true" [queryParams]="{idHistoria: idHistoria}" class="btn btn-sm btn-success">Realizar seguimiento</button>
+        <button type="button" [routerLink]="['/historias/egreso/']" [skipLocationChange]="true" [queryParams]="{idHistoria: idHistoria}"  class="btn btn-sm btn-danger">Egresar paciente</button>
+        <br>
+      </div>
+      <tabset style="margin-top:10px">
         <tab> <!--Completa -->
+          <app-ingreso [idHistoria]="idHistoria"></app-ingreso>
           <div *ngFor="let elemento of historiaResumen">
             <app-seguimiento [idElemento]="elemento.id" *ngIf=" elemento.tipoElemento.includes('Seguimiento')"></app-seguimiento>
             <app-estudio [idEstudio]="elemento.id" *ngIf="elemento.tipoElemento.includes('EstudioComplementario')"></app-estudio>

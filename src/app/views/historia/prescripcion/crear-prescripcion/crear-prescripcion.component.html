@@ -1,2 +1,2 @@
-<app-listado-prescripcion [prescripciones]="prescripciones"  (save)="crearPrescripcion()" (delete)="deleteOperation($event)"> </app-listado-prescripcion>
 <app-nueva-prescripcion *ngIf="creandoPrescripcion" (addPrescripcion)="saveOperation($event)"></app-nueva-prescripcion>
+<app-listado-prescripcion [prescripciones]="prescripciones"  (save)="crearPrescripcion()" (delete)="deleteOperation($event)"> </app-listado-prescripcion>
