@@ -1,5 +1,5 @@
 <div class="animated fadeIn">
-  <div class="col-md-12 mb-4">
+  <div class="col-md-12 mb-4" *ngIf="historiaOrdenada" else="#loading">
       <!-- Nav tabs -->
       <div>
         <button type="button" [routerLink]="['/historias/seguimiento/']" [skipLocationChange]="true" [queryParams]="{idHistoria: idHistoria}" class="btn btn-sm btn-success">Realizar seguimiento</button>
@@ -35,4 +35,5 @@
         </tab>
       </tabset>
     </div><!--/.col-->
+    <p class="loading" id="loaging">Cargando historia</p>
   </div>

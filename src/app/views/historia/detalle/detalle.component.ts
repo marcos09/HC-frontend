@@ -22,13 +22,11 @@ export class DetalleComponent implements OnInit {
     this.historiaService.obtenerHistoriaCompletaOrdenada(this.idHistoria).subscribe(
       result => {
         this.historiaOrdenada = result;
-        console.log(this.historiaOrdenada);
       }
     );
     this.historiaService.obtenerHistoriaOrdenada(this.idHistoria).subscribe(
       result => {
         this.historiaResumen = result;
-        console.log(this.historiaResumen);
 
       }
     );

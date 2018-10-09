@@ -8,7 +8,7 @@ export class Paciente {
   public apellido: string;
   public numeroTelefono: string;
   public domicilio: string;
-
+  public isHospitalized: boolean;
 
 }
 

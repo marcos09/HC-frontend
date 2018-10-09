@@ -22,7 +22,7 @@ export class IngresoComponent implements OnInit {
     );
     this.historiaService.obtenerPaciente(this.idHistoria.toString()).subscribe(
       result => {
-        this.paciente = result;
+        this.paciente = result.paciente;
       }
     );
 
