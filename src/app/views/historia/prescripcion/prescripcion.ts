@@ -5,5 +5,5 @@ export class Prescripcion {
   public fechaIndicacion: String;
   public datos: String;
   public medicamento: Medicamento;
-  public fechaAdministracion: String;
+  public fechaAdministracion: String = '';
 }

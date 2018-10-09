@@ -1,15 +1,25 @@
 <div class="col-sm-12" *ngIf="seguimiento">
-  <div class="card text-white bg-success">
+  <div class="card text-white bg-success" *ngIf="seguimiento.isCompleted">
+
   <div class="card-header">
     <strong> {{seguimiento.fecha | date:'dd/MM/yyyy hh:mm'}}</strong>
   </div>
     <div class="card-body">
       <blockquote class="card-bodyquote">
         <p>{{seguimiento.resultado}}</p>
-        <footer>Someone famous in
-          <cite title="Source Title">Source Title</cite>
-        </footer>
       </blockquote>
     </div>
   </div>
+  <div class="card text-white bg-danger" *ngIf="!seguimiento.isCompleted">
+
+      <div class="card-header">
+        <strong> {{seguimiento.fecha | date:'dd/MM/yyyy hh:mm'}}</strong>
+      </div>
+        <div class="card-body">
+          <blockquote class="card-bodyquote">
+            <p>{{seguimiento.resultado}}</p>
+          </blockquote>
+        </div>
+      </div>
+
 </div><!--/.col-->

@@ -28,7 +28,6 @@ export class CrearIngresoComponent implements OnInit {
      private router: Router) { }
 
   ngOnInit() {
-    this.errorResponse = '';
     this.getDiagnosticos();
   }
 
@@ -82,10 +81,7 @@ export class CrearIngresoComponent implements OnInit {
      this.pacienteService.obtenerPaciente(this.idBusqueda).subscribe(
       result => {
         if (result.code !== 200) {
-            console.log(result);
             this.paciente = result;
-            // this.paciente.dni = Number(this.idBusqueda);
-            console.log(this.paciente);
         } else {
             this.paciente = result.data;
         }

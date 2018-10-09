@@ -1,5 +1,6 @@
 import { Estudio } from '../estudio/estudio' ;
 import { Prescripcion } from '../prescripcion/prescripcion';
+import { isNullOrUndefined } from 'util';
 
 export class Seguimiento {
   public id: number;
@@ -9,32 +10,29 @@ export class Seguimiento {
   public prescripcionesDTO: Prescripcion[] = [];
   public fecha: String;
 
-  /*
-  constructor() {
+  public isCompleted(): boolean {
 
-  }
-  constructor(datos: any) {
-    this.estudiosComplementariosDTO = datos.estudiosComplementariosDTO;
-    this.id = datos.id;
-    this.nroHistoria = datos.nroHistoria;
-    this.estudiosComplementariosDTO = datos.estudiosComplementariosDTO;
-    this.prescripcionesDTO = datos.prescripcionesDTO;
-    this.fecha = datos.fecha;
-
-  }
-*/
-  public isCompleted() {
     this.estudiosComplementariosDTO.forEach(function (value) {
-      if (value.fechaResultado == null) {
+      if (Boolean(value.fechaResultado)) {
         return false;
       }
     });
     this.prescripcionesDTO.forEach(function(value) {
-      if (value.fechaAdministracion == null) {
+      if (Boolean(value.fechaAdministracion)) {
         return false;
       }
     });
     return true;
+  }
+
+  constructor(object?: any) {
+    this.id = object.id;
+    this.nroHistoria = object.nroHistoria;
+    this.resultado = object.resultado;
+    this.estudiosComplementariosDTO = object.estudiosComplementariosDTO;
+    this.prescripcionesDTO = object.prescripcionesDTO;
+    this.fecha = object.fecha;
+
   }
 
 }

@@ -1,8 +1,8 @@
 export class Estudio {
   public id: number;
-  public informeResultado: string;
-  public estudioSolicitado: string;
-  public fechaResultado: string;
-  public fechaIndicacion: string;
+  public informeResultado: String = '';
+  public estudioSolicitado: String = '';
+  public fechaResultado: String = '';
+  public fechaIndicacion: String = '';
 
 }
