@@ -1,6 +1,5 @@
 import { Estudio } from '../estudio/estudio' ;
 import { Prescripcion } from '../prescripcion/prescripcion';
-import { isNullOrUndefined } from 'util';
 
 export class Seguimiento {
   public id: number;
@@ -9,16 +8,17 @@ export class Seguimiento {
   public estudiosComplementariosDTO: Estudio[] = [];
   public prescripcionesDTO: Prescripcion[] = [];
   public fecha: String;
+  public isCompleted: Boolean;
 
-  public isCompleted(): boolean {
+  public isCompletedMethod(): Boolean {
 
     this.estudiosComplementariosDTO.forEach(function (value) {
-      if (Boolean(value.fechaResultado)) {
+      if (!value.informeResultado) {
         return false;
       }
     });
     this.prescripcionesDTO.forEach(function(value) {
-      if (Boolean(value.fechaAdministracion)) {
+       if (Boolean(value.fechaAdministracion)) {
         return false;
       }
     });
@@ -32,7 +32,7 @@ export class Seguimiento {
     this.estudiosComplementariosDTO = object.estudiosComplementariosDTO;
     this.prescripcionesDTO = object.prescripcionesDTO;
     this.fecha = object.fecha;
-
+    this.isCompleted = object.isCompleted;
   }
 
 }

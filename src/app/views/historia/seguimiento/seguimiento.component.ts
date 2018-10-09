@@ -17,8 +17,7 @@ export class SeguimientoComponent implements OnInit {
       this.historiaService.getSeguimiento(this.idElemento).subscribe(
         result => {
           this.seguimiento = new Seguimiento(result);
-          const completo = this.seguimiento.isCompleted();
-          console.log(completo);
+          console.log(this.seguimiento);
         }
       );
     }
