@@ -27,7 +27,7 @@ export class HistoriaService {
     return this.http.put(url , ingreso, this.httpOptions);
   }
 
-  obtenerPaciente(id: String): Observable<Paciente> {
+  obtenerPaciente(id: String): Observable<any> {
     const url = environment.url + 'historia/' + id + '/pacienteEgreso';
     this.httpOptions.headers.set('Content-Type', 'application/json');
     return this.http.get(url , this.httpOptions);
@@ -69,7 +69,7 @@ export class HistoriaService {
 
   }
 
-  getIngreso(idHistoria: number): Observable<Ingreso> {
+  getIngreso(idHistoria: number): Observable<any> {
     const url = environment.url + 'historia/' + idHistoria + '/ingreso/' ;
     return this.http.get(url , this.httpOptions);
   }

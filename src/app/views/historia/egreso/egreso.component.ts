@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoriaService } from '../historia.service';
-import { Paciente } from '../ingreso/paciente';
+// import { Paciente } from '../ingreso/paciente';
 import { Egreso } from './egreso';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Paciente } from '../paciente/paciente';
 
 @Component({
   selector: 'app-egreso',
