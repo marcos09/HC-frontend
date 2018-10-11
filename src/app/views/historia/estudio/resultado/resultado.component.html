@@ -23,38 +23,57 @@ Cargando datos del estudio
 </p>
 
 <div *ngIf=" estudioSearch.includes('Encontrado') ">
+  <!-- Datos del paciente -->
   <div class="card">
     <div class="card-header">
-      Datos del estudio
+      Datos del paciente
     </div>
     <div class="card-body">
       <div class="bd-example">
         <dl class="row">
-          <dt class="col-sm-3">Estudio Solicitado</dt>
-          <dd class="col-sm-9">{{estudio.estudioSolicitado}}</dd>
+          <dt class="col-sm-3">Nombre</dt>
+          <dd class="col-sm-9">{{paciente.nombre}}</dd>
 
-          <dt class="col-sm-3">Fecha de indicacion</dt>
-          <dd class="col-sm-9">{{estudio.fechaIndicacion | date:'dd/MM/yy hh:mm'}}
-          </dd>
+          <dt class="col-sm-3">Apellido</dt>
+          <dd class="col-sm-9">{{paciente.apellido}}</dd>
         </dl>
       </div>
     </div>
   </div>
-<div class="card">
-  <div class="card-header">
-    <strong>Resultado final del estudio</strong>
-  </div>
-  <div class="card-body">
-        <div class="form-group" >
-          <label for="searchUser">Ingrese los datos</label>
-          <input [attr.readonly]="resultado.length > 0" type="text" class="form-control" [(ngModel)]="estudio.informeResultado" (onchange)="cargarResultado()" id="searchUser">
-        </div>
+  <!-- Datos del estudio -->
+  <div class="card">
+      <div class="card-header">
+        Datos del estudio
+      </div>
+      <div class="card-body">
+        <div class="bd-example">
+          <dl class="row">
+            <dt class="col-sm-3">Estudio Solicitado</dt>
+            <dd class="col-sm-9">{{estudio.estudioSolicitado}}</dd>
 
-        <button [disabled]="resultado.length > 0" (click)="cargarResultado()" type="submit" class="btn btn-sm btn-primary">
-            <i class="fa fa-dot-circle-o"></i>Cargar resultado
-        </button>
+            <dt class="col-sm-3">Fecha de indicacion</dt>
+            <dd class="col-sm-9">{{estudio.fechaIndicacion | date:'dd/MM/yy hh:mm'}}
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <!-- Resultado del estudio -->
+  <div class="card">
+    <div class="card-header">
+      <strong>Resultado final del estudio</strong>
+    </div>
+    <div class="card-body">
+          <div class="form-group" >
+            <label for="searchUser">Ingrese los datos</label>
+            <input [attr.readonly]="resultado.length > 0" type="text" class="form-control" [(ngModel)]="estudio.informeResultado" (onchange)="cargarResultado()" id="searchUser">
+          </div>
+
+          <button [disabled]="resultado.length > 0" (click)="cargarResultado()" type="submit" class="btn btn-sm btn-primary">
+              <i class="fa fa-dot-circle-o"></i>Cargar resultado
+          </button>
+    </div>
   </div>
-</div>
 </div>
 
 <div class="card" *ngIf=" errorResponse.length > 0" >

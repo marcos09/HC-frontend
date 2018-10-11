@@ -63,7 +63,7 @@ export class HistoriaService {
 
   }
 
-  getSeguimiento(idSeguimiento: number): Observable<Seguimiento> {
+  getSeguimiento(idSeguimiento: number): Observable<any> {
     const url = environment.url + 'seguimiento/' + idSeguimiento;
     return this.http.get(url , this.httpOptions);
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EstudioService } from '../estudio.service';
 import { Estudio } from '../estudio';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Paciente } from '../../paciente/paciente';
 
 @Component({
   selector: 'app-resultado',
@@ -14,6 +15,7 @@ export class ResultadoComponent implements OnInit {
   resultado: String = '';
   idBusqueda: String = '';
   estudio: Estudio = new Estudio();
+  paciente: Paciente = new Paciente();
   errorResponse: String = '';
 
 
@@ -34,7 +36,8 @@ export class ResultadoComponent implements OnInit {
       result => {
         if (result.code !== 200) {
             console.log(result);
-            this.estudio = result;
+            this.estudio = result.estudio;
+            this.paciente = result.paciente;
             this.resultado = this.estudio.informeResultado;
             this.estudioSearch = 'Encontrado';
         } else {
