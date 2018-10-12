@@ -50,7 +50,7 @@ export class NuevoSeguimientoComponent implements OnInit {
               this.userSearch = '';
             } else {
               this.datosPaciente = result.paciente;
-              this.seguimiento = new Seguimiento();
+              this.seguimiento = new Seguimiento(new Object());
               this.userSearch = 'Encontrado';
             }
         } else {
