@@ -67,7 +67,7 @@ export class EstudioComponent implements OnInit {
     if (this.idEstudio != null) {
       this.estudioService.obtenerEstudio(this.idEstudio.toString()).subscribe(
         result => {
-          this.estudioActual = result;
+          this.estudioActual = result.estudio;
         }
       );
     }
