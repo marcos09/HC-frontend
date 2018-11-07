@@ -18,6 +18,7 @@ export class DetalleComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   count = 0;
+
   ngOnInit(): void {
     this.historiaService.obtenerHistoriaCompletaOrdenada(this.idHistoria).subscribe(
       result => {

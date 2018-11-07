@@ -20,13 +20,13 @@
 
 
         <tab> <!-- Seguimientos-->
-          <ng-template tabHeading><i class="icon-calculator"></i> Seguimientos &nbsp;<span class="badge badge-pill badge-danger">5</span></ng-template>
-          <app-seguimiento *ngFor="let seguimiento of historiaOrdenada.seguimientos" [seguimiento]="seguimiento"></app-seguimiento>
+          <ng-template tabHeading><i class="icon-calculator"></i> Seguimientos &nbsp;<span class="badge badge-pill badge-danger">{{historiaOrdenada.seguimientos.length}}</span></ng-template>
+          <app-seguimiento *ngFor="let seguimiento of historiaOrdenada.seguimientos" [idElemento]="seguimiento.id"></app-seguimiento>
         </tab>
 
         <tab> <!-- ESTUDIOS -->
-            <app-estudio *ngFor="let estudioActual of historiaOrdenada.estudios" [estudioActual]="estudioActual"></app-estudio>
-          <ng-template tabHeading><i class="icon-pie-chart"></i> Estudios &nbsp;<span class="badge badge-pill badge-success">3</span></ng-template>
+          <app-estudio *ngFor="let estudioActual of historiaOrdenada.estudios" [estudioActual]="estudioActual"></app-estudio>
+          <ng-template tabHeading><i class="icon-pie-chart"></i> Estudios &nbsp;<span class="badge badge-pill badge-success">{{historiaOrdenada.estudios.length}}</span></ng-template>
         </tab>
 
         <tab> <!-- INDICACIONES -->
