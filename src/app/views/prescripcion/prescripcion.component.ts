@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PrescripcionService } from './prescripcion.service';
 import { Prescripcion } from '../historia/prescripcion/prescripcion';
 
 @Component({
   selector: 'app-prescripcion',
   templateUrl: './prescripcion.component.html',
-  styleUrls: ['./prescripcion.component.css']
 })
 export class PrescripcionComponent implements OnInit {
 
   constructor(private prescripcionService: PrescripcionService) { }
-  prescripciones: Prescripcion[] = [];
+  prescripciones: Prescripcion[];
   ngOnInit() {
-    this.prescripcionService.getPrescripcionesActivas().subscribe(
-      result => {
-        this.prescripciones = result;
-      },
-    );
+    if (this.prescripciones == null) {
+      this.prescripcionService.getPrescripcionesActivas().subscribe(
+        result => {
+          this.prescripciones = result;
+        },
+      );
+    }
   }
 
   aplicarPrescripcion(presc: Prescripcion) {

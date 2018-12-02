@@ -1,0 +1,5 @@
+
+<app-pendientes [estudios]=estudios.estudiosPendientes> </app-pendientes>
+
+<br><br>
+<app-estudio *ngFor="let estudioActual of estudios.estudiosFinalizados" [estudioActual]="estudioActual"></app-estudio>

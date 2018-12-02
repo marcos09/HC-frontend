@@ -17,7 +17,6 @@ export class SeguimientoComponent implements OnInit {
       this.historiaService.getSeguimiento(this.idElemento).subscribe(
         result => {
           this.seguimiento = new Seguimiento(result);
-          console.log(this.seguimiento);
         }
       );
     }

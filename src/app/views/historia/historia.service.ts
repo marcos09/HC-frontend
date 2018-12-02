@@ -6,6 +6,8 @@ import {environment} from '../../../environments/environment';
 import { Seguimiento } from './seguimiento/seguimiento';
 import { Egreso } from './egreso/egreso';
 import { Paciente } from './paciente/paciente';
+import { EstudioDividido } from './estudio/estudio-dividido';
+import { PrescripcionesDividido } from './prescripcion/prescripciones-dividido';
 
 @Injectable({
   providedIn: 'root'
@@ -73,4 +75,15 @@ export class HistoriaService {
     const url = environment.url + 'historia/' + idHistoria + '/ingreso/' ;
     return this.http.get(url , this.httpOptions);
   }
+
+  getEstudios(idHistoria: number): Observable<EstudioDividido> {
+    const url = environment.url + 'historia/' + idHistoria + '/estudios/' ;
+    return this.http.get(url , this.httpOptions);
+  }
+
+  getPrescripciones(idHistoria: number): Observable<PrescripcionesDividido> {
+    const url = environment.url + 'historia/' + idHistoria + '/prescripciones/' ;
+    return this.http.get(url , this.httpOptions);
+  }
+
 }

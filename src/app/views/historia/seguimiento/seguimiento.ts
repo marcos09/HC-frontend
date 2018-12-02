@@ -1,5 +1,5 @@
-import { Estudio } from "../estudio/estudio";
-import { Prescripcion } from "../prescripcion/prescripcion";
+import { Estudio } from '../estudio/estudio';
+import { Prescripcion } from '../prescripcion/prescripcion';
 
 export class Seguimiento {
   public id: number;

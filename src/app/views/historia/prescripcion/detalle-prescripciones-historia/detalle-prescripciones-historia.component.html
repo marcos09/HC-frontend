@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> <strong> Prescripciones pendientes de aplicación </strong>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fecha de indicacion</th>
+            <th>Medicamento</th>
+            <th>Forma de aplicación</th>
+            <th>Aplicar medicación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let presc of prescripciones.pendientes">
+            <td>{{presc.fechaIndicacion | date:'dd/MM/yy hh:mm'}}</td>
+            <td>{{presc.medicamento.nombre}}</td>
+            <td>{{presc.datos}}</td>
+            <td>
+                <button type="button" (click)="aplicarPrescripcion(presc)"class="btn btn-sm btn-success">Aplicar prescripcion</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> <strong>Prescripciones ya aplicadas</strong>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Fecha de indicacion</th>
+              <th>Medicamento</th>
+              <th>Forma de aplicación</th>
+              <th>Fecha de aplicacion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let presc of prescripciones.finalizadas">
+              <td>{{presc.fechaIndicacion | date:'dd/MM/yy hh:mm'}}</td>
+              <td>{{presc.medicamento.nombre}}</td>
+              <td>{{presc.datos}}</td>
+              <td>{{presc.fechaAdministracion | date:'dd/MM/yy hh:mm'}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>

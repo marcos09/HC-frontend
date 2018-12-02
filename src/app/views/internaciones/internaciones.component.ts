@@ -15,12 +15,9 @@ export class InternacionesComponent implements OnInit {
     this.historiaService.obtenerHistoriasActivas().subscribe(
       result => {
         if (result.code !== 200) {
-            console.log(result);
             this.internaciones = result;
-            console.log(this.internaciones);
         } else {
             this.internaciones = result.data;
-            console.log(this.internaciones);
         }
     },
     );

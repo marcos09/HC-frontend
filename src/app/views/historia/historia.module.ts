@@ -15,7 +15,6 @@ import { PacienteComponent } from './paciente/paciente.component';
 import { NuevoEstudioComponent } from './estudio/crear/nuevo-estudio/nuevo-estudio.component';
 import { ListadoComponent } from './estudio/crear/listado/listado.component';
 import { CrearComponent } from './estudio/crear/crear.component';
-import { PrescripcionComponent } from './prescripcion/prescripcion.component';
 import { CrearPrescripcionComponent } from './prescripcion/crear-prescripcion/crear-prescripcion.component';
 import { NuevaPrescripcionComponent } from './prescripcion/crear-prescripcion/nueva-prescripcion/nueva-prescripcion.component';
 import { ListadoPrescripcionComponent } from './prescripcion/listado-prescripcion/listado-prescripcion.component';
@@ -24,6 +23,9 @@ import { ResultadoComponent } from './estudio/resultado/resultado.component';
 import { PendientesComponent } from './estudio/pendientes/pendientes.component';
 import { CrearIngresoComponent } from './ingreso/crear-ingreso/crear-ingreso.component';
 import { IngresoComponent } from './ingreso/ingreso.component';
+import { DetalleEstudiosHistoriaComponent } from './estudio/detalle-estudios-historia/detalle-estudios-historia.component';
+// tslint:disable-next-line:max-line-length
+import { DetallePrescripcionesHistoriaComponent } from './prescripcion/detalle-prescripciones-historia/detalle-prescripciones-historia.component';
 
 @NgModule({
   imports: [
@@ -34,12 +36,13 @@ import { IngresoComponent } from './ingreso/ingreso.component';
     FormsModule,
     HistoriaRoutingModule,
     NgxGalleryModule,
-    TabsModule,
+    TabsModule
   ],
   declarations: [SeguimientoComponent, DetalleComponent, EstudioComponent,
      NuevoSeguimientoComponent, PacienteComponent, NuevoEstudioComponent,
-     ListadoComponent, CrearComponent, PrescripcionComponent, NuevaPrescripcionComponent,
+     ListadoComponent, CrearComponent, NuevaPrescripcionComponent,
      CrearPrescripcionComponent, ListadoPrescripcionComponent, EgresoComponent, ResultadoComponent,
-     PendientesComponent, CrearIngresoComponent, IngresoComponent]
+     PendientesComponent, CrearIngresoComponent, IngresoComponent, DetalleEstudiosHistoriaComponent,
+     DetallePrescripcionesHistoriaComponent]
 })
 export class HistoriaModule { }

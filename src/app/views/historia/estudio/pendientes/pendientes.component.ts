@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EstudioService } from '../estudio.service';
 import { Estudio } from '../estudio';
 
@@ -10,13 +10,16 @@ import { Estudio } from '../estudio';
 export class PendientesComponent implements OnInit {
 
   constructor(private estudioService: EstudioService) { }
-  estudios: Estudio[] = [];
+  @Input() public estudios: Estudio[];
+
   ngOnInit() {
-    this.estudioService.pendientes().subscribe(
-      result => {
-        this.estudios = result;
-      }
-    );
+    if (this.estudios  == null) {
+      this.estudioService.pendientes().subscribe(
+        result => {
+          this.estudios = result;
+        }
+      );
+    }
   }
 
 }
