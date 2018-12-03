@@ -9,6 +9,9 @@
         <p>{{seguimiento.resultado}}</p>
       </blockquote>
     </div>
+
+    <button type="button" [routerLink]="['/historias/detalleSeguimiento/', seguimiento.id]"   class="btn btn-sm btn-warning">Visualizar seguimiento</button>
+
   </div>
   <div class="card text-white bg-danger" *ngIf="!seguimiento.isCompleted">
     <div class="card-header">
@@ -19,11 +22,8 @@
             <p>{{seguimiento.resultado}}</p>
           </blockquote>
         </div>
-      </div>
-
-      <div *ngIf="viewDeails">
-
-
+        <button type="button" [routerLink]="['/historias/detalleSeguimiento/', seguimiento.id]"   class="btn btn-sm btn-warning">Visualizar seguimiento</button>
 
       </div>
+
 </div><!--/.col-->

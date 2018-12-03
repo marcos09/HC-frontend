@@ -2,8 +2,8 @@
   <div class="col-md-12 mb-4" *ngIf="historiaOrdenada" else="#loading">
       <!-- Nav tabs -->
       <div>
-        <button type="button" [routerLink]="['/historias/seguimiento/']" [skipLocationChange]="true" [queryParams]="{idHistoria: idHistoria}" class="btn btn-sm btn-success">Realizar seguimiento</button>
-        <button type="button" [routerLink]="['/historias/egreso/']" [skipLocationChange]="true" [queryParams]="{idHistoria: idHistoria}"  class="btn btn-sm btn-danger">Egresar paciente</button>
+        <button type="button" [routerLink]="['/historias/seguimiento/']" [queryParams]="{idHistoria: idHistoria}" class="btn btn-sm btn-success">Realizar seguimiento</button>
+        <button type="button" [routerLink]="['/historias/egreso/']" [queryParams]="{idHistoria: idHistoria}"  class="btn btn-sm btn-danger">Egresar paciente</button>
         <br>
       </div>
       <tabset style="margin-top:10px">
