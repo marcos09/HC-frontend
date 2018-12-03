@@ -1,0 +1,6 @@
+<h2>Información completa del seguimiento</h2>
+<br>
+<app-seguimiento [seguimiento]="seguimiento"></app-seguimiento>
+<app-detalle-estudios-historia *ngIf="isCompleted" [estudios]="estudiosDivididos"> </app-detalle-estudios-historia>
+<app-detalle-prescripciones-historia *ngIf="isCompleted" [prescripciones]="prescripcionesDivididas"> </app-detalle-prescripciones-historia>
+

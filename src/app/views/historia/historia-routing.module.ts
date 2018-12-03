@@ -6,6 +6,7 @@ import { EgresoComponent } from './egreso/egreso.component';
 import { ResultadoComponent } from './estudio/resultado/resultado.component';
 import { PendientesComponent } from './estudio/pendientes/pendientes.component';
 import { CrearIngresoComponent } from './ingreso/crear-ingreso/crear-ingreso.component';
+import { DetalleCompletoComponent } from './seguimiento/detalle-completo/detalle-completo.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'estudio/pendientes',
     component: PendientesComponent
+  },
+  {
+    path: 'detalleSeguimiento/:idSeguimiento',
+    component: DetalleCompletoComponent
   }
 
 

@@ -1,5 +1,8 @@
 
-<app-pendientes [estudios]=estudios.estudiosPendientes> </app-pendientes>
+  <app-pendientes [estudios]=estudios.estudiosPendientes *ngIf="estudios.estudiosPendientes.length > 0"> </app-pendientes>
+  <h5 *ngIf="estudios.estudiosPendientes.length == 0"></h5>
 
-<br><br>
-<app-estudio *ngFor="let estudioActual of estudios.estudiosFinalizados" [estudioActual]="estudioActual"></app-estudio>
+  <br><br>
+  <app-estudio *ngFor="let estudioActual of estudios.estudiosFinalizados" [estudioActual]="estudioActual"></app-estudio>
+
+

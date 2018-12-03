@@ -11,9 +11,8 @@
     </div>
   </div>
   <div class="card text-white bg-danger" *ngIf="!seguimiento.isCompleted">
-
-      <div class="card-header">
-        <strong> {{seguimiento.fecha | date:'dd/MM/yyyy hh:mm'}}</strong>
+    <div class="card-header">
+      <strong> {{seguimiento.fecha | date:'dd/MM/yyyy hh:mm'}}</strong>
       </div>
         <div class="card-body">
           <blockquote class="card-bodyquote">
@@ -22,4 +21,9 @@
         </div>
       </div>
 
+      <div *ngIf="viewDeails">
+
+
+
+      </div>
 </div><!--/.col-->

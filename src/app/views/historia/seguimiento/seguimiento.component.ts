@@ -10,6 +10,8 @@ export class SeguimientoComponent implements OnInit {
 
   @Input() public seguimiento: Seguimiento;
   @Input() public idElemento: number;
+  public viewDeails: Boolean = true;
+
   constructor(private historiaService: HistoriaService) { }
 
   ngOnInit() {

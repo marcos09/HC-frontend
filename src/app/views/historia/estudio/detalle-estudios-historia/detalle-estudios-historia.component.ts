@@ -10,18 +10,18 @@ export class DetalleEstudiosHistoriaComponent implements OnInit {
 
 
   constructor(private historiaService: HistoriaService) { }
-  estudios: EstudioDividido;
+  @Input() estudios: EstudioDividido;
   @Input() public idHistoria: number;
 
   ngOnInit() {
-
-    this.historiaService.getEstudios(this.idHistoria).subscribe(
-      result => {
-        this.estudios = result;
-        console.log(result);
-      }
-    );
-
+    if (this.estudios == null) {
+      this.historiaService.getEstudios(this.idHistoria).subscribe(
+        result => {
+          this.estudios = result;
+          console.log(result);
+        }
+      );
+    }
   }
 
 }

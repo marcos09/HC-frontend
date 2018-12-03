@@ -1,36 +1,6 @@
-<div class="card">
-    <div class="card-header">
-      <i class="fa fa-align-justify"></i> <strong> Prescripciones pendientes de aplicación </strong>
-    </div>
-    <div class="card-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Fecha de indicacion</th>
-            <th>Medicamento</th>
-            <th>Forma de aplicación</th>
-            <th>Aplicar medicación</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let presc of prescripciones.pendientes">
-            <td>{{presc.fechaIndicacion | date:'dd/MM/yy hh:mm'}}</td>
-            <td>{{presc.medicamento.nombre}}</td>
-            <td>{{presc.datos}}</td>
-            <td>
-                <button type="button" (click)="aplicarPrescripcion(presc)"class="btn btn-sm btn-success">Aplicar prescripcion</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <br><br>
-
-  <div class="card">
+<div class="card" *ngIf="prescripciones.pendientes.length > 0">
       <div class="card-header">
-        <i class="fa fa-align-justify"></i> <strong>Prescripciones ya aplicadas</strong>
+        <i class="fa fa-align-justify"></i> <strong> Prescripciones pendientes de aplicación </strong>
       </div>
       <div class="card-body">
         <table class="table">
@@ -39,17 +9,49 @@
               <th>Fecha de indicacion</th>
               <th>Medicamento</th>
               <th>Forma de aplicación</th>
-              <th>Fecha de aplicacion</th>
+              <th>Aplicar medicación</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let presc of prescripciones.finalizadas">
+            <tr *ngFor="let presc of prescripciones.pendientes">
               <td>{{presc.fechaIndicacion | date:'dd/MM/yy hh:mm'}}</td>
               <td>{{presc.medicamento.nombre}}</td>
               <td>{{presc.datos}}</td>
-              <td>{{presc.fechaAdministracion | date:'dd/MM/yy hh:mm'}} </td>
+              <td>
+                  <button type="button" (click)="aplicarPrescripcion(presc)"class="btn btn-sm btn-success">Aplicar prescripcion</button>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+
+    <h5 *ngIf="prescripciones.pendientes.length == 0">No existen prescripciones sin resolver </h5>
+    <br>
+
+    <div class="card" *ngIf="prescripciones.finalizadas.length > 0">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> <strong>Prescripciones ya aplicadas</strong>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Fecha de indicacion</th>
+                <th>Medicamento</th>
+                <th>Forma de aplicación</th>
+                <th>Fecha de aplicacion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let presc of prescripciones.finalizadas">
+                <td>{{presc.fechaIndicacion | date:'dd/MM/yy hh:mm'}}</td>
+                <td>{{presc.medicamento.nombre}}</td>
+                <td>{{presc.datos}}</td>
+                <td>{{presc.fechaAdministracion | date:'dd/MM/yy hh:mm'}} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  <h5 *ngIf="prescripciones.finalizadas.length == 0">No existen prescripciones aplicadas </h5>

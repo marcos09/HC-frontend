@@ -26,6 +26,7 @@ import { IngresoComponent } from './ingreso/ingreso.component';
 import { DetalleEstudiosHistoriaComponent } from './estudio/detalle-estudios-historia/detalle-estudios-historia.component';
 // tslint:disable-next-line:max-line-length
 import { DetallePrescripcionesHistoriaComponent } from './prescripcion/detalle-prescripciones-historia/detalle-prescripciones-historia.component';
+import { DetalleCompletoComponent } from './seguimiento/detalle-completo/detalle-completo.component';
 
 @NgModule({
   imports: [
@@ -43,6 +44,7 @@ import { DetallePrescripcionesHistoriaComponent } from './prescripcion/detalle-p
      ListadoComponent, CrearComponent, NuevaPrescripcionComponent,
      CrearPrescripcionComponent, ListadoPrescripcionComponent, EgresoComponent, ResultadoComponent,
      PendientesComponent, CrearIngresoComponent, IngresoComponent, DetalleEstudiosHistoriaComponent,
-     DetallePrescripcionesHistoriaComponent]
+     DetallePrescripcionesHistoriaComponent,
+     DetalleCompletoComponent]
 })
 export class HistoriaModule { }

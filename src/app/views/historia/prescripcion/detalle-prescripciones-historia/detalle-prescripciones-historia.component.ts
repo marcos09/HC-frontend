@@ -11,21 +11,24 @@ export class DetallePrescripcionesHistoriaComponent implements OnInit {
   constructor(private historiaService: HistoriaService, private prescripcionService: PrescripcionService) { }
 
   @Input() public idHistoria;
-  prescripciones: PrescripcionesDividido;
+  @Input() prescripciones: PrescripcionesDividido;
 
 
   ngOnInit() {
-    this.historiaService.getPrescripciones(this.idHistoria).subscribe(
-      result => {
-        this.prescripciones = result;
-
-      }
-    );
+    if ( this.prescripciones == null ) {
+      this.historiaService.getPrescripciones(this.idHistoria).subscribe(
+        result => {
+          this.prescripciones = result;
+        }
+      );
+    }
   }
 
   aplicarPrescripcion(presc: any) {
+
     this.prescripcionService.aplicarPrescripcion(presc.id).subscribe(
       result => {
+        this.prescripciones = null;
         this.ngOnInit();
       }
     );
