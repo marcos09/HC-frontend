@@ -86,6 +86,12 @@ export const navItems = [
     name: 'Visualizar informes'
   },
   {
+    name: 'Reportes',
+    url: '/reportes',
+    icon: 'icon-speedometer',
+  },
+
+  {
     title: true,
     name: 'Enfermera'
   },

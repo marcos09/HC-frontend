@@ -36,6 +36,7 @@ import { UsuarioService } from './views/usuarios/usuario.service';
 import { UsuariosModule } from './views/usuarios/usuarios.module';
 import { NuevaPatologiaComponent } from './views/patologias/nueva-patologia/nueva-patologia.component';
 import { ListPatologiasComponent } from './views/patologias/list-patologias/list-patologias.component';
+import { ReportesComponent } from './views/reportes/reportes.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -52,7 +53,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NuevoMedicamentoComponent,
     ListadoMedicamentoComponent,
     ListPatologiasComponent,
-    NuevaPatologiaComponent
+    NuevaPatologiaComponent,
+    ReportesComponent
   ],
 
   imports: [

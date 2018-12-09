@@ -7,6 +7,7 @@ import { PrescripcionComponent } from './views/prescripcion/prescripcion.compone
 import { PatologiasComponent } from './views/patologias/patologias.component';
 import { MedicamentosComponent } from './views/medicamentos/medicamentos.component';
 import { UsuariosComponent } from './views/usuarios/usuarios.component';
+import { ReportesComponent } from './views/reportes/reportes.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'medicamentos',
     component: MedicamentosComponent
+  },
+  {
+    path: 'reportes',
+    component: ReportesComponent
   },
   {
     path: '404',
