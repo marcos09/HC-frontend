@@ -37,6 +37,10 @@ import { UsuariosModule } from './views/usuarios/usuarios.module';
 import { NuevaPatologiaComponent } from './views/patologias/nueva-patologia/nueva-patologia.component';
 import { ListPatologiasComponent } from './views/patologias/list-patologias/list-patologias.component';
 import { ReportesComponent } from './views/reportes/reportes.component';
+import { LineChartComponent } from './views/reportes/line-chart/line-chart.component';
+import { ChartsModule } from 'ng2-charts';
+import { PiechartComponent } from './views/reportes/piechart/piechart.component';
+import { BarchartComponent } from './views/reportes/barchart/barchart.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -54,7 +58,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ListadoMedicamentoComponent,
     ListPatologiasComponent,
     NuevaPatologiaComponent,
-    ReportesComponent
+    ReportesComponent,
+    LineChartComponent,
+    PiechartComponent,
+    BarchartComponent
   ],
 
   imports: [
@@ -66,6 +73,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppSidebarModule,
     BrowserModule, // Módulo para la presentacion en el navegador
     ComponentsModule,
+    ChartsModule,
     FlashMessagesModule.forRoot(), // Módulo para las alertas
     FormsModule,
     HomeModule,

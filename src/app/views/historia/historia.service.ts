@@ -76,12 +76,12 @@ export class HistoriaService {
     return this.http.get(url , this.httpOptions);
   }
 
-  getEstudios(idHistoria: number): Observable<EstudioDividido> {
+  getEstudios(idHistoria: number): Observable<any> {
     const url = environment.url + 'historia/' + idHistoria + '/estudios/' ;
     return this.http.get(url , this.httpOptions);
   }
 
-  getPrescripciones(idHistoria: number): Observable<PrescripcionesDividido> {
+  getPrescripciones(idHistoria: number): Observable<any> {
     const url = environment.url + 'historia/' + idHistoria + '/prescripciones/' ;
     return this.http.get(url , this.httpOptions);
   }
