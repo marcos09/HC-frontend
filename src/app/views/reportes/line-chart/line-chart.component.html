@@ -1,7 +1,5 @@
-<div class="row">
-    <div class="col-md-6">
-      <div style="display: block;">
-        <canvas baseChart width="400" height="400"
+      <div *ngIf="ready && ready2 && ready3" style="margin-top: 40px">
+        <canvas baseChart
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
@@ -11,16 +9,17 @@
                 (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)"></canvas>
       </div>
-    </div>
-    <div class="col-md-6" style="margin-bottom: 10px">
-      <table class="table table-responsive table-condensed">
+
+      <table class="table" style="margin-top: 40px">
+
+
         <tr>
+          <th></th>
           <th *ngFor="let label of lineChartLabels">{{label}}</th>
         </tr>
+
         <tr *ngFor="let d of lineChartData">
+          <td>{{d.label}}</td>
           <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
         </tr>
       </table>
-      <button (click)="randomize()">CLICK</button>
-    </div>
-  </div>

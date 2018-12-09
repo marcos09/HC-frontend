@@ -45,4 +45,17 @@ export class ReporteService {
   cantidadPacientesDiagnosticoSintomatico(): Observable<any> {
     return this.http.get(environment.url + 'reportes/cantidadPacientesDiagnosticoSintomatico', this.httpOptions);
   }
+
+  egresosPorMes(): Observable<any> {
+    return this.http.get(environment.url + 'reportes/EgresosMesCantidad', this.httpOptions);
+  }
+
+  seguimientosPorMes(): Observable<any> {
+    return this.http.get(environment.url + 'reportes/SeguimientosMesCantidad', this.httpOptions);
+  }
+
+  IngresosPorMes(): Observable<any> {
+    return this.http.get(environment.url + 'reportes/IngresosMesCantidad', this.httpOptions);
+  }
+
 }
