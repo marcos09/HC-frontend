@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ReporteService } from '../reporte.service';
 
 @Component({
-  selector: 'app-piechart',
-  templateUrl: './piechart.component.html',
-  styleUrls: ['./piechart.component.css']
+  selector: 'app-piechart2',
+  templateUrl: './piechart2.component.html',
+  styleUrls: ['./piechart2.component.css']
 })
-export class PiechartComponent implements OnInit {
+export class Piechart2Component implements OnInit {
 
   public pieChartLabels: String[] = [];
   public pieChartData: number[] = [];
@@ -40,7 +40,7 @@ export class PiechartComponent implements OnInit {
       title: {
           display: true,
           position: 'top',
-          text: 'Cantidad de pacientes internados por diagnóstico sintomático'
+          text: 'Cantidad de pacientes internados por diagnóstico presuntivo'
       }
   };
 
@@ -48,7 +48,7 @@ export class PiechartComponent implements OnInit {
   constructor(private reporteService: ReporteService) { }
 
   ngOnInit() {
-    this.reporteService.cantidadPacientesDiagnosticoSintomatico().subscribe(
+    this.reporteService.cantidadPacientesDiagnosticoPresuntivo().subscribe(
       result => {
         result.forEach(element => {
           this.pieChartData.push(element.cantidadPacientes);

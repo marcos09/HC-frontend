@@ -41,6 +41,8 @@ import { LineChartComponent } from './views/reportes/line-chart/line-chart.compo
 import { ChartsModule } from 'ng2-charts';
 import { PiechartComponent } from './views/reportes/piechart/piechart.component';
 import { BarchartComponent } from './views/reportes/barchart/barchart.component';
+import { GraficoComponent } from './views/reportes/grafico/grafico.component';
+import { Piechart2Component } from './views/reportes/piechart2/piechart2.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -61,7 +63,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ReportesComponent,
     LineChartComponent,
     PiechartComponent,
-    BarchartComponent
+    BarchartComponent,
+    GraficoComponent,
+    Piechart2Component
   ],
 
   imports: [

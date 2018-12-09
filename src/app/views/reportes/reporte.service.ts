@@ -35,9 +35,14 @@ export class ReporteService {
   }
 
   cantidadPrescripcionesMedicamento(): Observable<any> {
-    return this.http.get(environment.url + 'reportes/avgSeguimientos', this.httpOptions);
+    return this.http.get(environment.url + 'reportes/cantidadIndicacionesMedicamento', this.httpOptions);
   }
 
+  cantidadPacientesDiagnosticoPresuntivo(): Observable<any> {
+    return this.http.get(environment.url + 'reportes/cantidadPacientesDiagnosticoPresuntivo', this.httpOptions);
+  }
 
-
+  cantidadPacientesDiagnosticoSintomatico(): Observable<any> {
+    return this.http.get(environment.url + 'reportes/cantidadPacientesDiagnosticoSintomatico', this.httpOptions);
+  }
 }

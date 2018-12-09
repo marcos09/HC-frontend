@@ -1,7 +1,7 @@
-<div>
+<div *ngIf="ready" style="margin-top:40px">
     <div style="display: block">
       <canvas baseChart
-              [datasets]="barChartData"
+              [data]="barChartData"
               [labels]="barChartLabels"
               [options]="barChartOptions"
               [legend]="barChartLegend"
@@ -9,5 +9,4 @@
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)"></canvas>
     </div>
-    <button (click)="randomize()">Update</button>
-  </div>
+</div>
