@@ -3,12 +3,16 @@ import { EstudioService } from '../estudio.service';
 import { Estudio } from '../estudio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Paciente } from '../../paciente/paciente';
+import { FileUploader } from 'ng2-file-upload';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-resultado',
   templateUrl: './resultado.component.html',
 })
 export class ResultadoComponent implements OnInit {
+
+  public uploader: FileUploader = new FileUploader({url: environment.url + '/' , itemAlias: 'photo'});
 
   constructor(private estudioService: EstudioService, private route: ActivatedRoute, private router: Router) { }
   estudioSearch: String = '';
@@ -25,6 +29,11 @@ export class ResultadoComponent implements OnInit {
     if (this.idBusqueda != null) {
       this.searchEstudio();
     }
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+         console.log('ImageUpload:uploaded:', item, status, response);
+         alert('File uploaded successfully');
+     };
 
   }
 

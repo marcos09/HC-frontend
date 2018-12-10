@@ -17,7 +17,26 @@ export class LineChartComponent implements OnInit {
   public lineChartLabels: Array<any> = [];
 
   public lineChartOptions: any = {
-    responsive: true
+    responsive: true,
+    scales: {
+      xAxes: [{
+              display: true,
+              scaleLabel: {
+                  display: true,
+                  labelString: 'Mes'
+              }
+          }],
+      yAxes: [{
+              display: true,
+
+              ticks: {
+                  beginAtZero: true,
+                  steps: 1,
+                  stepValue: 5,
+                  max: 10
+              }
+          }]
+    },
   };
 
   public lineChartColors: Array<any> = [
@@ -48,6 +67,7 @@ export class LineChartComponent implements OnInit {
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
+
   public ready: Boolean = false;
   public ready2: Boolean = false;
   public ready3: Boolean = false;
@@ -78,7 +98,7 @@ export class LineChartComponent implements OnInit {
       }
     );
 
-    this.reporteService.IngresosPorMes().subscribe(
+    this.reporteService.seguimientosPorMes().subscribe(
       result => {
         console.log(result);
         result.forEach(element => {

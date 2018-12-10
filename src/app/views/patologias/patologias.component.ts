@@ -20,7 +20,6 @@ export class PatologiasComponent implements OnInit {
   ngOnInit() {
     this.patologiaEdit = false;
     this.patologiaService.getPatologias().subscribe(data => this.patologias = data);
-    console.log(this.patologias);
   }
 
   onBack() {
@@ -28,16 +27,13 @@ export class PatologiasComponent implements OnInit {
     this.ngOnInit();
   }
   saveOperation(patologia: Patologia ) {
-    console.log(patologia);
     this.patologiaService.crear(patologia).subscribe();
     this.patologias.push(patologia);
     this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(() => this.router.navigate(['/patologias']));
   }
 
   removePatologia(patologia: Patologia) {
-    console.log(patologia);
     this.idBusqueda = patologia.id;
-    console.log(patologia.id);
     this.patologiaService.eliminar(this.idBusqueda).subscribe();
     this.patologias.splice(this.patologias.indexOf(patologia), 1);
 
@@ -47,13 +43,11 @@ export class PatologiasComponent implements OnInit {
     this.patologiaEdit = true;
     this.idBusqueda = patologia.id;
     this.patologia = new Patologia();
-    console.log( 'Search pacient' );
      this.patologiaService.obtenerPatologia(this.idBusqueda).subscribe(
       result => {
         if (result.code !== 200) {
             console.log(result);
             this.patologia = result.body;
-            console.log(this.patologia);
         } else {
             this.patologia = result.data;
         }
@@ -66,7 +60,6 @@ export class PatologiasComponent implements OnInit {
   }
 
   editPatologia(patologia: Patologia) {
-    console.log(patologia);
     this.patologias.splice(this.patologias.indexOf(patologia), 1);
     this.patologiaService.editar(patologia).subscribe();
     this.patologia = new Patologia();
@@ -74,11 +67,6 @@ export class PatologiasComponent implements OnInit {
     this.patologiaService.getPatologias().subscribe(
         data => this.patologias = data,
         result => {
-          if (result.code !== 200) {
-              console.log(result);
-          } else {
-            console.log(result);
-          }
         }
      );
     this.patologiaEdit = false;

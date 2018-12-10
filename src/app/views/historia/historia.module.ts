@@ -28,6 +28,8 @@ import { DetalleEstudiosHistoriaComponent } from './estudio/detalle-estudios-his
 import { DetallePrescripcionesHistoriaComponent } from './prescripcion/detalle-prescripciones-historia/detalle-prescripciones-historia.component';
 import { DetalleCompletoComponent } from './seguimiento/detalle-completo/detalle-completo.component';
 
+
+
 @NgModule({
   imports: [
     AlertModule,
