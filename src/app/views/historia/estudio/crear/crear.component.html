@@ -1,3 +1,6 @@
+<div class="card-header">
+    <h4> <strong>Estudios Complementarios</strong> </h4>
+</div>
 <app-nuevo-estudio *ngIf="creandoEstudio" (save)="addEstudio($event)"></app-nuevo-estudio>
 
 <app-listado [estudios]="estudios"  (crearNuevoEstudio)="crearNuevoEstudio()" (eliminarEstudio)="eliminarEstudio($event)"></app-listado>

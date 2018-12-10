@@ -1,2 +1,5 @@
+<div class="card-header">
+    <h4> <strong>Prescripciones</strong> </h4>
+</div>
 <app-nueva-prescripcion *ngIf="creandoPrescripcion" (addPrescripcion)="saveOperation($event)"></app-nueva-prescripcion>
 <app-listado-prescripcion [prescripciones]="prescripciones"  (save)="crearPrescripcion()" (delete)="deleteOperation($event)"> </app-listado-prescripcion>
