@@ -18,6 +18,7 @@ export class CrearIngresoComponent implements OnInit {
   paciente: Paciente = new Paciente();
   pacientSearch = false;
   continue = false;
+  buscarPaciente = true;
   idBusqueda: String = "";
   public diagnosticos: Patologia[] = [];
   errorResponse: String = "";
@@ -43,7 +44,7 @@ export class CrearIngresoComponent implements OnInit {
   }
 
   getDiagnosticos() {
-    this.errorResponse = "";
+    this.errorResponse = '';
     this.patologiaService.getPatologias().subscribe(
       result => {
         if (result.code !== 200) {
@@ -85,13 +86,14 @@ export class CrearIngresoComponent implements OnInit {
     this.pacientSearch = true;
     this.continue = false;
     this.errorResponse = '';
+    this.buscarPaciente = false;
     this.paciente = new Paciente();
     this.pacienteService.obtenerPaciente(this.idBusqueda).subscribe(
       result => {
         this.paciente = result;
       },
       error => {
-        console.log(<any>error);
+        this.paciente.dni = this.idBusqueda;
       }
     );
   }

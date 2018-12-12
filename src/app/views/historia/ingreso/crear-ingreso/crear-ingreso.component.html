@@ -1,10 +1,9 @@
-<div class="card">
-  <div class="card-header">
-   <h4> <strong>Ingresar Paciente</strong></h4>
-  </div>
+
+<h2><strong>Ingresar un paciente a internación</strong></h2>
+<div class="card" *ngIf=" buscarPaciente">
   <div class="card-body">
     <div class="form-group">
-      <label for="searchUser">Ingrese el DNI del paciente a buscar</label>
+      <label for="searchUser">Ingrese el DNI del paciente</label>
       <input type="text" class="form-control" [(ngModel)]="idBusqueda" (keydown.enter)="searchPacient()" id="searchUser">
     </div>
   </div>
@@ -18,12 +17,15 @@
 
 <div *ngIf=" pacientSearch && !paciente.isHospitalized" else="#hospitalizado">
 
-  <div class="card">
+  <div class="card" style="margin-top: 40px">
       <div class="card-header">
           <h4> <strong>Datos personales del paciente</strong></h4>
          </div>
 
     <div class="card-body">
+      <p *ngIf="paciente.nombre == undefined"> Ingrese los datos personales del paciente a internar</p>
+      <p *ngIf="paciente.nombre !== undefined"> El paciente ingresado ya ha sido internado previamente. Por favor actualice sus datos personales</p>
+
       <form class="form-horizontal">
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="hf-email">DNI</label>
@@ -80,9 +82,9 @@
 </div>
 
 <div *ngIf=" continue ">
-  <div class="card">
+  <div class="card" style="margin-top:40px">
     <div class="card-header">
-      <h4><strong>Agregar Seguimiento</strong></h4>
+      <h4><strong>Datos del ingreso</strong></h4>
     </div>
     <div class="card-body">
       <div class="row">
