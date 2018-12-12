@@ -82,7 +82,7 @@
 </div>
 
 <div *ngIf=" continue ">
-  <div class="card" style="margin-top:40px">
+  <div class="card" style="margin-top:25px">
     <div class="card-header">
       <h4><strong>Datos del ingreso</strong></h4>
     </div>
@@ -123,18 +123,26 @@
               </option>
             </select>
           </div>
-
-          <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
-          <app-crear-prescripcion (updatePrescripciones)="updatePrescripciones($event)"></app-crear-prescripcion>
-
-          <div class="card-footer">
-            <button (click)='saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
-              Confirmar ingreso</button>
-          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="card" style="margin-top:5px">
+      <div class="card-header">
+        <h4><strong>Solicitud de prescripciones y estudios complementarios</strong></h4>
+      </div>
+      <div class="card-body">
+            <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
+            <app-crear-prescripcion (updatePrescripciones)="updatePrescripciones($event)"></app-crear-prescripcion>
+      </div>
+    </div>
+
+    <button style="float:right; margin-bottom:15px"
+      (click)='saveOperation()' type="submit" class="btn btn-lg btn-primary">
+      <i class="fa fa-dot-circle-o"></i>
+        Confirmar ingreso
+    </button>
 </div>
 
 <div class="card" *ngIf=" errorResponse.length > 0">
