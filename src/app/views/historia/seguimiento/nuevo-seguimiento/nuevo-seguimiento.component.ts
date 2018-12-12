@@ -20,10 +20,11 @@ export class NuevoSeguimientoComponent implements OnInit {
   seguimiento: Seguimiento = null;
   errorResponse: String = '';
   successResponse: String = '';
+  pacienteEncontrado = false;
+  buscarPaciente = true;
 
   ngOnInit() {
     this.idBusqueda = this.route.snapshot.queryParamMap.get('idHistoria');
-    console.log(this.idBusqueda);
     if (this.idBusqueda != null) {
       this.searchHistory();
     }
@@ -40,11 +41,9 @@ export class NuevoSeguimientoComponent implements OnInit {
   searchHistory() {
     this.userSearch = 'Buscando' ;
     this.errorResponse = '';
-    console.log( 'Search history' );
      this.historiaService.obtenerPaciente(this.idBusqueda).subscribe(
       result => {
         if (result.code !== 200) {
-            console.log(result);
             if (result.egreso != null) {
               this.errorResponse = 'El paciente ya egreso';
               this.userSearch = '';
@@ -52,6 +51,7 @@ export class NuevoSeguimientoComponent implements OnInit {
               this.datosPaciente = result.paciente;
               this.seguimiento = new Seguimiento(new Object());
               this.userSearch = 'Encontrado';
+              this.buscarPaciente = false;
             }
         } else {
             this.datosPaciente = result.data;

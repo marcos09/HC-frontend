@@ -1,22 +1,23 @@
 <div class="animated fadeIn">
-  <div class="card">
-    <div class="card-header">
-      <strong>Realizar seguimiento</strong>
-    </div>
-    <div class="card-body">
-      <div class="form-group">
-        <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
-        <input type="text" class="form-control" (keydown.enter)="searchHistory()" [(ngModel)]="idBusqueda" (onchange)="searchHistory()"
-          id="searchUser">
+  <h2><strong>Realizar seguimiento</strong></h2>
+
+    <div *ngIf="buscarPaciente">
+      <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="searchUser">Ingrese el número de historia clínica a buscar</label>
+          <input type="text" class="form-control" (keydown.enter)="searchHistory()" [(ngModel)]="idBusqueda" (onchange)="searchHistory()"
+            id="searchUser">
+        </div>
+      </div>
+      <div class="card-footer">
+        <button (click)='searchHistory()' (keydown.enter)="searchHistory()" type="submit" class="btn btn-sm btn-primary"><i
+            class="fa fa-dot-circle-o"></i>
+          Buscar historia</button>
       </div>
     </div>
-    <div class="card-footer">
-      <button (click)='searchHistory()' (keydown.enter)="searchHistory()" type="submit" class="btn btn-sm btn-primary"><i
-          class="fa fa-dot-circle-o"></i>
-        Buscar historia</button>
     </div>
 
-  </div>
   <div class="mensajesInformativos">
     <p *ngIf=" userSearch.length == 0">
       Debe buscar una historia para poder realizar el seguimiento
@@ -40,33 +41,34 @@
 
     <app-paciente [paciente]="datosPaciente" [idHistoria]="idBusqueda"></app-paciente>
     <div class="card">
-      <div class="card-header">
-        <strong>Agregar Seguimiento</strong>
-      </div>
-
       <div class="card-body">
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label for="name">Descripcion</label>
+              <label for="name">Resultados del seguimiento </label>
               <input type="textarea" name="descripcion" class="form-control" id="name" [(ngModel)]="seguimiento.resultado"
                 placeholder="Descripcion" required>
-            </div>
-
-            <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
-            <app-crear-prescripcion (updatePrescripciones)="updatePrescripciones($event)"></app-crear-prescripcion>
-
-            <div class="card-footer">
-              <button (click)='saveOperation()' type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>
-                Confirmar seguimiento</button>
             </div>
           </div>
         </div>
         <!--/.row-->
       </div>
-
-
     </div>
+    <div class="card" style="margin-top:5px">
+        <div class="card-header">
+          <h4><strong>Solicitud de prescripciones y estudios complementarios</strong></h4>
+        </div>
+        <div class="card-body">
+              <app-crear (updateEstudios)="updateEstudios($event)"> </app-crear>
+              <app-crear-prescripcion (updatePrescripciones)="updatePrescripciones($event)"></app-crear-prescripcion>
+        </div>
+      </div>
+
+      <button style="float:right; margin-bottom:15px"
+      (click)='saveOperation()' type="submit" class="btn btn-lg btn-primary">
+      <i class="fa fa-dot-circle-o"></i>
+      Confirmar seguimiento
+    </button>
 
 
   </div>

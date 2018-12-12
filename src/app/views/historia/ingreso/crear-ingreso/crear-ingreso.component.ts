@@ -1,17 +1,18 @@
-import { Component, OnInit } from "@angular/core";
-import { Ingreso } from "../ingreso";
-import { HistoriaService } from "../../historia.service";
-import { PacienteService } from "../../paciente/paciente.service";
-import { Paciente } from "../../paciente/paciente";
-import { Patologia } from "../../../patologias/patologia";
-import { PatologiaService } from "../../../patologias/patologia.service";
-import { Estudio } from "../../estudio/estudio";
-import { Prescripcion } from "../../prescripcion/prescripcion";
-import { FlashMessagesService } from "angular2-flash-messages";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Ingreso } from '../ingreso';
+import { HistoriaService } from '../../historia.service';
+import { PacienteService } from '../../paciente/paciente.service';
+import { Paciente } from '../../paciente/paciente';
+import { Patologia } from '../../../patologias/patologia';
+import { PatologiaService } from '../../../patologias/patologia.service';
+import { Estudio } from '../../estudio/estudio';
+import { Prescripcion } from '../../prescripcion/prescripcion';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
+
 @Component({
-  selector: "app-crear-ingreso",
-  templateUrl: "./crear-ingreso.component.html"
+  selector: 'app-crear-ingreso',
+  templateUrl: './crear-ingreso.component.html'
 })
 export class CrearIngresoComponent implements OnInit {
   ingreso: Ingreso = new Ingreso();
@@ -19,9 +20,9 @@ export class CrearIngresoComponent implements OnInit {
   pacientSearch = false;
   continue = false;
   buscarPaciente = true;
-  idBusqueda: String = "";
+  idBusqueda: String = '';
   public diagnosticos: Patologia[] = [];
-  errorResponse: String = "";
+  errorResponse: String = '';
 
   constructor(
     private historiaService: HistoriaService,
